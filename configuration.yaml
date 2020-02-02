@@ -1,7 +1,39 @@
+## Claus Dethlefsen, September 2019
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: anneclaus
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret homeassistant_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Copenhagen
+  auth_providers:
+   - type: homeassistant
+   - type: legacy_api_password
+     api_password: !secret http_password
+   - type: trusted_networks
+     trusted_networks:
+       - 192.168.0.0/24
+       - !secret external_ip
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_access_token
+
+http:
+  base_url: !secret http_base_url
+  server_port: !secret http_port
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+
+  
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
