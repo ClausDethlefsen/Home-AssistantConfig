@@ -124,7 +124,11 @@ sensor synology:
       - network_up
       - volume_percentage_used
       - disk_temp
-    
+
+scene:
+  platform: hunterdouglas_powerview
+  address: !secret powerview_ip
+      
     
 group: !include groups.yaml
 automation: !include automations.yaml

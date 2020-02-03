@@ -62,7 +62,4 @@
         data:
           entity_id: input_boolean.first_run
 
-scene:
-  platform: hunterdouglas_powerview
-  address: !secret powerview_ip
   
