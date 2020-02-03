@@ -1,4 +1,4 @@
-automation sonos:
+automation:
   - alias: "Receiver On when Sonos plays in stue"
     trigger:
       - platform: state 
