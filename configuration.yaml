@@ -47,6 +47,13 @@ binary_sensor:
         {{ false }}
       {%- endif -%}
 
+device_tracker:
+  - platform: tile
+    username: !secret tile_username 
+    password: !secret tile_password
+
+ifttt:
+  key: !secret ifttt_key
 
 
 
