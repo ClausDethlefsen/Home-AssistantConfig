@@ -5,7 +5,7 @@ default_config:
 
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: anneclaus
+  name: !secret name 
   # Location required to calculate the time the sun rises and sets
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
@@ -17,12 +17,7 @@ homeassistant:
   time_zone: Europe/Copenhagen
   auth_providers:
    - type: homeassistant
-   - type: legacy_api_password
-     api_password: !secret http_password
-   - type: trusted_networks
-     trusted_networks:
-       - 192.168.0.0/24
-       - !secret external_ip
+
 duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_access_token
