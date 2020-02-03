@@ -78,12 +78,12 @@ cover:
 ## --------------------------------------------------
 ## FOSCAM
 ## https://www.home-assistant.io/components/foscam/
-camera:
-  - platform: foscam
-    ip: !secret foscam_ip 
-    port: !secret foscam_port
-    username: !secret foscam_username
-    password: !secret foscam_password
+#camera:
+#  - platform: foscam
+#    ip: !secret foscam_ip 
+#    port: !secret foscam_port
+#    username: !secret foscam_username
+#    password: !secret foscam_password
 
     
 group: !include groups.yaml
