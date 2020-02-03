@@ -55,6 +55,25 @@ device_tracker:
 ifttt:
   key: !secret ifttt_key
 
+## --------------------------------------------------
+## NETATMO
+## https://www.home-assistant.io/components/netatmo/
+
+netatmo:
+  api_key: !secret netatmo_api_key 
+  secret_key: !secret netatmo_secret_key 
+  username: !secret netatmo_username 
+  password: !secret netatmo_password 
+
+## --------------------------------------------------
+## gogogate2
+## https://www.home-assistant.io/components/gogogate2/
+
+cover:
+  - platform: gogogate2
+    username: !secret gogogate_username 
+    password: !secret gogogate_password
+    ip_address: !secret gogogate_ip
 
 
     
