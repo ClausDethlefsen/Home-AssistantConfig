@@ -85,6 +85,34 @@ cover:
 #    username: !secret foscam_username
 #    password: !secret foscam_password
 
+## --------------------------------------------------
+## Denon AVR X2300W
+## https://www.home-assistant.io/components/denonavr/
+
+media_player:
+  - platform: denonavr
+    host: !secret denon_ip
+    show_all_sources: True
+  - platform: plex
+    show_all_controls: false
+    use_episode_art: true
+    remove_unavailable_clients: true
+    client_remove_interval: 600
+
+## --------------------------------------------------
+## Plex
+## https://www.home-assistant.io/components/plex/
+## http://richardn.ca/2018/06/28/home-assistant-from-scratch-setting-up-plex/
+
+sensor plex:
+  - platform: plex
+    host: !secret plex_ip 
+    port: 32400
+    username: !secret plex_user
+    password: !secret plex_password
+    server: !secret plex_server
+
+    
     
 group: !include groups.yaml
 automation: !include automations.yaml
