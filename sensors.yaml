@@ -20,16 +20,3 @@
   password: !secret plex_password
   server: !secret plex_server
 
-- platform: speedtest
-  minute: 0
-  hour:
-    - 0
-    - 4
-    - 8
-    - 12
-    - 16
-    - 20
-  monitored_conditions:
-    - ping
-    - download
-    - upload
