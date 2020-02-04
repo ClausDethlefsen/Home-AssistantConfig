@@ -100,14 +100,14 @@ google:
   client_secret: !secret google_secret 
   track_new_calendar: false
 
+scene:
+  platform: hunterdouglas_powerview
+  address: !secret powerview_ip
   
 group: !include groups.yaml
 sensor: !include sensors.yaml
 automation: !include automations.yaml
 #script: !include scripts.yaml
 
-scene:
-  platform: hunterdouglas_powerview
-  address: !secret powerview_ip
 
-##scene: !include scenes.yaml
+#scene: !include scenes.yaml
