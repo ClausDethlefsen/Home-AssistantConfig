@@ -100,6 +100,21 @@ google:
   client_secret: !secret google_secret 
   track_new_calendar: false
 
+#######################################################################################
+# Speedtest.Net
+#
+# https://www.home-assistant.io/components/speedtestdotnet/
+speedtestdotnet:
+  scan_interval:
+    minutes: 20
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+#######################################################################################
+
+
+  
 #scene:
 #  platform: hunterdouglas_powerview
 #  address: !secret powerview_ip
