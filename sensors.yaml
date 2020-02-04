@@ -1,41 +1,39 @@
-- platform: synologydsm
-  host: !secret synology_ip
-  username: !secret synology_username
-  password: !secret synology_password
-  monitored_conditions:
-    - cpu_total_load
-    - memory_real_usage
-    - network_up
-    - volume_percentage_used
-    - disk_temp
+  - platform: synologydsm
+    host: !secret synology_ip
+    username: !secret synology_username
+    password: !secret synology_password
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - network_up
+      - volume_percentage_used
+      - disk_temp
 ## --------------------------------------------------
 ## Plex
 ## https://www.home-assistant.io/components/plex/
 ## http://richardn.ca/2018/06/28/home-assistant-from-scratch-setting-up-plex/
 
-- platform: plex
-  host: !secret plex_ip 
-  port: 32400
-  username: !secret plex_user
-  password: !secret plex_password
-  server: !secret plex_server
+  - platform: plex
+    host: !secret plex_ip 
+    port: 32400
+    username: !secret plex_user
+    password: !secret plex_password
+    server: !secret plex_server
 
-- platform: speedtest
-  minute: 0
-  hour:
-    - 0
-    - 4
-    - 8
-    - 12
-    - 16
-    - 20
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+  - platform: speedtest
+    minute: 0
+    hour:
+      - 0
+      - 4
+      - 8
+      - 12
+      - 16
+      - 20
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 
-
-    
 sensor.date:
   friendly_name: 'Date'
 
