@@ -100,9 +100,9 @@ google:
   client_secret: !secret google_secret 
   track_new_calendar: false
 
-scene:
-  platform: hunterdouglas_powerview
-  address: !secret powerview_ip
+#scene:
+#  platform: hunterdouglas_powerview
+#  address: !secret powerview_ip
   
 group: !include groups.yaml
 sensor: !include sensors.yaml
