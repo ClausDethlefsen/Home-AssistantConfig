@@ -94,9 +94,6 @@ media_player:
     remove_unavailable_clients: true
     client_remove_interval: 600
 
-#scene:
-#  platform: hunterdouglas_powerview
-#  address: !secret powerview_ip
 
 google:
   client_id: !secret google_client_id
@@ -108,5 +105,9 @@ group: !include groups.yaml
 sensor: !include sensors.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+
+scene:
+  platform: hunterdouglas_powerview
+  address: !secret powerview_ip
 
 ##scene: !include scenes.yaml
