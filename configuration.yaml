@@ -104,7 +104,7 @@ google:
 group: !include groups.yaml
 sensor: !include sensors.yaml
 automation: !include automations.yaml
-script: !include scripts.yaml
+#script: !include scripts.yaml
 
 scene:
   platform: hunterdouglas_powerview

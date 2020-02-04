@@ -61,5 +61,3 @@
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.first_run
-
-  
