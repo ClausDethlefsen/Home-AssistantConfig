@@ -4,16 +4,11 @@
 default_config:
 
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: !secret name 
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret homeassistant_elevation
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Copenhagen
   auth_providers:
    - type: homeassistant
@@ -31,7 +26,6 @@ http:
 tts:
   - platform: google_translate
     language: 'da'
-
 
 binary_sensor:
   - platform: workday
@@ -100,30 +94,6 @@ media_player:
     remove_unavailable_clients: true
     client_remove_interval: 600
 
-## --------------------------------------------------
-## Plex
-## https://www.home-assistant.io/components/plex/
-## http://richardn.ca/2018/06/28/home-assistant-from-scratch-setting-up-plex/
-
-sensor plex:
-  - platform: plex
-    host: !secret plex_ip 
-    port: 32400
-    username: !secret plex_user
-    password: !secret plex_password
-    server: !secret plex_server
-
-sensor synology:
-  - platform: synologydsm
-    host: !secret synology_ip
-    username: !secret synology_username
-    password: !secret synology_password
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - network_up
-      - volume_percentage_used
-      - disk_temp
 scene:
   platform: hunterdouglas_powerview
   address: !secret powerview_ip
@@ -135,6 +105,7 @@ google:
 
   
 group: !include groups.yaml
+sensor: !include sensors.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
