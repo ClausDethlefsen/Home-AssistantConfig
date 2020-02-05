@@ -145,7 +145,10 @@ speedtestdotnet:
 group: !include groups.yaml
 sensor: !include sensors.yaml
 automation: !include automations.yaml
-#script: !include scripts.yaml
+script: !include scripts.yaml
 
 
-#scene: !include scenes.yaml
+scene: !include scenes.yaml
+
+lovelace:
+  mode: yaml
