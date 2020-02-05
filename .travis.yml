@@ -4,7 +4,8 @@ python:
 before_install:
   - mv travis_secrets.yaml secrets.yaml
   - sudo apt-get install -y libudev-dev
+  - HA_VERSION=$(<.HA_VERSION)
 install:
-  - pip3 install homeassistant
+  - pip3 install homeassistant==${HA_VERSION}
 script:
-  - hass -c . --script check_config
+  - hass -c . -f --script check_config

@@ -78,12 +78,12 @@ ifttt:
 ## https://www.home-assistant.io/components/netatmo/
 
 netatmo:
-#  api_key: !secret netatmo_api_key 
-#  secret_key: !secret netatmo_secret_key 
-#  username: !secret netatmo_username 
-#  password: !secret netatmo_password
-  client_id: !secret netatmo_api_key
-  client_secret: !secret netatmo_secret_key 
+  api_key: !secret netatmo_api_key 
+  secret_key: !secret netatmo_secret_key 
+  username: !secret netatmo_username 
+  password: !secret netatmo_password
+#  client_id: !secret netatmo_api_key
+#  client_secret: !secret netatmo_secret_key 
 
 ## --------------------------------------------------
 ## gogogate2
