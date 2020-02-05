@@ -3,7 +3,13 @@
   longitude: !secret NNAA_longitude
   radius: 200
   icon: mdi:briefcase
-  
+
+- name: Arbejde (NN Søborg)
+  latitude: !secret NNSOE_latitude
+  longitude: !secret NNSOE_longitude
+  radius: 200
+  icon: mdi:briefcase
+
 - name: Skole
   latitude: !secret school_latitude
   longitude: !secret school_longitude
