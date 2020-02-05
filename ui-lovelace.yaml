@@ -82,6 +82,10 @@ views:
           - entity: calendar.madplan
         title: "Madplan"
         type: "custom:atomic-calendar"
+      - entities:
+          - entity: camera.foscam_camera
+        theme: Backend-selected
+        type: entities
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
