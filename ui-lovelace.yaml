@@ -72,7 +72,7 @@ views:
           - entity: sensor.netatmo_noergaardsvej_indenfor_co2
           - entity: sensor.netatmo_noergaardsvej_sovevaerelse_co2
           - entity: sensor.netatmo_noergaardsvej_stue_co2
-          type: entities
+        type: entities
       - entities:
           - entity: person.andreas_schusler_dethlefsen
           - entity: person.daniel_schusler_dethlefsen
