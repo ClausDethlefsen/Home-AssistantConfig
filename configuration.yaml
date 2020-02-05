@@ -19,6 +19,7 @@ frontend:
   extra_html_url:
     - /local/custom-icons_v01.html
 
+ios:
 
 input_boolean:
   first_run:
