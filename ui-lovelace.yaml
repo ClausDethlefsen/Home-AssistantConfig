@@ -67,6 +67,10 @@ views:
             group: true
             hide:
               controls: true
+      - entities:
+          - sensor.netatmo_noergaardsvej_indenfor_co2
+          - sensor.netatmo_noergaardsvej_sovevaerelse_co2
+          - sensor.netatmo_noergaardsvej_stue_co2
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
