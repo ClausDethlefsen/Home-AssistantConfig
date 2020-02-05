@@ -64,12 +64,12 @@ ifttt:
 ## APPLE TV
 ## https://www.home-assistant.io/components/apple_tv/
 
-apple_tv:
-  - host: !secret apple_tv_ip
-    login_id: !secret apple_tv_login_id
-    name: Stue
-    start_off: true
-    credentials: !secret apple_tv_credentials
+#apple_tv:
+#  - host: !secret apple_tv_ip
+#    login_id: !secret apple_tv_login_id
+#    name: Stue
+#    start_off: true
+#    credentials: !secret apple_tv_credentials
 
   
 ## --------------------------------------------------
