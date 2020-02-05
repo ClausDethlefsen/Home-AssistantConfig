@@ -12,6 +12,7 @@ homeassistant:
   time_zone: Europe/Copenhagen
   auth_providers:
    - type: homeassistant
+  customize: !include_dir_merge_named customize
 
 frontend:
   themes: !include themes.yaml
