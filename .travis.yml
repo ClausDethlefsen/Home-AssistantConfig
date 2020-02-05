@@ -8,4 +8,4 @@ before_install:
 install:
   - pip3 install homeassistant==${HA_VERSION}
 script:
-  - hass -c . -f --script check_config
+  - hass -c . --script check_config
