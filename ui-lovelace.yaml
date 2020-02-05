@@ -18,6 +18,18 @@ views:
         title: Garage
         show_header_toggle: false
         type: entities
+      - type: "custom:atomic-calendar"
+        title: "Madplan"
+        showProgressBar: false
+        showCurrentEventLine: false
+        maxDaysToShow: 14
+        dayWrapperLineColor: white
+        titleSize: 110
+        showMonth: true
+        locationIconColor: '#f44242'
+        locationlinkColor: '#B58E31'
+        entities:
+          - calendar.madplan
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
