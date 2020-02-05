@@ -10,8 +10,9 @@
 !fake_privkey.pem
 !fake_fullchain.pem
 !foscam.py
-!customize/*.yaml
-!customize/zones/*.yaml
+!customize
+!customize7/zones/*.yaml
+
 
 
 

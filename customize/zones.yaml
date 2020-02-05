@@ -1,0 +1,11 @@
+- name: Arbejde (NN AA)
+  latitude: !secret NNAA_latitude
+  longitude: !secret NNAA_longitude
+  radius: 200
+  icon: mdi:briefcase
+  
+- name: Skole
+  latitude: !secret school_latitude
+  longitude: !secret school_longitude
+  radius: 200
+  icon: mdi:school
