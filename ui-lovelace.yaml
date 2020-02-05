@@ -17,20 +17,12 @@ views:
           - entity: cover.anne
         title: Garage
         show_header_toggle: false
-#          - entity: light.garage
         type: entities
-#      - type: "custom:atomic-calendar"
-#        title: "Madplan"
-#        showProgressBar: false
-#        showCurrentEventLine: false
-#        maxDaysToShow: 14
-#        dayWrapperLineColor: white
-#        titleSize: 110
-#        showMonth: true
-#        locationIconColor: '#f44242'
-#        locationlinkColor: '#B58E31'
-#        entities:
-#          - calendar.madplan
+      - entities:
+          - entity: light.bamse
+          - entity: light.stue
+        title: Lys
+        type: entities
       - type: entities
         entities:
           - type: custom:mini-media-player
@@ -86,6 +78,10 @@ views:
           - entity: binary_sensor.gang_sensor_motion
           - entity: binary_sensor.garage_sensor_motion
         type: entities
+      - entities:
+          - entity: calendar.madplan
+        title: "Madplan"
+        type: "custom:atomic-calendar"
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
