@@ -113,13 +113,13 @@ views:
           - entity: camera.foscam_camera
         theme: Backend-selected
         type: entities
-      - entities:
-          - scene.34900
-          - scene.8770
-          - scene.23044
-          - scene.39601
-        title: Gardiner
-        type: entities
+#      - entities:
+#          - scene.34900
+#          - scene.8770
+#          - scene.23044
+#          - scene.39601
+#        title: Gardiner
+#        type: entities
       - entities:
           - entity: person.andreas_schusler_dethlefsen
           - entity: person.daniel_schusler_dethlefsen
