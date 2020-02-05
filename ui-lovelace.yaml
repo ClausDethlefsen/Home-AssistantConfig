@@ -17,7 +17,7 @@ views:
           - entity: cover.anne
         title: Garage
         show_header_toggle: false
-          - entity: light.garage
+#          - entity: light.garage
         type: entities
 #      - type: "custom:atomic-calendar"
 #        title: "Madplan"
