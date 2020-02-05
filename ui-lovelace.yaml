@@ -1,12 +1,6 @@
 title: anneclaus
 views:
-  - badges:
-      - person.claus_dethlefsen
-      - person.anne_schusler_dethlefsen
-      - person.andreas_schusler_dethlefsen
-      - person.daniel_schusler_dethlefsen
-      - sensor.gang_sensor_temperature
-      - sensor.sensor.netatmo_noergaardsvej_udenfor_temperature
+  - title: Overblik
     cards:
       - entities:
           - entity: light.claus
@@ -17,6 +11,7 @@ views:
       - entities:
           - entity: cover.anne
         title: Garage
+        show_header_toggle: false
         type: entities
   - icon: mdi:home-assistant
     title: Udenfor
