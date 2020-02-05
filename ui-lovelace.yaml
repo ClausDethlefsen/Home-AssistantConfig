@@ -1,4 +1,9 @@
 title: anneclaus
+resources:
+  - url: /local/mini-media-player-bundle.js?v=1.6.0
+    type: module
+  - url: /local/atomic_calendar.js
+    type: module
 views:
   - title: Overblik
     cards:
