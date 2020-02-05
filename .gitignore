@@ -12,7 +12,8 @@
 !foscam.py
 !customize
 !customize7/zones/*.yaml
-
+!www
+!www/mini-media-player-bundle.js
 
 
 
