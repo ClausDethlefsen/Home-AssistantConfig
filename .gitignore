@@ -14,6 +14,7 @@
 !customize7/zones/*.yaml
 !www
 !www/mini-media-player-bundle.js
+!www/atomic_calendar.js
 
 
 
