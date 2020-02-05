@@ -17,6 +17,7 @@ views:
           - entity: cover.anne
         title: Garage
         show_header_toggle: false
+          - entity: light.garage
         type: entities
 #      - type: "custom:atomic-calendar"
 #        title: "Madplan"
@@ -71,6 +72,20 @@ views:
           - sensor.netatmo_noergaardsvej_indenfor_co2
           - sensor.netatmo_noergaardsvej_sovevaerelse_co2
           - sensor.netatmo_noergaardsvej_stue_co2
+          type: entities
+      - entities:
+          - entity: person.andreas_schusler_dethlefsen
+          - entity: person.daniel_schusler_dethlefsen
+          - entity: person.anne_schusler_dethlefsen
+          - entity: person.claus_dethlefsen
+        type: glance
+      - entities:
+          - entity: binary_sensor.indkorsel_sensor_motion
+          - entity: binary_sensor.stue_motion_sensor
+          - entity: binary_sensor.forgang_sensor_motion
+          - entity: binary_sensor.gang_sensor_motion
+          - entity: binary_sensor.garage_sensor_motion
+        type: entities
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
