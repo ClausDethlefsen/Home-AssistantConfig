@@ -147,7 +147,6 @@ speedtestdotnet:
 #  platform: hunterdouglas_powerview
 #  address: !secret powerview_ip
 
-!include persons.yaml
 
 group: !include groups.yaml
 sensor: !include sensors.yaml
