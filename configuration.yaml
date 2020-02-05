@@ -141,6 +141,21 @@ speedtestdotnet:
 #  platform: hunterdouglas_powerview
 #  address: !secret powerview_ip
 
+#######################################################################################
+# Allows connection of multiple device tracer entities to a single person
+# 
+# https://www.home-assistant.io/components/person/
+#person: !include_dir_merge_list people/
+#######################################################################################
+
+#######################################################################################
+# Zones allow you to specify certain regions on earth (for now).
+#
+# https://www.home-assistant.io/components/zone/
+#
+zone: !include_dir_merge_list customize/zones
+#######################################################################################
+
 
 group: !include groups.yaml
 sensor: !include sensors.yaml
