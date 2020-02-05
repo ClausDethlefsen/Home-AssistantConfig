@@ -19,12 +19,6 @@ frontend:
   extra_html_url:
     - /local/custom-icons_v01.html
 
-browser_mod:
-  devices:
-    918296e3-e2a54976:
-      name: imac_chrome
-    c2080cea-6627150a:
-      name: tablet
 
 input_boolean:
   first_run:
