@@ -47,10 +47,10 @@ views:
         type: entities
       - entity: weather.anneclaus
         type: weather-forecast
-      - entities:
-          - entity: camera.foscam_camera
-        theme: Backend-selected
-        type: entities
+#      - entities:
+#          - entity: camera.foscam_camera
+#        theme: Backend-selected
+#        type: entities
 #      - entities:
 #          - scene.34900
 #          - scene.8770
