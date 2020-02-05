@@ -30,6 +30,43 @@ views:
         locationlinkColor: '#B58E31'
         entities:
           - calendar.madplan
+      - type: entities
+        entities:
+          - type: custom:mini-media-player
+            entity: media_player.kokken
+            group: true
+            hide:
+              controls: true
+          - type: custom:mini-media-player
+            entity: media_player.bad
+            group: true
+            hide:
+              controls: true
+          - type: custom:mini-media-player
+            entity: media_player.kontor
+            group: true
+            hide:
+              controls: true
+          - type: custom:mini-media-player
+            entity: media_player.stue
+            group: true
+            hide:
+              controls: true
+          - type: custom:mini-media-player
+            entity: media_player.alrum
+            group: true
+            hide:
+              controls: true
+          - type: custom:mini-media-player
+            entity: media_player.andreas
+            group: true
+            hide:
+              controls: true
+          - type: custom:mini-media-player
+            entity: media_player.daniel
+            group: true
+            hide:
+              controls: true
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
