@@ -154,7 +154,7 @@ speedtestdotnet:
 #
 # https://www.home-assistant.io/components/zone/
 #
-zone: !include_dir_merge_list customize/zones
+zone: !include customize/zones.yaml
 #######################################################################################
 
 
