@@ -5,8 +5,16 @@ resources:
   - url: /local/atomic_calendar.js
     type: module
 views:
-  - title: Overblik
+  - icon: mdi:home-assistant
+    title: Overblik
+    badges:
+      - person.claus_dethlefsen
+      - person.anne_schusler_dethlefsen
+      - person.andreas_schusler_dethlefsen
+      - person.daniel_schusler_dethlefsen
     cards:
+#      - entity: weather.anneclaus
+#        type: weather-forecast
       - entities:
           - entity: light.claus
           - entity: light.anne
@@ -93,16 +101,73 @@ views:
           - scene.39601
         title: Gardiner
         type: entities
-      - type: media-control
-        entity: media_player.samsung_ue32j6200
-      - type: media-control
-        entity: media_player.samsung_ue32k5505
-      - type: media-control
-        entity: media_player.samsung_ue55js8000        
-  - icon: mdi:home-assistant
-    title: Udenfor
+      - entities:
+          - media_player.denon_avr_x2300w
+          - media_player.samsung_ue32j6200
+          - media_player.samsung_ue32k5505
+          - media_player.samsung_ue55js8000
+        type: glance
+  - icon: mdi:lightbulb-outline
+    title: Lys
     cards:
-      - type: entities
-        title: Example
-        entities:
-        - light.garage
+      - type: light
+        entity: light.andreas
+      - type: light
+        entity: light.daniel
+      - type: light
+        entity: light.anne
+      - type: light
+        entity: light.claus
+      - type: light
+        entity: light.bamse
+      - type: light
+        entity: light.sov1
+      - type: light
+        entity: light.sov2
+      - type: light
+        entity: light.forgang
+      - type: light
+        entity: light.gang_nord
+      - type: light
+        entity: light.gang_syd
+      - type: light
+        entity: light.stue
+      - type: light
+        entity: light.stol
+      - type: light
+        entity: light.garage
+      - entities:
+          - entity: light.indkorsel_plug
+        title: Lys
+        type: entities
+  - icon: mdi:home-heart
+    title: Indeklima
+    cards:
+      - entities:
+          - sensor.netatmo_noergaardsvej_indenfor_co2
+          - sensor.netatmo_noergaardsvej_indenfor_humidity
+          - sensor.netatmo_noergaardsvej_indenfor_temperature
+          - sensor.netatmo_noergaardsvej_sovevaerelse_co2
+          - sensor.netatmo_noergaardsvej_sovevaerelse_humidity
+          - sensor.netatmo_noergaardsvej_sovevaerelse_temperature
+          - sensor.netatmo_noergaardsvej_stue_co2
+          - sensor.netatmo_noergaardsvej_stue_humidity
+          - sensor.netatmo_noergaardsvej_stue_temperature
+        title: Indeklima
+        type: entities
+  - icon: mdi:weather-sunny
+    title: Vejret
+    cards:
+      - entities:
+          - sensor.netatmo_noergaardsvej_udenfor_temperature
+          - sensor.netatmo_noergaardsvej_regnmaaler_rain
+          - sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_1
+          - sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_24
+          - sensor.netatmo_noergaardsvej_udenfor_humidity
+          - sensor.netatmo_noergaardsvej_udenfor_min_temp
+          - sensor.netatmo_noergaardsvej_udenfor_max_temp
+        title: Indeklima
+        type: entities
+
+
+
