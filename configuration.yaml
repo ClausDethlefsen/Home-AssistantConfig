@@ -140,9 +140,9 @@ speedtestdotnet:
 
 
   
-#scene:
-#  platform: hunterdouglas_powerview
-#  address: !secret powerview_ip
+scene:
+  platform: hunterdouglas_powerview
+  address: !secret powerview_ip
 
 #######################################################################################
 # Allows connection of multiple device tracer entities to a single person
@@ -166,7 +166,7 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 
 
-scene: !include scenes.yaml
+#scene: !include scenes.yaml
 
 lovelace:
   mode: yaml

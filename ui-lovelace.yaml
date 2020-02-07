@@ -86,6 +86,17 @@ views:
           - entity: camera.foscam_camera
         theme: Backend-selected
         type: entities
+      - entities:
+          - scene.34900
+          - scene.8770
+          - scene.23044
+          - scene.39601
+        title: Gardiner
+        type: entities
+      - type: media-control
+        entity: media_player.samsung_ue32j6200
+        entity: media_player.samsung_ue32k5505
+        entity: media_player.samsung_ue55js8000        
   - icon: mdi:home-assistant
     title: Udenfor
     cards:
