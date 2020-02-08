@@ -5,6 +5,8 @@ resources:
   - url: /local/atomic_calendar.js
     type: module
   - url: https://cdn.jsdelivr.net/gh/bramkragten/weather-card/dist/weather-card.min.js
+    type: module
+  - url: /local/mini-graph-card-bundle.js?v=0.9.1
     type: module    
 views:
   - icon: mdi:home-assistant
@@ -177,11 +179,19 @@ views:
 #          - sensor.netatmo_noergaardsvej_udenfor_min_temp
 #          - sensor.netatmo_noergaardsvej_udenfor_max_temp
         title: Indeklima
-
       - type: custom:weather-card
         entity: weather.norgardsvej_22
         current: true
         details: false
         forecast: true
-
+  - icon: mdi:laptop
+    title: Computer
+    cards:
+      - type: custom:mini-graph-card
+        name: Speedtest
+        icon: mdi:server
+        entities:
+          - entity: sensor.speedtest_download
+          - sensor.speedtest_upload
+#          - sensor.speedtest_ping
 
