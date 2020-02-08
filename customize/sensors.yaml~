@@ -1,0 +1,7 @@
+sensor.bus_mod_centrum:
+  icon: mdi:bus-clock
+
+sensor.affald_hentes:
+  icon: mdi:trash-can
+sensor.genbrug_hentes:
+  icon: mdi:recycle

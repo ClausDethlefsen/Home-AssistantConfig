@@ -1,3 +1,7 @@
+# lovelace_gen
+
+resources: !include_dir_merge_list include/resources/
+
 title: anneclaus
 resources:
   - url: /local/mini-media-player-bundle.js?v=1.6.0
