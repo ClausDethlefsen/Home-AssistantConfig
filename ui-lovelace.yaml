@@ -162,6 +162,11 @@ views:
   - icon: mdi:weather-sunny
     title: Vejret
     cards:
+      - type: custom:weather-card
+        entity: weather.norgardsvej_22
+        current: true
+        details: false
+        forecast: true
       - type: sensor
         entity: sensor.netatmo_noergaardsvej_udenfor_temperature
         name: Temperatur
@@ -174,16 +179,14 @@ views:
         entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_1
         name: Regn 1 time
         graph: line        
-#          - sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_24
+      - type: sensor
+        entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_24
+        name: Regn 24 timer
+        graph: line        
 #          - sensor.netatmo_noergaardsvej_udenfor_humidity
 #          - sensor.netatmo_noergaardsvej_udenfor_min_temp
 #          - sensor.netatmo_noergaardsvej_udenfor_max_temp
         title: Indeklima
-      - type: custom:weather-card
-        entity: weather.norgardsvej_22
-        current: true
-        details: false
-        forecast: true
   - icon: mdi:laptop
     title: Computer
     cards:

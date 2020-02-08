@@ -11,10 +11,13 @@
 !fake_fullchain.pem
 !.HA_VERSION
 !customize
-!customize7/zones/*.yaml
 !www
 !www/mini-media-player-bundle.js
 !www/atomic_calendar.js
+!custom_components
+!include
+!themes
+!python_scripts
 
 
 

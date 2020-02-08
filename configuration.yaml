@@ -14,10 +14,16 @@ homeassistant:
    - type: homeassistant
   customize: !include_dir_merge_named customize
 
+# https://community.home-assistant.io/t/lovelace-gen-add-abilities-to-ui-lovelace-yaml/130328
+lovelace_gen:
+
+lovelace:
+  mode: yaml
+
+config:
+  
 frontend:
-  themes: !include themes.yaml
-  extra_html_url:
-    - /local/custom-icons_v01.html
+  themes: !include_dir_merge_named themes
 
 ios:
 
@@ -37,26 +43,6 @@ http:
 tts:
   - platform: google_translate
     language: 'da'
-
-binary_sensor:
-  - platform: workday
-    country: DK
-  - platform: rest
-    name: "Stue Motion Sensor"
-    resource: !secret stue_url
-    device_class: motion
-    scan_interval: 5
-    value_template: >-
-      {%- if "<motionDetectAlarm>2</motionDetectAlarm>" in value -%}
-        {{ true }}
-      {%- else -%}
-        {{ false }}
-      {%- endif -%}
-
-device_tracker:
-  - platform: tile
-    username: !secret tile_username 
-    password: !secret tile_password
 
 ifttt:
   key: !secret ifttt_key
@@ -167,13 +153,28 @@ weather:
     api_key: ca823efa102eff940edf02026fd97053
     mode: daily
   
-group: !include groups.yaml
-sensor: !include sensors.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+group: !include_dir_merge_named include/groups/
+sensor: !include_dir_merge_list include/sensors/
+automation: !include_dir_merge_list include/automations/
+binary_sensor: !include_dir_merge_list include/binary_sensors/
+device_tracker: !include include/device_trackers.yaml
+input_datetime: !include_dir_merge_named include/input/datetime/
+input_number: !include_dir_merge_named include/input/number/
+input_select: !include_dir_merge_named include/input/select/
+light: !include_dir_merge_list include/lights/
+panel_iframe: !include_dir_merge_named include/panels/
+script: !include_dir_merge_named include/scripts/
+shell_command: !include_dir_merge_named include/shell_commands/
+switch: !include_dir_merge_list include/switches/
 
+# PYTHON
+python_script:
+
+# HP PRINTER
+hpprinter:
+  devices:
+    - host: 192.168.0.41
+      name: HP 081A4C
 
 #scene 2: !include scenes.yaml
 
-lovelace:
-  mode: yaml
