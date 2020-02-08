@@ -11,17 +11,17 @@
 !fake_fullchain.pem
 !.HA_VERSION
 !customize
-!www
-!www/mini-media-player-bundle.js
-!www/atomic_calendar.js
+!www/*
+#!www/mini-media-player-bundle.js
+#!www/atomic_calendar.js
 !custom_components/*
-!custom_components/hpprinter
-!custom_components/lovelace_gen/__init__.py
-!custom_components/lovelace_gen/__pycache__
-!custom_components/lovelace_gen/manifest.json
-!include
-!themes
-!python_scripts
+#!custom_components/hpprinter
+#!custom_components/lovelace_gen/__init__.py
+#!custom_components/lovelace_gen/__pycache__
+#!custom_components/lovelace_gen/manifest.json
+!include/*
+!themes/*
+!python_scripts/*
 
 
 
