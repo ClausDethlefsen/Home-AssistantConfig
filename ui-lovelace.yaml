@@ -1,6 +1,10 @@
 # lovelace_gen
 
-resources: !include_dir_merge_list include/resources/
+#resources: !include_dir_merge_list include/resources/
+
+
+custom_header:
+  compact_mode: true
 
 title: anneclaus
 resources:
@@ -12,193 +16,19 @@ resources:
     type: module
   - url: /local/mini-graph-card-bundle.js?v=0.9.1
     type: module    
+  - url: /local/community/lovelace-layout-card/layout-card.js
+    type: module    
+  - url: /local/community/text-element/text-element.js
+    type: module    
+
 views:
-  - icon: mdi:home-assistant
-    title: Overblik
-    badges:
-      - person.claus_dethlefsen
-      - person.anne_schusler_dethlefsen
-      - person.andreas_schusler_dethlefsen
-      - person.daniel_schusler_dethlefsen
-    cards:
-#      - entity: weather.anneclaus
-#        type: weather-forecast
-      - entities:
-          - entity: light.claus
-          - entity: light.anne
-        show_header_toggle: true
-        title: Soveværelse
-        type: entities
-      - entities:
-          - entity: cover.anne
-        title: Garage
-        show_header_toggle: false
-        type: entities
-      - entities:
-          - entity: light.bamse
-          - entity: light.stue
-        title: Lys
-        type: entities
-      - type: entities
-        entities:
-          - type: custom:mini-media-player
-            entity: media_player.kokken
-            group: true
-            hide:
-              controls: true
-          - type: custom:mini-media-player
-            entity: media_player.bad
-            group: true
-            hide:
-              controls: true
-          - type: custom:mini-media-player
-            entity: media_player.kontor
-            group: true
-            hide:
-              controls: true
-          - type: custom:mini-media-player
-            entity: media_player.stue
-            group: true
-            hide:
-              controls: true
-          - type: custom:mini-media-player
-            entity: media_player.alrum
-            group: true
-            hide:
-              controls: true
-          - type: custom:mini-media-player
-            entity: media_player.andreas
-            group: true
-            hide:
-              controls: true
-          - type: custom:mini-media-player
-            entity: media_player.daniel
-            group: true
-            hide:
-              controls: true
-      - entities:
-          - entity: sensor.netatmo_noergaardsvej_indenfor_co2
-          - entity: sensor.netatmo_noergaardsvej_sovevaerelse_co2
-          - entity: sensor.netatmo_noergaardsvej_stue_co2
-        type: entities
-      - entities:
-          - entity: person.andreas_schusler_dethlefsen
-          - entity: person.daniel_schusler_dethlefsen
-          - entity: person.anne_schusler_dethlefsen
-          - entity: person.claus_dethlefsen
-        type: glance
-      - entities:
-          - entity: binary_sensor.indkorsel_sensor_motion
-          - entity: binary_sensor.stue_motion_sensor
-          - entity: binary_sensor.forgang_sensor_motion
-          - entity: binary_sensor.gang_sensor_motion
-          - entity: binary_sensor.garage_sensor_motion
-        type: entities
-      - entities:
-          - entity: calendar.madplan
-        title: "Madplan"
-        type: "custom:atomic-calendar"
-      - entities:
-          - entity: camera.foscam_camera
-        theme: Backend-selected
-        type: entities
-      - entities:
-          - scene.34900
-          - scene.8770
-          - scene.23044
-          - scene.39601
-        title: Gardiner
-        type: entities
-      - entities:
-          - media_player.denon_avr_x2300w
-          - media_player.samsung_ue32j6200
-          - media_player.samsung_ue32k5505
-          - media_player.samsung_ue55js8000
-        type: glance
-  - icon: mdi:lightbulb-outline
-    title: Lys
-    cards:
-      - type: light
-        entity: light.andreas
-      - type: light
-        entity: light.daniel
-      - type: light
-        entity: light.anne
-      - type: light
-        entity: light.claus
-      - type: light
-        entity: light.bamse
-      - type: light
-        entity: light.sov1
-      - type: light
-        entity: light.sov2
-      - type: light
-        entity: light.forgang
-      - type: light
-        entity: light.gang_nord
-      - type: light
-        entity: light.gang_syd
-      - type: light
-        entity: light.stue
-      - type: light
-        entity: light.stol
-      - type: light
-        entity: light.garage
-      - entities:
-          - entity: light.indkorsel_plug
-        title: Lys
-        type: entities
-  - icon: mdi:home-heart
-    title: Indeklima
-    cards:
-      - entities:
-          - sensor.netatmo_noergaardsvej_indenfor_co2
-          - sensor.netatmo_noergaardsvej_indenfor_humidity
-          - sensor.netatmo_noergaardsvej_indenfor_temperature
-          - sensor.netatmo_noergaardsvej_sovevaerelse_co2
-          - sensor.netatmo_noergaardsvej_sovevaerelse_humidity
-          - sensor.netatmo_noergaardsvej_sovevaerelse_temperature
-          - sensor.netatmo_noergaardsvej_stue_co2
-          - sensor.netatmo_noergaardsvej_stue_humidity
-          - sensor.netatmo_noergaardsvej_stue_temperature
-        title: Indeklima
-        type: entities
-  - icon: mdi:weather-sunny
-    title: Vejret
-    cards:
-      - type: custom:weather-card
-        entity: weather.norgardsvej_22
-        current: true
-        details: false
-        forecast: true
-      - type: sensor
-        entity: sensor.netatmo_noergaardsvej_udenfor_temperature
-        name: Temperatur
-        graph: line
-      - type: sensor
-        entity: sensor.netatmo_noergaardsvej_regnmaaler_rain
-        name: Regn
-        graph: line        
-      - type: sensor
-        entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_1
-        name: Regn 1 time
-        graph: line        
-      - type: sensor
-        entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_24
-        name: Regn 24 timer
-        graph: line        
-#          - sensor.netatmo_noergaardsvej_udenfor_humidity
-#          - sensor.netatmo_noergaardsvej_udenfor_min_temp
-#          - sensor.netatmo_noergaardsvej_udenfor_max_temp
-        title: Indeklima
-  - icon: mdi:laptop
-    title: Computer
-    cards:
-      - type: custom:mini-graph-card
-        name: Speedtest
-        icon: mdi:server
-        entities:
-          - entity: sensor.speedtest_download
-          - sensor.speedtest_upload
-#          - sensor.speedtest_ping
+  - !include views/main.yaml
+#  - !include views/rooms.yaml
+#  - !include views/movies.yaml
+#  - !include views/light.yaml
+#  - !include views/indoor.yaml
+#  - !include views/weather.yaml    
+#  - !include views/network.yaml
+#  - !include views/system.yaml
+  
 
