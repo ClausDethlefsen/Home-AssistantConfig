@@ -1,3 +1,12 @@
+person.claus:
+  entity_picture: /local/images/user_boy.png
+person.anne:
+  entity_picture: /local/images/user_female.png
+person.andreas:
+  entity_picture: /local/images/user_female.png
+person.daniel:
+  entity_picture: /local/images/user_boy.png
+
 device_tracker.tile_3ec1cdadb30342a6:
   friendly_name: 'Andreas nøgler'
   
