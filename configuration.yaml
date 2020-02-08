@@ -158,11 +158,15 @@ zone: !include customize/zones.yaml
 
 
 # Example configuration.yaml entry
-scene:
-  platform: hunterdouglas_powerview
-  address: !secret powerview_ip
+#scene:
+#  platform: hunterdouglas_powerview
+#  address: !secret powerview_ip
 
-
+weather:
+  - platform: darksky
+    api_key: ca823efa102eff940edf02026fd97053
+    mode: daily
+  
 group: !include groups.yaml
 sensor: !include sensors.yaml
 automation: !include automations.yaml
