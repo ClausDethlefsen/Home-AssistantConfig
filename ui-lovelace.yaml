@@ -1,34 +1,20 @@
 # lovelace_gen
 
-#resources: !include_dir_merge_list include/resources/
-
 
 custom_header:
   compact_mode: true
 
 title: anneclaus
-resources:
-  - url: /local/mini-media-player-bundle.js?v=1.6.0
-    type: module
-  - url: /local/atomic_calendar.js
-    type: module
-  - url: https://cdn.jsdelivr.net/gh/bramkragten/weather-card/dist/weather-card.min.js
-    type: module
-  - url: /local/mini-graph-card-bundle.js?v=0.9.1
-    type: module    
-  - url: /local/community/lovelace-layout-card/layout-card.js
-    type: module    
-  - url: /local/community/text-element/text-element.js
-    type: module    
+resources: !include_dir_merge_list include/resources/
 
 views:
   - !include views/main.yaml
-#  - !include views/rooms.yaml
+  - !include views/rooms.yaml
 #  - !include views/movies.yaml
 #  - !include views/light.yaml
-#  - !include views/indoor.yaml
-#  - !include views/weather.yaml    
-#  - !include views/network.yaml
+  - !include views/indoor.yaml
+  - !include views/weather.yaml    
+  - !include views/network.yaml
 #  - !include views/system.yaml
   
 

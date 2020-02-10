@@ -56,8 +56,8 @@
         entity_id: input_boolean.first_run
         state: 'off'
     action:
-      - service: scene.turn_on
-        entity_id: scene.34900
+#      - service: scene.turn_on
+#        entity_id: scene.34900
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.first_run

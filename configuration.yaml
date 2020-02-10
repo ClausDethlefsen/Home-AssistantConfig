@@ -27,6 +27,8 @@ frontend:
 
 ios:
 
+mobile_app:
+
 input_boolean:
   first_run:
       
@@ -124,8 +126,13 @@ speedtestdotnet:
     - upload
 #######################################################################################
 
+#scene:
+#  - platform: hunterdouglas_powerview
+#    address: !secret powerview_ip
 
-  
+#scene:
+#  - platform: hunterdouglas_powerview
+#    address: !secret powerview_ip  
 
 #######################################################################################
 # Allows connection of multiple device tracer entities to a single person
@@ -147,6 +154,7 @@ zone: !include customize/zones.yaml
 #scene:
 #  platform: hunterdouglas_powerview
 #  address: !secret powerview_ip
+
 
 weather:
   - platform: darksky
