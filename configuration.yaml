@@ -66,10 +66,6 @@ ifttt:
 ## https://www.home-assistant.io/components/netatmo/
 
 netatmo:
-#  api_key: !secret netatmo_api_key 
-#  secret_key: !secret netatmo_secret_key 
-#  username: !secret netatmo_username 
-#  password: !secret netatmo_password
   client_id: !secret netatmo_api_key
   client_secret: !secret netatmo_secret_key 
 
@@ -107,12 +103,15 @@ media_player:
     remove_unavailable_clients: true
     client_remove_interval: 600
 
-
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_secret 
   track_new_calendar: false
 
+# Example configuration.yaml entry
+garbage_collection:
+
+    
 #######################################################################################
 # Speedtest.Net
 #

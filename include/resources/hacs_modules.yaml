@@ -25,12 +25,15 @@
   - url: /local/community/lovelace-auto-entities/lovelace-auto-entities.js
     type: module    
   - type: module
-    url: /community/lovelace-gui-sandbox/gui-sandbox.js
+    url: /local/community/lovelace-gui-sandbox/gui-sandbox.js
   - type: module
-    url: /community/lovelace-card-tools/card-tools.js
+    url: /local/community/lovelace-card-tools/card-tools.js
   - type: module
-    url: /community/lovelace-fold-entity-row/fold-entity-row.js
+    url: /local/community/lovelace-fold-entity-row/fold-entity-row.js
   - type: module
-    url: /community/lovelace-state-switch/state-switch.js
+    url: /local/community/lovelace-state-switch/state-switch.js
   - type: module
-    url: /community/lovelace-gap-card/gap-card.js
+    url: /local/community/lovelace-gap-card/gap-card.js
+  - type: module
+    url: /local/community/garbage-collection-card/garbage-collection-card.js
+    
