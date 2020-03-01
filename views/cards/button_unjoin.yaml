@@ -1,0 +1,9 @@
+type: "custom:button-card"
+color_type: label-card
+icon: mdi:music-accidental-double-sharp
+name: Unjoin
+tap_action:
+  action: call-service
+  service: sonos.unjoin
+  service_data:
+    entity_id: all

@@ -1,0 +1,19 @@
+type: picture-elements
+image: /local/images/backgrounds/balloons.jpg
+panel: true
+#aspect_ratio: 5:1
+elements:
+  - type: custom:text-element
+    text: "Dage til Andreas' fødselsdag"
+    style:
+      top: 15%
+      left: 50%
+      font-size: 2vw
+      color: white
+  - type: state-label
+    entity: sensor.fodselsdag_andreas
+    style:
+      top: 40%
+      left: 50%
+      font-size: 7vw
+      color: white

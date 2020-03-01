@@ -1,0 +1,10 @@
+- platform: group
+  name: Indendorslamper
+  entities:
+    - light.andreas
+    - light.daniels_varelse
+    - light.stue
+    - light.sovevaerelse
+    - light.gang
+    - light.forgang
+    

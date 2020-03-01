@@ -1,0 +1,18 @@
+type: glance
+title: Belysning
+show_header_toggle: true
+show_state: false
+entities:
+  - entity: light.indendorslamper
+  - entity: light.claus
+  - entity: light.anne
+  - entity: light.andreas
+  - entity: light.daniel
+  - entity: light.bamse
+  - entity: light.sovevaerelse_loft
+  - entity: light.forgang
+  - entity: light.gang
+  - entity: light.stue
+  - entity: light.stol
+
+

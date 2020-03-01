@@ -1,9 +1,18 @@
 # lovelace_gen
 
-
 custom_header:
   compact_mode: true
-
+  exceptions:
+    - conditions:
+        user: 'Andreas Schüsler Dethlefsen'
+      config:
+        show_tabs:
+          - 5
+    - conditions:
+        user: 'Daniel Schüsler Dethlefsen'
+      config:
+        show_tabs:
+          - 6
 title: anneclaus
 resources: !include_dir_merge_list include/resources/
 
@@ -17,6 +26,8 @@ views:
   - !include views/network.yaml
   - !include views/andreas.yaml  
   - !include views/daniel.yaml
-#  - !include views/system.yaml
+  - !include views/video.yaml
+  - !include views/sonos.yaml    
+  - !include views/rejse.yaml
   
 

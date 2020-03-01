@@ -1,0 +1,88 @@
+# lovelace_gen
+
+title: Home
+icon: mdi:home-assistant
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    column_num: 3
+    max_columns: 3
+    max_width: [33%,33%,33%]
+
+    cards:
+      - type: custom:weather-card
+        entity: weather.norgardsvej_22
+        current: true
+        details: false
+        forecast: true
+      - !include cards/people_home.yaml
+#      - !include cards/select_room_light.yaml
+      - break
+      - !include cards/clock.yaml
+      - break
+      - !include cards/ferie.yaml
+      - break
+      - type: horizontal-stack
+        cards: 
+          - !include cards/garbage.yaml
+          - !include cards/garbage2.yaml
+      - entities:
+          - entity: light.claus
+          - entity: light.anne
+          - entity: light.alle_lys
+          - entity: light.indendorslamper                        
+          - entity: light.udendorslamper            
+        show_header_toggle: true
+        title: Lys
+        type: entities
+      - break
+      - entities:
+          - entity: cover.anne
+            name: Port
+        title: Garage
+        show_header_toggle: false
+        type: entities
+      - entities:
+          - entity: calendar.madplan
+        title: "Madplan"
+        type: "custom:atomic-calendar"
+      - break
+      - entities:
+          - entity: sensor.netatmo_noergaardsvej_indenfor_co2
+            name: Daniel
+          - entity: sensor.netatmo_noergaardsvej_sovevaerelse_co2
+            name: Soveværelse
+          - entity: sensor.netatmo_noergaardsvej_stue_co2
+            name: Stue
+        hours_to_show: 4
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.indkorsel_sensor_motion
+            secondary_info: last-changed
+          - entity: binary_sensor.garage_sensor_motion
+            secondary_info: last-changed            
+          - entity: binary_sensor.stue_motion_sensor
+            secondary_info: last-changed            
+          - entity: binary_sensor.forgang_sensor_motion
+            secondary_info: last-changed            
+          - entity: binary_sensor.gang_sensor_motion
+            secondary_info: last-changed            
+
+        type: entities
+        show_state: false
+      - break
+      - entities:
+          - scene.34900
+          - scene.8770
+          - scene.23044
+          - scene.39601
+        title: Gardiner
+        type: entities
+      - break
+      - entities:
+          - media_player.denon_avr_x2300w
+          - media_player.samsung_ue55js8000
+          - media_player.samsung_ue32j6200
+          - media_player.samsung_ue32k5505
+        type: glance

@@ -1,0 +1,14 @@
+# lovelace_gen
+
+title: Weather
+icon: mdi:weather-sunny
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    column_num: 1
+    max_columns: 1
+    max_width: [100%]
+    cards:
+      - !include cards/outdoor_climate.yaml
+

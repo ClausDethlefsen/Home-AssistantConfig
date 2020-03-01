@@ -1,0 +1,36 @@
+type: custom:mini-media-player
+entity: media_player.daniel
+artwork: full-cover
+hide:
+  shuffle: false
+shortcuts:
+  columns: 4
+  buttons:
+    - image: /local/images/backgrounds/MGP20.png
+      type: source
+      id: MGP 2020
+    - image: /local/images/backgrounds/mj.jpg
+      type: source
+      id: Michael Jackson
+    - image: /local/images/backgrounds/radionauterne.jpeg
+      type: source
+      id: For nysgerrige børn
+    - image: /local/images/backgrounds/popmusic.jpeg
+      type: source
+      id: Populære Sange
+    - image: /local/images/backgrounds/yawn.jpeg
+      type: source
+      id: Daniel Vågn op 2019
+    - image: /local/images/backgrounds/dannebrog.png
+      type: source
+      id: Danske favoritter
+    - image: /local/images/backgrounds/ballads.jpeg
+      type: source
+      id: De største ballader
+    - image: /local/images/backgrounds/danskrock.jpeg
+      type: source
+      id: Danske rock klassikere
+speaker_group:
+  platform: sonos
+  show_group_count: true
+  entities: !include playerlist.yaml

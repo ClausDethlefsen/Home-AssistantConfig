@@ -1,0 +1,15 @@
+type: glance
+title: Indendørs klima
+show_header_toggle: true
+entities:
+  - entity: sensor.netatmo_noergaardsvej_indenfor_co2
+  - entity: sensor.netatmo_noergaardsvej_indenfor_humidity    
+  - entity: sensor.netatmo_noergaardsvej_indenfor_temperature
+  - entity: sensor.netatmo_noergaardsvej_sovevaerelse_co2
+  - entity: sensor.netatmo_noergaardsvej_sovevaerelse_humidity
+  - entity: sensor.netatmo_noergaardsvej_sovevaerelse_temperature
+  - entity: sensor.netatmo_noergaardsvej_stue_co2
+  - entity: sensor.netatmo_noergaardsvej_stue_humidity
+  - entity: sensor.netatmo_noergaardsvej_stue_temperature
+
+

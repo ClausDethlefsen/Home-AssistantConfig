@@ -1,0 +1,9 @@
+type: picture-entity
+camera_view: live
+entity: camera.foscam_camera
+#entity: camera.foscam_camera
+
+#       - entities:
+#          - entity: camera.foscam_camera
+#        theme: Backend-selected
+#        type: entities

@@ -1,0 +1,6 @@
+- platform: group
+  name: Daniel
+  entities:
+    - light.daniel
+    - light.bamse
+

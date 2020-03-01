@@ -1,0 +1,27 @@
+- platform: group
+  name: Indendørslamper
+  entities:
+    - light.andreas
+    - light.daniels_varelse
+    - light.stue
+    - light.sovevaerelse
+    - light.gang
+    - light.forgang
+    
+- platform: group
+  name: Udendørslamper
+  entities:
+    - light.garage
+    - light.indkoersel_plug
+#    - switch.sonoff_100069a6cc
+#    - switch.sonoff_10006a2cdd
+#    - switch.sonoff_1000a76e41
+
+- platform: group
+  name: Alle lys
+  entities:
+    - light.indendorslamper
+    - light.udendorslamper
+
+  
+  

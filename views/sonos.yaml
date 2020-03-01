@@ -1,0 +1,21 @@
+# lovelace_gen
+
+title: Sonos
+icon: mdi:music
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    column_num: 2
+    max_columns: 2
+    max_width: [50%,50%]
+    cards:
+      - type: horizontal-stack
+        cards: 
+          - !include cards/button_unjoin.yaml
+          - !include cards/button_party.yaml
+          - !include cards/button_stue.yaml
+          - !include cards/button_stuebad.yaml                              
+      - !include cards/player.yaml
+
+      

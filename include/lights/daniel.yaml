@@ -1,0 +1,6 @@
+- platform: group
+  name: Daniels værelse
+  entities:
+    - light.daniel
+    - light.bamse
+

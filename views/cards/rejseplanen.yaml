@@ -1,0 +1,5 @@
+type: "custom:rejseplanen-card"
+entity: sensor.gistrup
+max_entries: 5 # Optional
+title: Bussen kører fra Beltoften om
+

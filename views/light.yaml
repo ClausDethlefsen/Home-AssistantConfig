@@ -1,0 +1,34 @@
+# lovelace_gen
+title: Lys
+icon: mdi:tune
+panel: true
+cards:
+  - icon: mdi:lightbulb-outline
+    title: Lys
+    cards:
+      - type: light
+        entity: light.andreas
+      - type: light
+        entity: light.daniel
+      - type: light
+        entity: light.anne
+      - type: light
+        entity: light.claus
+      - type: light
+        entity: light.bamse
+      - type: light
+        entity: light.sovevaerelse_loft
+      - type: light
+        entity: light.forgang
+      - type: light
+        entity: light.gang
+      - type: light
+        entity: light.stue
+      - type: light
+        entity: light.stol
+      - type: light
+        entity: light.garage
+      - entities:
+          - entity: light.indkorsel_plug
+        title: Lys
+        type: entities

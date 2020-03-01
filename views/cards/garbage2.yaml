@@ -1,0 +1,7 @@
+type: custom:garbage-collection-card
+entity: sensor.waste
+icon_color: '#0561ba'
+icon_size: 35px
+title_size: 0px
+hide_date: true
+

@@ -1,0 +1,19 @@
+type: picture-elements
+image: /local/images/backgrounds/night.jpg
+#aspect_ratio: 5:1
+panel: true
+elements:
+  - type: state-label
+    entity: sensor.time
+    style:
+      top: 50%
+      left: 50%
+      font-size: 7vw
+      color: white
+  - type: state-label
+    entity: sensor.dato
+    style:
+      top: 75%
+      left: 50%
+      font-size: 1vw
+      color: white

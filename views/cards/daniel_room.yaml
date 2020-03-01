@@ -1,0 +1,8 @@
+type: light
+title: Daniels værelse
+show_header_toggle: true
+show_state: false
+entity: light.daniel
+
+
+

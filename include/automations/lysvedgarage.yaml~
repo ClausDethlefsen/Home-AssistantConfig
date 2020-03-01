@@ -1,0 +1,32 @@
+  - alias: 'Tænd lys ved garagen hvis det er aften og der er bevægelse'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.indkorsel_sensor_motion
+      to: 'on'
+    condition:
+      - condition: time
+        before: '23:00:00'
+      - condition: sun
+        after: sunset
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.switch.sonoff_1000a76e41
+      - service: timer.start
+        data:
+          entity_id: timer.indkorsel
+
+- alias: Sluk lys ved garage efter 10 minutter
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.indkorsel
+  action:
+    service: homeassistant.turn_off
+    data:
+        entity_id: switch.switch.sonoff_1000a76e41
+
+timer:
+  indkorsel:
+    duration: '00:10:00'
+

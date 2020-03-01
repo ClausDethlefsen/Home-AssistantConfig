@@ -1,0 +1,71 @@
+## Skal være tændt fra solnedgang og til kl 22
+## og fra 6-solopgang
+## derudover: hvis solen er under horisonten, så tænd i 5 minutter
+  - alias: 'Tænd lys indkørsel morgen'
+    trigger:
+      platform: time
+      at: "06:00:00"
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.indkorsel_plug
+
+  - alias: 'Sluk lys indkørsel morgen'
+    trigger:
+      platform: sun
+      event: sunrise
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.indkorsel_plug
+
+  - alias: 'Tænd lys indkørsel aften'
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.indkorsel_plug
+
+  - alias: 'Sluk lys indkørsel aften'
+    trigger:
+      platform: time
+      at: "22:00:00"
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.indkorsel_plug
+          
+
+  - alias: 'Tænd lys indkørsel ved bevægelse'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.indkorsel_sensor_motion
+      to: 'on'
+    condition:
+      - condition: time
+        after: '22:00:00'
+      - condition: time
+        before: '05:54:00'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.indkorsel_plug
+
+  - alias: 'Sluk lys indkørsel 5 min efter bevægelse'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.indkorsel_sensor_motion
+      to: 'off'
+      for:
+        minutes: 5
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.indkorsel_plug
+            
+

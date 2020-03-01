@@ -1,0 +1,12 @@
+- entity_id: media_player.alrum
+  name: Alrum
+- entity_id: media_player.stue
+  name: Stue
+- entity_id: media_player.kokken
+  name: Køkken
+- entity_id: media_player.bad
+  name: Bad
+- entity_id: media_player.andreas
+  name: Andreas
+- entity_id: media_player.daniel
+  name: Daniel

@@ -1,0 +1,7 @@
+type: light
+title: Andreas' værelse
+show_header_toggle: true
+show_state: false
+entity: light.andreas
+
+

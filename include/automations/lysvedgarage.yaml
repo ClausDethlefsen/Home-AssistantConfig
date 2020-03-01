@@ -1,0 +1,28 @@
+  - alias: 'Lys ved garage'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.indkorsel_sensor_motion
+      to: 'on'
+    condition:
+#      - condition: time
+#        before: '23:00:00'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.sonoff_1000a76e41
+
+  - alias: 'Sluk lys ved garage'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.indkorsel_sensor_motion
+      to: 'off'
+      for:
+        minutes: 10
+    action:
+      service: homeassistant.turn_off
+      data:
+        entity_id: switch.sonoff_1000a76e41
+            
+

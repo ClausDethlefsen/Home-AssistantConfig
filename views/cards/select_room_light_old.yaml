@@ -1,0 +1,6 @@
+type: custom:vertical-stack-in-card
+title: Belysning
+cards:
+  - type: entities
+    entities
+      - entity: light.indkorsel_plug

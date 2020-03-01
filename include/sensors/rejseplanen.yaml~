@@ -1,0 +1,13 @@
+- platform: rejseplanen
+  name: Centrum
+  stop_id: '851804202'
+  direction:
+    - 'Nytorv (Østeraagade / Aalborg)'
+
+- platform: template
+  sensors:
+    bus_mod_centrum:
+      friendly_name_template: >-
+        {{ state_attr('sensor.centrum', 'route') }} mod {{ state_attr('sensor.centrum', 'direction') }} om:
+      value_template: >-
+        {{ states('sensor.centrum') }} minut{% if states('sensor.centrum') | int > 1 %}ter{%- endif %} ({{ strptime(state_attr('sensor.centrum', 'due_at'), '%d.%m.%y %H:%M').timestamp() | timestamp_custom('%R') }})

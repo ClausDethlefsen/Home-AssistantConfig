@@ -1,0 +1,47 @@
+- alias: Update countdowns
+  trigger:
+    - platform: time
+      at: "00:00:01"
+    - platform: homeassistant
+      event: start
+  action:
+    - service: python_script.date_countdown
+      data:
+        name: Nytaar
+        type: nedtaelling
+        date: 31/12/2020
+    - service: python_script.date_countdown
+      data:
+        name: Juleaften
+        type: nedtaelling
+        date: 24/12/2020
+    - service: python_script.date_countdown
+      data:
+        name: Vores bryllupsdag
+        type: begivenhed
+        date: 21/09/2013
+    - service: python_script.date_countdown
+      data:
+        name: Anne
+        type: fodselsdag
+        date: 12/09/1976
+    - service: python_script.date_countdown
+      data:
+        name: Andreas
+        type: fodselsdag
+        date: 04/01/2010
+    - service: python_script.date_countdown
+      data:
+        name: Daniel
+        type: fodselsdag
+        date: 21/09/2011
+    - service: python_script.date_countdown
+      data:
+        name: Claus
+        type: fodselsdag
+        date: 24/12/1971
+    - service: python_script.date_countdown
+      data:
+        name: Ferie
+        type: nedtaelling
+        date: 12/04/2020

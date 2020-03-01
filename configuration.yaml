@@ -27,7 +27,7 @@ frontend:
 
 ios:
 
-mobile_app:
+#mobile_app:
 
 input_boolean:
   first_run:
@@ -78,6 +78,8 @@ cover:
     username: !secret gogogate_username 
     password: !secret gogogate_password
     ip_address: !secret gogogate_ip
+#  - platform: hd_powerview
+#    host: !secret powerview_ip
 
 ## --------------------------------------------------
 ## FOSCAM
@@ -89,6 +91,14 @@ camera:
     username: !secret foscam_username
     password: !secret foscam_password
 
+# Example configuration.yaml entry
+#switch:
+#  - platform: hikvisioncam
+#    name: sommerhus
+#    host: !secret sommerhus_ip
+#    username: !secret sommerhus_username
+#    password: !secret sommerhus_password
+    
 ## --------------------------------------------------
 ## Denon AVR X2300W
 ## https://www.home-assistant.io/components/denonavr/
@@ -109,7 +119,12 @@ google:
   track_new_calendar: false
 
 # Example configuration.yaml entry
-garbage_collection:
+garbage_collection: !include include/sensors/garbage.yaml
+
+
+timer:
+  indkorsel:
+    duration: '00:10:00'
 
     
 #######################################################################################
@@ -129,10 +144,19 @@ speedtestdotnet:
 #  - platform: hunterdouglas_powerview
 #    address: !secret powerview_ip
 
-#scene:
-#  - platform: hunterdouglas_powerview
-#    address: !secret powerview_ip  
+scene:
+  platform: hunterdouglas_powerview
+  address: !secret powerview_ip  
 
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+
+# Example configuration.yaml entry
+spotify:
+  client_id: !secret spotify_id
+  client_secret: !secret spotify_secret
+  
 #######################################################################################
 # Allows connection of multiple device tracer entities to a single person
 # 
@@ -155,6 +179,7 @@ zone: !include customize/zones.yaml
 #  address: !secret powerview_ip
 
 
+
 weather:
   - platform: darksky
     api_key: ca823efa102eff940edf02026fd97053
@@ -172,7 +197,7 @@ light: !include_dir_merge_list include/lights/
 panel_iframe: !include_dir_merge_named include/panels/
 script: !include_dir_merge_named include/scripts/
 shell_command: !include_dir_merge_named include/shell_commands/
-switch: !include_dir_merge_list include/switches/
+#switch: !include_dir_merge_list include/switches/
 
 # PYTHON
 python_script:
@@ -183,5 +208,6 @@ hpprinter:
     - host: 192.168.0.41
       name: HP 081A4C
 
+#scene:
 #scene 2: !include scenes.yaml
 

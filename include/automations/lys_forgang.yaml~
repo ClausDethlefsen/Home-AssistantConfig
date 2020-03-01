@@ -1,0 +1,11 @@
+# Turns on lights at sunset 
+  - alias: 'Lys i glasskab i forgang'
+    trigger:
+      # Prefix the first line of each trigger configuration
+      # with a '-' to enter multiple
+      - platform: sun
+        event: sunset
+    action:
+      # With a single service call, we don't need a '-' before service - though you can if you want to
+      service: homeassistant.turn_on
+      entity_id: switch.sonoff2

@@ -1,0 +1,13 @@
+title: Network
+icon: mdi:laptop
+panel: true
+cards:
+  - type: history-graph
+    hours_to_show: 24
+    name: Speedtest
+    icon: mdi:server
+    entities:
+      - entity: sensor.speedtest_download
+      - sensor.speedtest_upload
+#      - sensor.speedtest_ping
+

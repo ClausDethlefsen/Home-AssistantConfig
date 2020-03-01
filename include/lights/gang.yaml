@@ -1,0 +1,6 @@
+- platform: group
+  name: Gang
+  entities:
+    - light.gang_nord
+    - light.gang_syd
+

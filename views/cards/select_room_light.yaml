@@ -1,0 +1,74 @@
+# lovelace_gen
+
+
+# Hvert Rum/Panel er opbygget af en 2 dimensionel liste (rækker og kolonner)
+# altså én liste med en eller flere lister som elementer.
+# F.eks. vil denne liste:
+# [ ["LISTE_1", ABC", "DEF"], ["LISTE_2", "GHI", "JKL"] ] give følgende panel:
+# LISTE_1 ABC DEF
+# LISTE_2 GHI JKL
+# Tomme felt laves med "" ( en tom streng ) 
+{% set Værelser = [ ["light.daniel", "light.bamse", "light.andreas"], ["light.anne", "light.claus", "light.sovevaerelse_loft"] ] %}
+{% set Stuen = [ ["light.stue"] ] %}
+{% set Udenfor = [ ["light.indkorsel_plug", "light.garage" ] ] %}
+
+
+# Alle elementer i entities_of_rows indeholder én række.
+# Rækkerne skal stables oven på hinanden med i ét kort med
+# vertical-stack-in-card.
+# Alle element i én række skal placeres ved siden af hinanden
+# i en horizontal-stack.
+# Dette gentages for at lave en slider
+{% macro panel(row_of_entities) -%}
+        type: custom:vertical-stack-in-card
+        cards:
+          {% for entity_row in row_of_entities %}
+          - type: horizontal-stack
+            cards:
+            {% for entity in entity_row %}
+              {% if  entity | length %}
+              - type: entity-button
+                entity: {{ entity }}
+              {% else %}
+              - type: custom:gap-card
+              {% endif %}
+            {% endfor %}
+          - type: horizontal-stack
+            cards:
+            {% for entity in entity_row %}
+              {% if  entity | length %}
+              - type: custom:slider-entity-row
+                entity: {{ entity }}
+                full_row: true
+                hide_state: true
+             {% else %}
+              - type: custom:gap-card
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+{%- endmacro %}
+
+# Selve kortet
+type: custom:vertical-stack-in-card
+title: Belysning
+cards:
+
+#  - type: entities
+#    entities:
+#      - input_select.room_light
+
+  - type: custom:state-switch
+# input_select som indeholder vores rum
+    entity: input_select.room_light
+    default: Køkken
+    states:
+
+      Køkken:
+        {{ panel(Køkken) }}
+
+      Stuen:
+        {{ panel(Stuen) }}
+
+      Udenfor:
+        {{ panel(Udenfor) }}
+        

@@ -1,3 +1,4 @@
+  - {type: module, url: '/community_plugin/garbage-collection-card/garbage-collection-card.js'}
   - url: /local/mini-media-player-bundle.js?v=1.6.0
     type: module
   - url: /local/atomic_calendar.js
@@ -10,12 +11,14 @@
     type: module    
   - url: /local/community/text-element/text-element.js
     type: module    
-  - url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
-    type: module    
+#  - url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
+#    type: module    
   - url: /local/community/lovelace-slider-entity-row/slider-entity-row.js
     type: module    
   - url: /local/community/bar-card/bar-card.js
-    type: module    
+    type: module
+  - url: /local/community/button-card/button-card.js
+    type: module
   - url: /local/community/custom-header/custom-header.js
     type: module    
   - url: /local/community/love-lock-card/love-lock-card.js
@@ -34,6 +37,4 @@
     url: /local/community/lovelace-state-switch/state-switch.js
   - type: module
     url: /local/community/lovelace-gap-card/gap-card.js
-  - type: module
-    url: /local/community/garbage-collection-card/garbage-collection-card.js
     

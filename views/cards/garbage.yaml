@@ -1,0 +1,6 @@
+type: custom:garbage-collection-card
+entity: sensor.selective_waste
+icon_size: 35px
+icon_color: green
+hide_date: true
+title_size: 0px

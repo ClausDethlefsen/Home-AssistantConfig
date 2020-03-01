@@ -1,0 +1,34 @@
+# Turns on alarms on workdays and off on "not workdays"
+  - alias: 'Turn on alarms'
+    trigger:
+      platform: time
+      at: '04:00:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.sonos_alarm_39
+      - service: homeassistant.turn_on
+        entity_id: switch.sonos_alarm_41
+      - service: homeassistant.turn_on
+        entity_id: switch.sonos_alarm_18
+        
+  - alias: 'Turn off alarms'
+    trigger:
+      platform: time
+      at: '04:00:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.sonos_alarm_39
+      - service: homeassistant.turn_off
+        entity_id: switch.sonos_alarm_41
+      - service: homeassistant.turn_off
+        entity_id: switch.sonos_alarm_18
+        
+      

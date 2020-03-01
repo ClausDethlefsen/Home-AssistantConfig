@@ -1,0 +1,11 @@
+type: glance
+title: Belysning udenfor
+show_header_toggle: true
+entities:
+  - entity: light.udendorslamper
+  - entity: light.garage
+  - entity: light.indkorsel_plug
+  - entity: switch.sonoff_100069a6cc
+  - entity: switch.sonoff_10006a2cdd
+  - entity: switch.sonoff_1000a76e41
+

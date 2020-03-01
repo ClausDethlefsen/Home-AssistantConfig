@@ -1,0 +1,36 @@
+# Turns on lights at sunset 
+  - alias: 'Lys i glasskab i forgang'
+    trigger:
+      - platform: sun
+        event: sunset
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.sonoff_10006a2cdd
+
+# Turns off lights at 23:00
+  - alias: 'Sluk lys i glasskab i forgang'
+    trigger:
+      - platform: time
+        at: '23:00:00'
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.sonoff_10006a2cdd
+      
+# Turns on lights at 06:00
+  - alias: 'Lys i glasskab i forgang morgen'
+    trigger:
+      - platform: time
+        at: '06:00:00'
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.sonoff_10006a2cdd
+
+# Turns off lights at sunrise
+  - alias: 'Sluk lys i glasskab i forgang morgen'
+    trigger:
+      - platform: sun
+        event: sunrise
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.sonoff_10006a2cdd
+      

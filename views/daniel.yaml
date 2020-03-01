@@ -1,0 +1,23 @@
+# lovelace_gen
+
+title: Daniel
+icon: mdi:face-outline
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    column_num: 2
+    max_columns: 2
+    max_width: [50%,50%]
+    cards:
+      - !include cards/daniel_sonos.yaml
+      - type: entities
+        entities:
+          - switch.sonos_alarm_41
+      - break
+      - !include cards/daniel_birthday.yaml
+      - type: horizontal-stack
+        cards:
+          - !include cards/daniel_room.yaml
+          - !include cards/daniel_bamse.yaml
+      

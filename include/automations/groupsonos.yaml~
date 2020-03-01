@@ -1,0 +1,19 @@
+# on "workdays" and "no guests"
+  - alias: 'Gruppe køkken, stue, alrum, bad'
+    trigger:
+      - platform: time
+        at: "00:05:30"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
+    action:
+      - service: script.join
+        data:
+          master: media_player.kokken
+        entity_id:
+          - media_player.bad
+          - media_player.stue
+          - media_player.alrum
+
+

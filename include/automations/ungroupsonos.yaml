@@ -1,0 +1,15 @@
+# on "workdays" and "no guests"
+  - alias: 'Gruppe køkken, stue, alrum'
+    trigger:
+      - platform: time
+        at: "08:30:00"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
+    action:
+      - service: sonos.unjoin
+        entity_id: media_player.bad
+
+
+

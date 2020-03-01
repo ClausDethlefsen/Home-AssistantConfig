@@ -1,0 +1,27 @@
+- platform: rejseplanen
+  stop_id: '851804202'
+  name: Gistrup
+  direction:
+    - 'Væddeløbsbanen'
+    - 'Aalborg Busterminal'
+
+- platform: rejseplanen
+  stop_id: '851801206'
+  name: Aalborg
+  direction:
+    - 'Hadsund'
+    - 'Gistrup Skole'
+#  route:
+#    - 'Bus 2'
+#    - 'Bus 54'
+
+#- platform: rejseplanen
+#  stop_id: '851000202'
+#  name: Salling
+    
+#- platform: rejseplanen
+#  name: Centrum
+#  stop_id: '851804202'
+#  direction:
+#    - 'Nytorv (Østeraagade / Aalborg)'
+

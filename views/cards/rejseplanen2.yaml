@@ -1,0 +1,5 @@
+type: "custom:rejseplanen-card"
+entity: sensor.aalborg
+max_entries: 30 # Optional
+title: Bussen kører fra Nytorv om
+

@@ -1,0 +1,123 @@
+type: custom:mini-media-player
+entity: media_player.kokken
+artwork: full-cover
+hide:
+  shuffle: false
+source: icon
+shortcuts:
+  columns: 4
+  column_height: 40
+  buttons:
+    - image: /local/images/backgrounds/pinkfloyd.jpeg
+      type: playlist
+      id: Pink Floyd Discovery
+    - image: /local/images/backgrounds/drp3.jpeg
+      type: source
+      id: DR P3
+    - image: /local/images/backgrounds/anr.jpeg
+      type: source
+      id: ANR 87.6 (Top 40-pop)
+    - image: /local/images/backgrounds/acoustic.png
+      type: source
+      id: Akustiske tophits
+    - image: /local/images/backgrounds/dannebrog.png
+      type: source
+      id: Danske favoritter
+    - image: /local/images/backgrounds/danskrock.jpeg
+      type: source
+      id: Danske rock klassikere
+    - image: /local/images/backgrounds/ballads.jpeg
+      type: source
+      id: De største ballader
+    - image: /local/images/backgrounds/nyedanske.jpeg
+      type: source
+      id: Nye danske tracks
+    - image: /local/images/backgrounds/thirdear.png
+      type: source
+      id: Third Ear
+    - image: /local/images/backgrounds/detvitalerom.jpeg
+      type: source
+      id: Det, vi taler om
+    - image: /local/images/backgrounds/radionauterne.jpeg
+      type: source
+      id: For nysgerrige børn
+    - image: /local/images/backgrounds/danskgeopodcast.jpeg
+      type: source
+      id: Dansk Geopodcast
+    - image: /local/images/backgrounds/minds99.png
+      type: source
+      id: 'This is: The Minds of 99'
+    - image: /local/images/backgrounds/michaeljacksonlogo.jpeg
+      type: source
+      id: 'This Is Michael Jackson'
+    - image: /local/images/backgrounds/norahjones.jpeg
+      type: source
+      id: 'This Is Norah Jones'
+    - image: /local/images/backgrounds/pearljam.jpeg
+      type: source
+      id: 'This Is Pearl Jam'
+    - image: /local/images/backgrounds/familymix.png
+      type: source
+      id: Family Mix
+    - image: /local/images/backgrounds/dailymix1.jpeg
+      type: source
+      id: Daily Mix 1
+    - image: /local/images/backgrounds/dailymix2.jpeg
+      type: source
+      id: Daily Mix 2
+    - image: /local/images/backgrounds/dailymix3.jpeg
+      type: source
+      id: Daily Mix 3
+    - image: /local/images/backgrounds/dailymix4.jpeg
+      type: source
+      id: Daily Mix 4
+    - image: /local/images/backgrounds/dailymix5.jpeg
+      type: source
+      id: Daily Mix 5
+    - image: /local/images/backgrounds/dailymix6.jpeg
+      type: source
+      id: Daily Mix 6
+    - image: /local/images/backgrounds/discoverweekly.jpeg
+      type: source
+      id: Discover Weekly
+    - image: /local/images/backgrounds/releaseradar.jpeg
+      type: source
+      id: Release Radar
+    - image: /local/images/backgrounds/classicacoustic.png
+      type: source
+      id: Classic Acoustic
+      
+speaker_group:
+  platform: sonos
+  show_group_count: true
+  entities: !include playerlist.yaml
+
+
+#entity: media_player.spotify
+#type: custom:mini-media-player
+#artwork: cover
+#source: icon
+#hide:
+#  volume: true
+#shortcuts:
+#  columns: 4 # Max buttons per row
+#  buttons:
+#    # Start predefined playlist
+#    - icon: mdi:cat
+#      type: playlist
+#      id: spotify:user:spotify:playlist:37i9dQZF1DZ06evO2O09Hg
+#    # Change the source to bathroom
+#    - icon: mdi:dog
+#      type: source
+#      id: Bathroom
+#    # Trigger script
+#    - icon: mdi:dog
+#      type: script
+#      id: script.script_name
+#    # Trigger custom service
+#    - name: Crooners Playlist
+#      type: service
+#      id: spotcast.start
+#      data:
+#        entity_id: media_player.googlehome1234
+#        uri: spotify:playlist:37i9dQZF1DX9XiAcF7t1s5

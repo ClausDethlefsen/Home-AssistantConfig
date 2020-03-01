@@ -1,0 +1,24 @@
+type: glance
+columns: 4
+show_name: false
+entities:
+  - person.claus_dethlefsen
+  - person.anne_schusler_dethlefsen
+  - person.andreas_schusler_dethlefsen
+  - person.daniel_schusler_dethlefsen
+
+
+
+
+# type: entities
+# entities:
+#   - person.claus_dethlefsen
+#   - person.anne_schusler_dethlefsen
+#   - person.andreas_schusler_dethlefsen
+#   - person.daniel_schusler_dethlefsen
+# show_empty: false
+# card:
+#   title: Familien
+#   type: glance
+#   show_state: true
+#   show_name: false

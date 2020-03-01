@@ -1,0 +1,19 @@
+- platform: template
+  sensors:
+    dage_til_jul:
+      friendly_name: "Dage til jul"
+#      unit_of_measurement: "dage"
+      value_template: >-
+        {{ states('sensor.nedtaelling_juleaften') }}
+
+    dage_til_nytaar:
+      friendly_name: "Dage til nytår"
+#      unit_of_measurement: "dage"
+      value_template: >-
+        {{ states('sensor.nedtaelling_nytaar') }}
+
+    dage_til_ferie:
+      friendly_name: "Dage til ferie"
+#      unit_of_measurement: "dage"
+      value_template: >-
+        {{ states('sensor.nedtaelling_ferie') }}

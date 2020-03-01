@@ -1,0 +1,14 @@
+- platform: group
+  name: Sovevaerelse_loft
+  entities:
+    - light.sov1
+    - light.sov2
+
+- platform: group
+  name: Soveværelse
+  entities:
+    - light.sov1
+    - light.sov2
+    - light.claus
+    - light.anne
+    
