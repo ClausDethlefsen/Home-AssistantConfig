@@ -144,9 +144,9 @@ speedtestdotnet:
 #  - platform: hunterdouglas_powerview
 #    address: !secret powerview_ip
 
-scene:
-  platform: hunterdouglas_powerview
-  address: !secret powerview_ip  
+#scene:
+#  platform: hunterdouglas_powerview
+#  address: !secret powerview_ip  
 
 sonoff:
   username: !secret sonoff_username
