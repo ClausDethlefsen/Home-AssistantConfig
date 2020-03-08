@@ -56,13 +56,13 @@
         data:
           entity_id: light.indkorsel_plug
 
-  - alias: 'Sluk lys indkørsel 5 min efter bevægelse'
+  - alias: 'Sluk lys indkørsel 15 min efter bevægelse'
     trigger:
       platform: state
       entity_id: binary_sensor.indkorsel_sensor_motion
       to: 'off'
       for:
-        minutes: 5
+        minutes: 15
     action:
       service: light.turn_off
       data:

@@ -2,3 +2,4 @@
     username: !secret tile_username 
     password: !secret tile_password
 
+  - platform: huesensor

@@ -1,4 +1,5 @@
-  - {type: module, url: '/community_plugin/garbage-collection-card/garbage-collection-card.js'}
+  - url: /local/community/garbage-collection-card/garbage-collection-card.js
+    type: module
   - url: /local/mini-media-player-bundle.js?v=1.6.0
     type: module
   - url: /local/atomic_calendar.js

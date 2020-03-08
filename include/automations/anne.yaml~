@@ -1,0 +1,11 @@
+  - alias: "Play Mix 1 when pressing 1 on Annes remote"
+    trigger:
+      - platform: state 
+        entity_id: remote.stue_switch
+        to: '1_click'
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: "DR P3"
+

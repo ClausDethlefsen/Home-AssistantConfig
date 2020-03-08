@@ -2,7 +2,10 @@
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
-        to: '1_click_up'
+    condition:
+      - condition: state
+        entity_id: remote.stue_switch
+        state: "1_click"      
     action:
       - service: media_player.select_source
         data:
@@ -13,7 +16,10 @@
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
-        to: '4_click'
+    condition:
+      - condition: state
+        entity_id: remote.stue_switch
+        state: "4_click"      
     action:
       - service: media_player.media_play_pause
         data:
@@ -23,7 +29,10 @@
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
-        to: '2_click_up'
+    condition:
+      - condition: state
+        entity_id: remote.stue_switch
+        state: "2_click"      
     action:
       - service: media_player.volume_up
         data:
@@ -33,7 +42,10 @@
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
-        to: '3_click_up'
+    condition:
+      - condition: state
+        entity_id: remote.stue_switch
+        state: "3_click"      
     action:
       - service: media_player.volume_down
         data:

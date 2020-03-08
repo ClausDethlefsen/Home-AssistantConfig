@@ -7,10 +7,12 @@ sensors:
 #    include_dates:
 #    - '2019-12-27'
     move_country_holidays: DK
+    icon_normal: mdi:trash-can
   - name: selective_waste
     frequency: "every-n-weeks"
     period: 52
     collection_days: "fri"
+    icon_normal: mdi:recycle    
     include_dates:
     - '2020-02-13'
     - '2020-03-12'

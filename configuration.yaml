@@ -3,6 +3,15 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+recorder:
+  exclude:
+    domains:
+      - automation
+      - media_player
+    entities:
+      - sun.sun
+      - sensor.date
+  
 homeassistant:
   name: !secret name 
   latitude: !secret homeassistant_latitude
@@ -53,12 +62,12 @@ ifttt:
 ## APPLE TV
 ## https://www.home-assistant.io/components/apple_tv/
 
-#apple_tv:
-#  - host: !secret apple_tv_ip
-#    login_id: !secret apple_tv_login_id
-#    name: Stue
-#    start_off: true
-#    credentials: !secret apple_tv_credentials
+apple_tv:
+  - host: !secret apple_tv_ip
+    login_id: !secret apple_tv_login_id
+    name: Stue
+    start_off: true
+    credentials: !secret apple_tv_credentials
 
   
 ## --------------------------------------------------
@@ -126,6 +135,10 @@ timer:
   indkorsel:
     duration: '00:10:00'
 
+## hue "advanced sensors" to control dimmer swithces etc. (HACS)
+remote:
+  - platform: huesensor
+
     
 #######################################################################################
 # Speedtest.Net
@@ -143,6 +156,7 @@ speedtestdotnet:
 #scene:
 #  - platform: hunterdouglas_powerview
 #    address: !secret powerview_ip
+
 
 #scene:
 #  platform: hunterdouglas_powerview
@@ -208,6 +222,6 @@ hpprinter:
     - host: 192.168.0.41
       name: HP 081A4C
 
-#scene:
+scene:
 #scene 2: !include scenes.yaml
 
