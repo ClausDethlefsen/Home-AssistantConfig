@@ -1,0 +1,41 @@
+  - alias: "Play radio when pressing 1 on Annes remote"
+    trigger:
+      - platform: state 
+        entity_id: remote.stue_switch
+        to: '1_click_up'
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: "DR P3"
+
+  - alias: "Pause when pressing 4 on Annes remote"
+    trigger:
+      - platform: state 
+        entity_id: remote.stue_switch
+        to: '4_click'
+    action:
+      - service: media_player.media_play_pause
+        data:
+          entity_id: media_player.kokken
+          
+  - alias: "Volume up when pressing 2 on Annes remote"
+    trigger:
+      - platform: state 
+        entity_id: remote.stue_switch
+        to: '2_click_up'
+    action:
+      - service: media_player.volume_up
+        data:
+          entity_id: media_player.kokken
+
+  - alias: "Volume down when pressing 3 on Annes remote"
+    trigger:
+      - platform: state 
+        entity_id: remote.stue_switch
+        to: '3_click_up'
+    action:
+      - service: media_player.volume_down
+        data:
+          entity_id: media_player.kokken
+          
