@@ -37,12 +37,40 @@ cards:
         title: Lys
         type: entities
       - break
-      - entities:
-          - entity: cover.anne
-            name: Port
-        title: Garage
-        show_header_toggle: false
-        type: entities
+#      - entities:
+#          - entity: cover.anne
+#            name: Port
+#        title: Garage
+#        show_header_toggle: false
+#        type: entities
+      - type: 'custom:button-card'
+        color: 'rgb(29, 30, 32)'
+        color_type: card
+        entity: cover.anne
+        hold_action:
+          action: call-service
+          service: cover.toggle
+#          service: cover.open_cover
+          service_data:
+            entity_id: cover.anne
+        icon: 'mdi:garage-variant'
+        name: Garage 
+        show_state: true
+        state:
+          - color: 'rgba(37,129,172'
+            icon: 'mdi:garage-open-variant'
+            value: open
+            styles:
+              name:
+                - font-weight: bold
+                - font-size: 12px
+                - letter-spacing: 0.01em
+        tap_action:
+          action: call-service
+#          service: cover.close_cover
+          service: cover.toggle
+          service_data:
+            entity_id: cover.anne
       - entities:
           - entity: calendar.madplan
         title: "Madplan"
@@ -86,3 +114,4 @@ cards:
           - media_player.samsung_ue32j6200
           - media_player.samsung_ue32k5505
         type: glance
+

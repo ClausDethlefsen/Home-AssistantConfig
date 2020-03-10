@@ -1,25 +1,50 @@
+## Use a Philips Hue Dimmer remote to control Sonos player
+## Top button cycles through the 'sonos favourites' defined in
+## the Robmarkcole custom component is needed: https://github.com/robmarkcole/Hue-sensors-HASS
+## the sonos_source "input_select:"
+## The automations in input_select_sonos makes the source change.
+## second and third button controls volume (steps of 5%)
+## fourth button is pause/play
+
+## I was not sure how to get the best responsive-ness using either 1_click or 1_click_up
+## Still experimenting. 
+
   - alias: "Play radio when pressing 1 on Annes remote"
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
     condition:
-      - condition: state
-        entity_id: remote.stue_switch
-        state: "1_click"      
+#      condition: or
+#      conditions:
+#        - condition: state
+#          entity_id: remote.stue_switch
+#          state: "1_click"
+        - condition: state
+          entity_id: remote.stue_switch
+          state: "1_click_up"
     action:
-      - service: media_player.select_source
-        data:
-          entity_id: media_player.kokken
-          source: "DR P3"
+#      data:
+        - service: input_select.select_next
+          data:
+            entity_id: input_select.sonos_source
+#        - service: media_player.select_source
+#          data:
+#            entity_id: media_player.kokken
+#            source: "DR P3"
 
   - alias: "Pause when pressing 4 on Annes remote"
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
     condition:
-      - condition: state
-        entity_id: remote.stue_switch
-        state: "4_click"      
+#      condition: or
+#      conditions:
+#        - condition: state
+#          entity_id: remote.stue_switch
+#          state: "4_click"
+        - condition: state
+          entity_id: remote.stue_switch
+          state: "4_click_up"
     action:
       - service: media_player.media_play_pause
         data:
@@ -30,24 +55,37 @@
       - platform: state 
         entity_id: remote.stue_switch
     condition:
-      - condition: state
-        entity_id: remote.stue_switch
-        state: "2_click"      
+#      condition: or
+#      conditions:
+#        - condition: state
+#          entity_id: remote.stue_switch
+#          state: "2_click_up"      
+        - condition: state
+          entity_id: remote.stue_switch
+          state: "2_click"      
     action:
-      - service: media_player.volume_up
-        data:
-          entity_id: media_player.kokken
+      service: media_player.volume_set
+      entity_id: media_player.kokken
+      data_template:
+        volume_level: "{{ state_attr('media_player.kokken', 'volume_level') | float + 0.05 }}"
+      
 
   - alias: "Volume down when pressing 3 on Annes remote"
     trigger:
       - platform: state 
         entity_id: remote.stue_switch
     condition:
-      - condition: state
-        entity_id: remote.stue_switch
-        state: "3_click"      
+#      condition: or
+#      conditions:
+#        - condition: state
+#          entity_id: remote.stue_switch
+#          state: "3_click_up"      
+        - condition: state
+          entity_id: remote.stue_switch
+          state: "3_click"      
     action:
-      - service: media_player.volume_down
-        data:
-          entity_id: media_player.kokken
+      service: media_player.volume_set
+      entity_id: media_player.kokken
+      data_template:
+        volume_level: "{{ state_attr('media_player.kokken', 'volume_level') | float - 0.05 }}"
           

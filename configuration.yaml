@@ -40,7 +40,9 @@ ios:
 
 input_boolean:
   first_run:
-      
+
+# read this:
+# https://community.home-assistant.io/t/updating-duckdns-domain-failed/135623
 duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_access_token
