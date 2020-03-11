@@ -11,5 +11,17 @@
       - service: sonos.unjoin
         entity_id: media_player.bad
 
+  - alias: 'Gruppe køkken uden stue, alrum'
+    trigger:
+      - platform: time
+        at: "17:00:00"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
+    action:
+      - service: sonos.unjoin
+        entity_id: media_player.kokken
+        
 
 
