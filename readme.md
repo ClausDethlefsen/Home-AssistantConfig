@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig.svg?branch=master)](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig)
 
-*** Home automation
+# Home automation
 
 **Devices I'm using:**
 * Homeassistant runs on a Mac Mini (2011'ish) running MacOs High Sierra
