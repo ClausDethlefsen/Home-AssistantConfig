@@ -25,4 +25,8 @@
 * Plex
 * A nice [mini-media-player](mini-media-player) for controlling Sonos
 
+## screenshots
+!(screenshots/main.jpg)
+!(screenshots/player.jpg)
+
 
