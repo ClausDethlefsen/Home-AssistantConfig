@@ -63,6 +63,14 @@
       to: 'off'
       for:
         minutes: 15
+    condition:
+      - condition: time
+        after: '22:00:00'
+      - condition: time
+        before: '05:54:00'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
     action:
       service: light.turn_off
       data:

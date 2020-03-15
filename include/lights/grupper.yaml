@@ -7,12 +7,15 @@
     - light.sovevaerelse
     - light.gang
     - light.forgang
+    - light.sonoff_10006a2cdd
     
 - platform: group
   name: Udendørslamper
   entities:
     - light.garage
     - light.indkoersel_plug
+    - light.sonoff_100069a6cc
+    - light.sonoff_1000a76e41    
 #    - switch.sonoff_100069a6cc
 #    - switch.sonoff_10006a2cdd
 #    - switch.sonoff_1000a76e41

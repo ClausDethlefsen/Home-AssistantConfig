@@ -16,6 +16,12 @@ custom_header:
 title: anneclaus
 resources: !include_dir_merge_list include/resources/
 
+light_profiles:
+  bright: '0.457,0.408,254'
+  dimmed: '0.457,0.408,77'
+  nightlight: '0.509,0.411,1'
+
+
 views:
   - !include views/main.yaml
   - !include views/rooms.yaml

@@ -11,7 +11,9 @@
   - url: /local/community/lovelace-layout-card/layout-card.js
     type: module    
   - url: /local/community/text-element/text-element.js
-    type: module    
+    type: module
+  - type: module
+    url: /local/community/lovelace-light-with-profiles/light-with-profiles.js    
 #  - url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
 #    type: module    
   - url: /local/community/lovelace-slider-entity-row/slider-entity-row.js

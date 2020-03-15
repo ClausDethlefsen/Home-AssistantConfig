@@ -3,6 +3,10 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+discovery:
+  ignore:
+    - philips_hue
+  
 recorder:
   exclude:
     domains:
@@ -36,7 +40,7 @@ frontend:
 
 ios:
 
-#mobile_app:
+mobile_app:
 
 input_boolean:
   first_run:
@@ -167,6 +171,7 @@ speedtestdotnet:
 sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
+  default_class: light  
 
 # Example configuration.yaml entry
 spotify:

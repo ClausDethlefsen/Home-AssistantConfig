@@ -4,6 +4,9 @@
       entity_id: binary_sensor.indkorsel_sensor_motion
       to: 'on'  
     action:
+    - service: notify.mobile_app_claus_s_iphone_8
+      data:
+        message: "Der er nogen i indkørslen"
     - service: scene.create
       data:
         scene_id: before
