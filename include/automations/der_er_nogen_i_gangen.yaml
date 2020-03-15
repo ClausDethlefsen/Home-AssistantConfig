@@ -7,6 +7,12 @@
     - service: notify.mobile_app_claus_s_iphone_8
       data:
         message: "Der er nogen i indkørslen"
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.alrum
+        volume: 0.4
+        delay: '00:00:05'
+        message: 'Der er nogen i indkørslen'
     - service: scene.create
       data:
         scene_id: before
