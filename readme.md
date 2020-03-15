@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig.svg?branch=master)](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig)
 
+[Buy me a coffee](https://www.buymeacoffee.com/Bwl9psu)
+
 # Home automation
 
 **Devices I'm using:**
