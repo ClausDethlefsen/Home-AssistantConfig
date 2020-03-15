@@ -1,11 +1,13 @@
 [![Build Status](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig.svg?branch=master)](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig)
 
+<a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/commits/master"><img src="https://img.shields.io/github/last-commit/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>
+
 [Buy me a coffee](https://www.buymeacoffee.com/Bwl9psu)
 
 # Home automation
 
 **Devices I'm using:**
-* Homeassistant runs on a Mac Mini (2011'ish) running MacOs High Sierra
+* Homeassistant Version 0.106.6 runs on a Mac Mini (2011'ish) running MacOs High Sierra
   + Installed [Python version 3.8.1](https://www.python.org/downloads/mac-osx/)
   + Followed the instructions to [install HomeAssistant on MacOs](https://www.home-assistant.io/docs/installation/macos/)
   + To upgrade HomeAssistant, I follow [these instructions](https://www.home-assistant.io/docs/installation/virtualenv/#upgrading-home-assistant)
