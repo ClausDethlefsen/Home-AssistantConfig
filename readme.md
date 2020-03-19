@@ -6,8 +6,10 @@
 
 # Home automation
 
+After upgrading to 0.107.1, some picture-entity cards broke. And something broke with the Hue dimmer control of Sonos (Huesensor custom element, seems to be names hue remote now). 
+
 **Devices I'm using:**
-* Homeassistant Version 0.106.6 runs on a Mac Mini (2011'ish) running MacOs High Sierra
+* Homeassistant Version 0.107.1 runs on a Mac Mini (2011'ish) running MacOs High Sierra
   + Installed [Python version 3.8.1](https://www.python.org/downloads/mac-osx/)
   + Followed the instructions to [install HomeAssistant on MacOs](https://www.home-assistant.io/docs/installation/macos/)
   + To upgrade HomeAssistant, I follow [these instructions](https://www.home-assistant.io/docs/installation/virtualenv/#upgrading-home-assistant)
