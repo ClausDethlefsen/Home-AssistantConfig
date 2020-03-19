@@ -6,7 +6,7 @@
 
 # Home automation
 
-After upgrading to 0.107.1, some picture-entity cards broke.  
+After upgrading to 0.107.1, some picture-entity cards [broke](https://github.com/home-assistant/frontend/issues/4984).  
 
 **Devices I'm using:**
 * Homeassistant Version 0.107.1 runs on a Mac Mini (2011'ish) running MacOs High Sierra
