@@ -142,9 +142,11 @@ timer:
     duration: '00:10:00'
 
 ## hue "advanced sensors" to control dimmer swithces etc. (HACS)
-remote:
-  - platform: huesensor
+#remote:
+#  - platform: huesensor
 
+remote:
+  - platform: hueremote
     
 #######################################################################################
 # Speedtest.Net
