@@ -2,7 +2,7 @@ type: picture-elements
 image: /local/images/backgrounds/ferie.jpeg
 panel: true
 elements:
-  - type: custom:text-element
+  - type: "custom:text-element"
     text: "Dage til ferie"
     style:
       top: 15%

@@ -4,11 +4,13 @@ title: Video
 icon: mdi:video
 panel: true
 cards:
-  - type: custom:layout-card
-    layout: vertical
-    column_num: 2
-    max_columns: 2
-    max_width: [50%,50%]
+#  - type: custom:layout-card
+#    layout: vertical
+#    column_num: 2
+#    max_columns: 2
+#    max_width: [50%,50%]
+  - type: horizontal-stack
+    title: Camera
     cards:
       - !include cards/camera.yaml
 
