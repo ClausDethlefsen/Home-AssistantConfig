@@ -1,0 +1,38 @@
+  - alias: 'Der er nogen i indkørslen'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.indkorsel_sensor_motion
+      to: 'on'  
+    action:
+    - service: notify.mobile_app_claus_s_iphone_8
+      data:
+        message: "Der er nogen i indkørslen"
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.alrum
+        volume: 0.4
+        delay: '00:00:05'
+        message: 'Der er nogen i indkørslen'
+    - service: scene.create
+      data:
+        scene_id: before
+        snapshot_entities:
+        - light.stol
+    - service: light.turn_on
+      data:
+        entity_id: light.stol
+        brightness: 255
+        rgb_color: [255, 0, 0]
+        flash: long
+    - delay: 2
+    - service: scene.turn_on
+      entity_id: scene.before
+
+
+      
+#      - service: script.sonos_say
+#        data:
+#          sonos_entity: media_player.kontor
+#          volume: 0.7
+#          message: 'Hej Claus er det dig der går i gangen?'
+#          delay: '00:00:05'

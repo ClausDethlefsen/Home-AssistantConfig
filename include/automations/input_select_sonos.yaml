@@ -1,0 +1,88 @@
+  - alias: "Input_select DR P3"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'DR P3'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'DR P3'
+  - alias: "Input_select ANR"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'ANR 87.6 (Top 40-pop)'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'ANR 87.6 (Top 40-pop)'
+  - alias: "Input_select Akustiske tophits"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'Akustiske tophits'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'Akustiske tophits'
+  - alias: "Input_select Danske favoritter"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'Danske favoritter'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'Danske favoritter'
+  - alias: "Input_select Danske rock klassikere"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'Danske rock klassikere'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'Danske rock klassikere'
+  - alias: "Input_select Minds of 99"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'This is: The Minds of 99'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'This is: The Minds of 99'
+  - alias: "Input_select Family Mix"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'Family Mix'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'Family Mix'
+  - alias: "Input_select Daily Mix 1"
+    trigger:
+    - entity_id: input_select.sonos_source
+      platform: state
+      to: 'Daily Mix 1'
+#    condition: []
+    action:
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.kokken
+          source: 'Daily Mix 1'
