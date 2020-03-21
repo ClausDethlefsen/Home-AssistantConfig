@@ -19,11 +19,25 @@
 #!custom_components/lovelace_gen/__init__.py
 #!custom_components/lovelace_gen/__pycache__
 #!custom_components/lovelace_gen/manifest.json
-!include/*
+!include/*.yaml
+!include/automations/*.yaml
+!include/binary_sensors/*.yaml
+!include/groups/*.yaml
+!include/input/*.yaml
+!include/input/select/*.yaml
+!include/input/datetime/*.yaml
+!include/input/number/*.yaml
+!include/lights/*.yaml
+!include/panels/*.yaml
+!include/resources/*.yaml
+!include/scripts/*.yaml
+!include/sensors/*.yaml
+!include/shell_commands/*.yaml
+!include/switches/*.yaml
 !themes/*
 !python_scripts/*
-
-
+!view/*.yaml
+!view/cards/*.yaml
 
 # Ignore folders.
 .storage

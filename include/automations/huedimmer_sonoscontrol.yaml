@@ -62,7 +62,7 @@
 #          state: "2_click_up"      
         - condition: state
           entity_id: remote.stue_switch_4
-          state: "2_click"      
+          state: "2_click_up"      
     action:
       service: media_player.volume_set
       entity_id: media_player.kokken
@@ -82,7 +82,7 @@
 #          state: "3_click_up"      
         - condition: state
           entity_id: remote.stue_switch_4
-          state: "3_click"      
+          state: "3_click_up"      
     action:
       service: media_player.volume_set
       entity_id: media_player.kokken
