@@ -21,17 +21,17 @@ After upgrading to 0.107.1, some picture-entity cards [broke](https://github.com
 * Using [Hue Dimmer for controlling Sonos](https://github.com/ClausDethlefsen/Home-AssistantConfig/blob/master/include/automations/anne.yaml) based on the [Hue remote](https://github.com/robmarkcole/Hue-remotes-HASS) add-on.
 * [Sonoff Basic - not flashed](https://www.youtube.com/watch?v=DsTqOlrQQ1k)
 * Denon AVR receiver and made and automation that switches the receiver on/off when Sonos plays
-* Some Samsung TVs
+* Some Samsung TVs. I can see their status, but not control them.
 * Netatmo weather station with some extra indoor modules and the rain module
 * Gogogate2 for the garage cover
-* A number of iphones
-* Tile
+* A number of iphones and ipads
+* Tile for tracking keys
 * synology NAS
 * Apple TV4
 * Hunter-Douglas curtains (currently [not working](https://github.com/home-assistant/core/issues/32324))
 * Foscam camera
 * Plex
-* A nice [mini-media-player](mini-media-player) for controlling Sonos
+* A nice [mini-media-player](mini-media-player) for controlling Sonos (thanks to HeartKingz)
 
 ## screenshots
 ![Main window](screenshots/main.jpg)
