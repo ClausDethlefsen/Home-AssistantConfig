@@ -6,7 +6,6 @@
 
 # Home automation
 
-After upgrading to 0.107.1, some picture-entity cards [broke](https://github.com/home-assistant/frontend/issues/4984). Clearing cache in the browser and updating the HACS modules made them work again. 
 
 **Devices I'm using:**
 * Homeassistant Version 0.107.5 runs on a Mac Mini (2011'ish) running MacOs High Sierra
