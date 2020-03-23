@@ -3,10 +3,11 @@ sensors:
     frequency: "odd-weeks"
     collection_days:
     - mon
-#    exclude_dates:
-#    include_dates:
-#    - '2019-12-27'
-    move_country_holidays: DK
+    exclude_dates:
+    - '2020-04-06'      
+    include_dates:
+    - '2020-04-04'
+#    move_country_holidays: DK
     icon_normal: mdi:trash-can
   - name: selective_waste
     frequency: "every-n-weeks"
