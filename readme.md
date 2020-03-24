@@ -29,7 +29,7 @@
 * Apple TV4
 * Hunter-Douglas curtains (currently [not working](https://github.com/home-assistant/core/issues/32324))
 * Foscam camera
-* Plex
+* Plex 
 * A nice [mini-media-player](mini-media-player) for controlling Sonos (thanks to HeartKingz)
 
 ## screenshots
