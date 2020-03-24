@@ -22,7 +22,8 @@
 
       - service: scene.turn_on
         data_template:
-          entity_id: >
+          entity_id:
+            >
             scene.month_
             {%- if now().strftime("%m%d")|int == 101 -%}
             new_years_day
@@ -35,6 +36,9 @@
             pi
             {%- elif now().strftime("%m%d")|int >= 315
             and now().strftime("%m%d")|int <= 317-%}
+            st_patty
+            {%- elif now().strftime("%m%d")|int >= 324
+            and now().strftime("%m%d")|int <= 330-%}
             st_patty
             {%- elif now().strftime("%m%d")|int >= 404
             and now().strftime("%m%d")|int <= 413-%}

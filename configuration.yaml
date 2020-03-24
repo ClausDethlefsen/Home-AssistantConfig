@@ -161,9 +161,6 @@ speedtestdotnet:
     - upload
 #######################################################################################
 
-#scene:
-#  - platform: hunterdouglas_powerview
-#    address: !secret powerview_ip
 
 
 #scene:
@@ -220,7 +217,8 @@ light: !include_dir_merge_list include/lights/
 panel_iframe: !include_dir_merge_named include/panels/
 script: !include_dir_merge_named include/scripts/
 shell_command: !include_dir_merge_named include/shell_commands/
-scene: !include_dir_merge_named include/scene/
+scene: !include scenes.yaml
+scene old: !include_dir_merge_named include/scene/
 #switch: !include_dir_merge_list include/switches/
 
 # PYTHON
