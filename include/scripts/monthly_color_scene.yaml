@@ -24,9 +24,7 @@
         data_template:
           entity_id: >
             scene.month_
-            {%- if states.sensor.flag.state == "True" -%}
-            RWB
-            {%- elif now().strftime("%m%d")|int == 101 -%}
+            {%- if now().strftime("%m%d")|int == 101 -%}
             new_years_day
             {%- elif now().strftime("%m%d")|int >= 210
             and now().strftime("%m%d")|int <= 214-%}
@@ -50,13 +48,13 @@
             {%- elif now().strftime("%m%d")|int == 605 -%}
             fathers_day
             {%- elif now().strftime("%m%d")|int >= 1001
-            and now().strftime("%m%d")|int <= 1031-%}
+            and now().strftime("%m%d")|int <= 1031 -%}
             halloween
             {%- elif now().strftime("%m%d")|int >= 1128
-            and now().strftime("%m%d")|int <= 1130-%}
+            and now().strftime("%m%d")|int <= 1130 -%}
             thanksgiving
             {%- elif now().strftime("%m%d")|int >= 1125
-            and now().strftime("%m%d")|int <= 1230-%}
+            and now().strftime("%m%d")|int <= 1230 -%}
             christmas
             {%- elif now().strftime("%m%d")|int == 1231 -%}
             new_years_day
