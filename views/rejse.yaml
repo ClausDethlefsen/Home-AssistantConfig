@@ -81,7 +81,7 @@ cards:
           - entity: sensor.worldwide_coronavirus_deaths
             icon: 'mdi:emoticon-dead-outline'
             name: Deaths      
-      - !include cards/benzin.yaml
+#      - !include cards/benzin.yaml
       - !include cards/rejseplanen.yaml
       - !include cards/rejseplanen2.yaml
 #      - !include cards/rejseplanen3.yaml        
