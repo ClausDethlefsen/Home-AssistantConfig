@@ -21,6 +21,10 @@
     trigger:
       - platform: time
         at: '06:00:00'
+    condition: 
+      - condition: state  # from sunset until sunrise
+        entity_id: sun.sun
+        state: 'below_horizon'
     action:
       service: homeassistant.turn_on
       entity_id: light.sonoff_10006a2cdd
