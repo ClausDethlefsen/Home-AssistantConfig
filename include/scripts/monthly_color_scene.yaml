@@ -14,57 +14,56 @@
 # Color help - http://www.esbnyc.com/explore/tower-lights/calendar
 ######################################################################################################
 
-  monthly_color_scene:
-    sequence:
-      - condition: state
-        entity_id: sun.sun
-        state: 'below_horizon'
+monthly_color_scene:
+  sequence:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
 
-      - service: scene.turn_on
-        data_template:
-          entity_id:
-            >
-            scene.month_
-            {%- if now().strftime("%m%d")|int == 101 -%}
-            new_years_day
-            {%- elif now().strftime("%m%d")|int >= 210
-            and now().strftime("%m%d")|int <= 214-%}
-            valentine
-            {%- elif now().strftime("%m%d")|int == 305 -%}
-            mardi_gras
-            {%- elif now().strftime("%m%d")|int == 314 -%}
-            pi
-            {%- elif now().strftime("%m%d")|int >= 315
-            and now().strftime("%m%d")|int <= 317-%}
-            st_patty
-            {%- elif now().strftime("%m%d")|int >= 324
-            and now().strftime("%m%d")|int <= 330-%}
-            st_patty
-            {%- elif now().strftime("%m%d")|int >= 404
-            and now().strftime("%m%d")|int <= 413-%}
-            easter
-            {%- elif now().strftime("%m%d")|int == 504 -%}
-            starwars
-            {%- elif now().strftime("%m%d")|int == 505 -%}
-            cinco_de_mayo
-            {%- elif now().strftime("%m%d")|int == 510 -%}
-            mothers_day
-            {%- elif now().strftime("%m%d")|int == 605 -%}
-            fathers_day
-            {%- elif now().strftime("%m%d")|int >= 1001
-            and now().strftime("%m%d")|int <= 1031 -%}
-            halloween
-            {%- elif now().strftime("%m%d")|int >= 1128
-            and now().strftime("%m%d")|int <= 1130 -%}
-            thanksgiving
-            {%- elif now().strftime("%m%d")|int >= 1125
-            and now().strftime("%m%d")|int <= 1230 -%}
-            christmas
-            {%- elif now().strftime("%m%d")|int == 1231 -%}
-            new_years_day
-            {%- else -%}
-            standard
-            {%- endif -%}_colors
+    - service: scene.turn_on
+      data_template:
+        entity_id: >
+          scene.month_
+          {%- if now().strftime("%m%d")|int == 101 -%}
+          new_years_day
+          {%- elif now().strftime("%m%d")|int >= 210
+          and now().strftime("%m%d")|int <= 214 -%}
+          valentine
+          {%- elif now().strftime("%m%d")|int == 305 -%}
+          mardi_gras
+          {%- elif now().strftime("%m%d")|int == 314 -%}
+          pi
+          {%- elif now().strftime("%m%d")|int >= 315
+          and now().strftime("%m%d")|int <= 317 -%}
+          st_patty
+          {%- elif now().strftime("%m%d")|int >= 324
+          and now().strftime("%m%d")|int <= 330 -%}
+          st_patty
+          {%- elif now().strftime("%m%d")|int >= 401
+          and now().strftime("%m%d")|int <= 413 -%}
+          easter
+          {%- elif now().strftime("%m%d")|int == 504 -%}
+          starwars
+          {%- elif now().strftime("%m%d")|int == 505 -%}
+          cinco_de_mayo
+          {%- elif now().strftime("%m%d")|int == 510 -%}
+          mothers_day
+          {%- elif now().strftime("%m%d")|int == 605 -%}
+          fathers_day
+          {%- elif now().strftime("%m%d")|int >= 1001
+          and now().strftime("%m%d")|int <= 1031 -%}
+          halloween
+          {%- elif now().strftime("%m%d")|int >= 1128
+          and now().strftime("%m%d")|int <= 1130 -%}
+          thanksgiving
+          {%- elif now().strftime("%m%d")|int >= 1125
+          and now().strftime("%m%d")|int <= 1230 -%}
+          christmas
+          {%- elif now().strftime("%m%d")|int == 1231 -%}
+          new_years_day
+          {%- else -%}
+          standard
+          {%- endif -%}_colors
 
 
 # http://www.calendar-365.com/holidays/2020.html
