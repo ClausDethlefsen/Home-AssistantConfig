@@ -27,11 +27,8 @@ cards:
         cards: 
           - !include cards/garbage.yaml
           - !include cards/garbage2.yaml
+      - !include cards/lights_sleep.yaml
       - entities:
-          - entity: light.claus
-          - entity: light.anne
-          - entity: light.raket            
-          - entity: light.alle_lys
           - entity: light.indendorslamper                        
           - entity: light.udendorslamper            
         show_header_toggle: true
@@ -45,6 +42,7 @@ cards:
 #        show_header_toggle: false
 #        type: entities
       - !include cards/cover.yaml
+      - !include cards/lights.yaml      
       - entities:
           - entity: calendar.madplan
         title: "Madplan"

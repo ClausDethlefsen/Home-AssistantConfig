@@ -11,7 +11,7 @@
   - alias: 'Sluk lys i glasskab i forgang'
     trigger:
       - platform: time
-        at: '23:00:00'
+        at: '22:00:00'
     action:
       service: homeassistant.turn_off
       entity_id: light.sonoff_10006a2cdd

@@ -28,6 +28,7 @@
       min_mireds: 153
       state: 'on'
       supported_features: 43
+
 - name: month_standard_colors
   entities:
     light.indendorslamper:
