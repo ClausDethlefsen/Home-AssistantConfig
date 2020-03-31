@@ -163,7 +163,7 @@ speedtestdotnet:
 
 
 
-#scene:
+#scene powerview:
 #  platform: hunterdouglas_powerview
 #  address: !secret powerview_ip  
 

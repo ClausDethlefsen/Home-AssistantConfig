@@ -29,8 +29,10 @@
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.first_run
+      - service: script.monthly_color_scene
       - service: light.turn_on
         entity_id:
           - light.stue
           - light.stol
+          - light.raket          
 

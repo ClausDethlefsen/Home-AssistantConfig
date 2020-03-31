@@ -8,12 +8,13 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: "-00:20:00"
+#      offset: "-00:20:00"
   action:
-    - delay: '00:{{ (range(1, 20)|random|int) }}:00'
+#    - delay: '00:{{ (range(1, 20)|random|int) }}:00'
     - service: script.monthly_color_scene
     - service: light.turn_on
       entity_id:
         - light.stue
+        - light.raket        
         - light.stol
         
