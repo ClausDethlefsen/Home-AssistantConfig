@@ -3,7 +3,8 @@
   entities:
     - light.andreas
     - light.daniels_varelse
-    - light.raket    
+    - light.raket
+    - light.stol    
     - light.stue
     - light.sovevaerelse
     - light.gang

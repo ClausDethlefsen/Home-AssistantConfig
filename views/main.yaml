@@ -30,6 +30,7 @@ cards:
       - entities:
           - entity: light.claus
           - entity: light.anne
+          - entity: light.raket            
           - entity: light.alle_lys
           - entity: light.indendorslamper                        
           - entity: light.udendorslamper            
