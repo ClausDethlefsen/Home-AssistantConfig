@@ -5,6 +5,8 @@ entities:
   - entity: light.udendorslamper
   - entity: light.garage
   - entity: light.indkorsel_plug
+  - entity: light.fordoer
+  - entity: light.indkorsel    
   - entity: light.sonoff_100069a6cc
     name: Rønnebærtræ
   - entity: light.sonoff_1000a76e41
