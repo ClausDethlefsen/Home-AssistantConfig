@@ -1,6 +1,6 @@
 ## Skal være tændt fra solnedgang og til kl 22
 ## og fra 6-solopgang
-## derudover: hvis solen er under horisonten, så tænd i 5 minutter
+## derudover: hvis solen er under horisonten, så tænd i 5 minutter ved bevægelse
   - alias: 'Tænd lys indkørsel morgen'
     trigger:
       platform: time
@@ -52,7 +52,7 @@
       to: 'on'
     condition:
       - condition: time
-        after: '22:00:00'
+        after: '22:00:10'
       - condition: time
         before: '05:54:00'
       - condition: state
@@ -72,7 +72,7 @@
         minutes: 15
     condition:
       - condition: time
-        after: '22:00:00'
+        after: '22:00:10'
       - condition: time
         before: '05:54:00'
       - condition: state

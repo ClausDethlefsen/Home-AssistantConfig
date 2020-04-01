@@ -3,11 +3,14 @@
     trigger:
       - platform: sun
         event: sunset
+    condition: 
+      - condition: time
+        before: '21:30:00'
     action:
       service: homeassistant.turn_on
       entity_id: light.sonoff_10006a2cdd
 
-# Turns off lights at 23:00
+# Turns off lights 
   - alias: 'Sluk lys i glasskab i forgang'
     trigger:
       - platform: time

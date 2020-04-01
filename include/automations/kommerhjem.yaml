@@ -1,11 +1,11 @@
-  # - alias: 'Andreas kommer hjem'
-  #   trigger:
-  #     platform: state
-  #     entity_id: binary_sensor.gang_sensor_motion
-  #     to: 'on'  
+ - alias: 'Mor kommer hjem'
+   trigger:
+     platform: state
+     entity_id: device_tracker.annes_iphone_xs
+     to: 'home'  
 
-  #   action:
-  #     service: notify.mobile_app_claus_s_iphone_8
-  #     data:
-  #       message: 'Hej'
-# I get:  [homeassistant.components.mobile_app.notify] Requested entity was not found.
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Mor kommer hjem'
+
