@@ -173,9 +173,9 @@ sonoff:
   default_class: light  
 
 # Example configuration.yaml entry
-spotify:
-  client_id: !secret spotify_id
-  client_secret: !secret spotify_secret
+#spotify:
+#  client_id: !secret spotify_id
+#  client_secret: !secret spotify_secret
   
 #######################################################################################
 # Allows connection of multiple device tracer entities to a single person

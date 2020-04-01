@@ -1,34 +1,4 @@
 
-- id: '1585065847049'
-  name: claus
-  entities:
-    light.claus:
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Claus
-      max_mireds: 500
-      min_mireds: 153
-      state: 'off'
-      supported_features: 63
-    light.stol:
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Stol
-      max_mireds: 500
-      min_mireds: 153
-      state: unavailable
-      supported_features: 63
-    light.stue:
-      brightness: 254
-      color_temp: 417
-      friendly_name: Stue
-      max_mireds: 500
-      min_mireds: 153
-      state: 'on'
-      supported_features: 43
-
 - name: month_standard_colors
   entities:
     light.indendorslamper:
