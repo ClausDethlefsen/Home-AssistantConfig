@@ -12,6 +12,27 @@
     - light.sonoff_10006a2cdd
 
 - platform: group
+  name: livingroom
+  entities:
+    - light.raket
+    - light.stol    
+    - light.stue
+
+- platform: group
+  name: kids
+  entities:
+    - light.andreas
+    - light.daniel
+    - light.bamse
+
+- platform: group
+  name: bedroom
+  entities:
+    - light.anne
+    - light.claus
+    - light.sovevaerelse_loft
+    
+- platform: group
   name: Indkørsel
   entities:
     - light.indkoersel_plug

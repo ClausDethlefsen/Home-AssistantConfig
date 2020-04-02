@@ -12,7 +12,7 @@
     action:
       - service: light.turn_on
         data:
-          entity_id: light.indkorsel
+          entity_id: light.indkorsel_2
 
   - alias: 'Sluk lys indkørsel morgen'
     trigger:
@@ -21,7 +21,7 @@
     action:
       - service: light.turn_off
         data:
-          entity_id: light.indkorsel
+          entity_id: light.indkorsel_2
 
   - alias: 'Tænd lys indkørsel aften'
     trigger:
@@ -33,7 +33,7 @@
     action:
       - service: light.turn_on
         data:
-          entity_id: light.indkorsel
+          entity_id: light.indkorsel_2
 
   - alias: 'Sluk lys indkørsel aften'
     trigger:
@@ -42,7 +42,7 @@
     action:
       - service: light.turn_off
         data:
-          entity_id: light.indkorsel
+          entity_id: light.indkorsel_2
           
 
   - alias: 'Tænd lys indkørsel ved bevægelse'
@@ -61,7 +61,7 @@
     action:
       - service: light.turn_on
         data:
-          entity_id: light.indkorsel
+          entity_id: light.indkorsel_2
 
   - alias: 'Sluk lys indkørsel 15 min efter bevægelse'
     trigger:
@@ -81,6 +81,6 @@
     action:
       service: light.turn_off
       data:
-        entity_id: light.indkorsel
+        entity_id: light.indkorsel_2
             
 

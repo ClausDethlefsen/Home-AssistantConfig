@@ -1,7 +1,7 @@
 
 - name: month_standard_colors
   entities:
-    light.indendorslamper:
+    light.livingroom:
       state: 'on'
       color_name: 'Gold'
 
@@ -14,19 +14,11 @@
 
 - name: month_RWB_colors
   entities:
-    light.indendorslamper:
+    light.livingroom:
       state: 'on'
       #color_name: 'Cream'
       rgb_color: [255,253,208]
       brightness: 30
-    light.stue:
-      state: 'on'
-      #color_name: 'Cream'
-      rgb_color: [204,0,0]
-    light.raket:
-      state: 'on'
-      #color_name: 'Cream'
-      rgb_color: [204,0,0]
     light.anne:
       state: 'on'
       #color_name: 'Red'
@@ -38,10 +30,6 @@
     light.bamse:
       state: 'on'
       color_name: 'Blue'
-    light.garage:
-      state: 'on'
-      #color_name: 'Red'
-      rgb_color: [204,0,0]
 
 - name: month_valentine_colors
   entities:
