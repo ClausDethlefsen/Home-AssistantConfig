@@ -26,6 +26,13 @@
     - light.bamse
 
 - platform: group
+  name: bed
+  entities:
+    - light.anne
+    - light.claus
+    - light.bamse
+    
+- platform: group
   name: bedroom
   entities:
     - light.anne

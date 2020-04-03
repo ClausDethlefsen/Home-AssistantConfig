@@ -2,3 +2,33 @@
 ##  Good night Routine
 ######################################################################
 
+  - alias: 'Godnat start igen'
+    trigger:
+      platform: sun
+      event: sunrise
+    action:
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.first_run_eve
+
+  - alias: 'Godnat'
+    trigger: 
+      platform: state
+      entity_id: binary_sensor.gang_motion_sensor
+      to: 'on'
+    condition:
+      - condition: time
+        after: '19:00:00'
+        before: '19:40:00'
+      - condition: state
+        entity_id: input_boolean.first_run_eve
+        state: 'off'
+    action:
+#      - service: scene.turn_on
+#        entity_id: scene.34900
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.first_run_eve
+      - service: script.bed_color_scene
+      - service: script.monthly_color_scene
+

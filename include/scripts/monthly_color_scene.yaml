@@ -16,9 +16,9 @@
 
 monthly_color_scene:
   sequence:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'below_horizon'
 
     - service: scene.turn_on
       data_template:

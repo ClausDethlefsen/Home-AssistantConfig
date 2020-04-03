@@ -44,6 +44,7 @@ mobile_app:
 
 input_boolean:
   first_run:
+  first_run_eve:    
 
 # read this:
 # https://community.home-assistant.io/t/updating-duckdns-domain-failed/135623
@@ -218,7 +219,7 @@ panel_iframe: !include_dir_merge_named include/panels/
 script: !include_dir_merge_named include/scripts/
 shell_command: !include_dir_merge_named include/shell_commands/
 scene: !include scenes.yaml
-scene old: !include_dir_merge_named include/scene/
+#scene old: !include_dir_merge_named include/scene/
 #switch: !include_dir_merge_list include/switches/
 
 
