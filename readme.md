@@ -3,7 +3,7 @@
 <a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/stargazers"><img src="https://img.shields.io/github/stars/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>
 <!-- ![ha-version-shield] ![maintained] -->
 
-
+ 
 # Home automation
 
 
