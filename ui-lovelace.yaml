@@ -33,7 +33,8 @@ views:
   - !include views/andreas.yaml  
   - !include views/daniel.yaml
   - !include views/video.yaml
-  - !include views/sonos.yaml    
+  - !include views/sonos.yaml
+  - !include views/plex.yaml      
   - !include views/rejse.yaml
   
 

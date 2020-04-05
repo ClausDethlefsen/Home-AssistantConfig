@@ -4,15 +4,15 @@ entities:
   - entity: sensor.netatmo_noergaardsvej_udenfor_temperature
     name: Temperatur
     graph: line
-  - entity: sensor.netatmo_noergaardsvej_regnmaaler_rain
-    name: Regn
-    graph: line        
-  - entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_1
-    name: Regn 1 time
-    graph: line        
-  - entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_24
-    name: Regn 24 timer
-    graph: line        
+  # - entity: sensor.netatmo_noergaardsvej_regnmaaler_rain
+  #   name: Regn
+  #   graph: line        
+  # - entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_1
+  #   name: Regn 1 time
+  #   graph: line        
+  # - entity: sensor.netatmo_noergaardsvej_regnmaaler_sum_rain_24
+  #   name: Regn 24 timer
+  #   graph: line        
 #          - sensor.netatmo_noergaardsvej_udenfor_humidity
 #          - sensor.netatmo_noergaardsvej_udenfor_min_temp
 #          - sensor.netatmo_noergaardsvej_udenfor_max_temp

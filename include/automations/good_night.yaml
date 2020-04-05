@@ -14,7 +14,7 @@
   - alias: 'Godnat'
     trigger: 
       platform: state
-      entity_id: binary_sensor.gang_motion_sensor
+      entity_id: binary_sensor.gang_sensor_motion
       to: 'on'
     condition:
       - condition: time

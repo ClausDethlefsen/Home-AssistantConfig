@@ -65,6 +65,11 @@ tts:
 ifttt:
   key: !secret ifttt_key
 
+#scene:
+#  platform: hunterdouglas_powerview
+#  address: 192.168.0.95
+
+  
 ## --------------------------------------------------
 ## APPLE TV
 ## https://www.home-assistant.io/components/apple_tv/
@@ -135,7 +140,7 @@ google:
   track_new_calendar: false
 
 # Example configuration.yaml entry
-garbage_collection: !include include/sensors/garbage.yaml
+garbage_collection: !include include/garbage/garbage.yaml
 
 
 timer:
@@ -164,9 +169,6 @@ speedtestdotnet:
 
 
 
-#scene powerview:
-#  platform: hunterdouglas_powerview
-#  address: !secret powerview_ip  
 
 sonoff:
   username: !secret sonoff_username
@@ -195,9 +197,9 @@ zone: !include customize/zones.yaml
 
 
 # Example configuration.yaml entry
-#scene:
-#  platform: hunterdouglas_powerview
-#  address: !secret powerview_ip
+scene:
+  - platform: hunterdouglas_powerview
+    address: 192.168.0.95
 
 
 
@@ -218,7 +220,7 @@ light: !include_dir_merge_list include/lights/
 panel_iframe: !include_dir_merge_named include/panels/
 script: !include_dir_merge_named include/scripts/
 shell_command: !include_dir_merge_named include/shell_commands/
-scene: !include scenes.yaml
+#scene: !include scenes.yaml
 #scene old: !include_dir_merge_named include/scene/
 #switch: !include_dir_merge_list include/switches/
 
@@ -228,11 +230,11 @@ scene: !include scenes.yaml
 python_script:
 
 # HP PRINTER
-hpprinter:
-  devices:
-    - host: 192.168.0.41
-      name: HP 081A4C
+#hpprinter:
+#  devices:
+#    - host: 192.168.0.41
+#      name: HP 081A4C
 
 
-#scene 2: !include scenes.yaml
+scene 2: !include scenes.yaml
 

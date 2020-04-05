@@ -11,3 +11,5 @@ cards:
     max_width: [100%]
     cards:
       - !include cards/indoor_climate.yaml
+      - !include cards/indoor_climate2.yaml
+      - !include cards/indoor_climate3.yaml

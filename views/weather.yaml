@@ -11,4 +11,5 @@ cards:
     max_width: [100%]
     cards:
       - !include cards/outdoor_climate.yaml
-
+      - !include cards/outdoor_climate2.yaml
+      - !include cards/outdoor_climate3.yaml

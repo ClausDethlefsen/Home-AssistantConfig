@@ -43,6 +43,7 @@ cards:
 #        type: entities
       - !include cards/cover.yaml
       - !include cards/lights.yaml      
+      - !include cards/announce.yaml
       - entities:
           - entity: calendar.madplan
         title: "Madplan"
