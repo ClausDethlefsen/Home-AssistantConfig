@@ -11,8 +11,11 @@ cards:
     max_width: [50%,50%]
     cards:
       - !include cards/andreas_sonos.yaml
-      - !include cards/andreas_room.yaml
       - break
+      - type: horizontal-stack
+        cards: 
+          - !include cards/andreas_room.yaml
+          - !include cards/andreas_room2.yaml      
       - !include cards/andreas_birthday.yaml
       - type: entities
         entities:

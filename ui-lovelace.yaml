@@ -36,5 +36,6 @@ views:
   - !include views/sonos.yaml
   - !include views/plex.yaml      
   - !include views/rejse.yaml
+  - !include views/workout.yaml
   
 

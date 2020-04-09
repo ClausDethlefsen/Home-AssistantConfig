@@ -9,3 +9,38 @@
      data:
        message: 'Mor kommer hjem'
 
+ - alias: 'Mor kommer hjem'
+   trigger:
+     platform: state
+     entity_id: device_tracker.annes_iphone_xs
+     to: 'home'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Mor kommer hjem'
+
+ - alias: 'Daniel kommer hjem'
+   trigger:
+     platform: state
+     entity_id: device_tracker.daniels_iphone_7
+     to: 'home'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Daniel kommer hjem'
+
+ - alias: 'Andreas kommer hjem'
+   trigger:
+     platform: state
+     entity_id: device_tracker.andreas_iphone_7
+     to: 'home'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Andreas kommer hjem'
+
+
+       

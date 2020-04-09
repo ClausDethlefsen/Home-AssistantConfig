@@ -194,7 +194,9 @@ zone: !include customize/zones.yaml
 #######################################################################################
 
 
-
+#automower:
+#  username: !secret husqvarna_username
+#  password: !secret husqvarna_password
 
 
 weather:

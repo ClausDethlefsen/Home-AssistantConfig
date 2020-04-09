@@ -2,7 +2,8 @@
   name: Indendørslamper
   entities:
     - light.andreas
-    - light.daniels_varelse
+    - light.daniel
+    - light.bamse
     - light.raket
     - light.stol    
     - light.stue
