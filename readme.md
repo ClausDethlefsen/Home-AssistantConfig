@@ -27,6 +27,7 @@
 * Tile for tracking keys
 * synology NAS
 * Apple TV4
+* HP OfficeJet Pro 8600 printer
 * Hunter-Douglas curtains (currently [not working](https://github.com/home-assistant/core/issues/32324))
 * Foscam camera
 * Plex 
