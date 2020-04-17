@@ -31,11 +31,27 @@
           entity_id: input_boolean.first_run
       - service: script.monthly_color_scene
 
-  - alias: 'Godmorgen Children'
+  - alias: 'Godmorgen Children arbejdsdag'
     trigger: 
       platform: time
       at: '06:00:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
     action:
       - service: script.andreas_color_scene
       - service: script.daniel_color_scene
-      
+
+  - alias: 'Godmorgen Children ikke arbejdsdag'
+    trigger: 
+      platform: time
+      at: '07:00:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'off'
+    action:
+      - service: script.andreas_color_scene
+      - service: script.daniel_color_scene
+        

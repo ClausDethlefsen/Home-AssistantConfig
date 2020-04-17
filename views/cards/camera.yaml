@@ -1,6 +1,111 @@
-type: picture-entity
-camera_view: live
+#type: picture-entity
+#camera_view: live
+#entity: camera.foscam_camera
+type: picture-elements
 entity: camera.foscam_camera
+camera_image: camera.foscam_camera
+camera_view: live
+elements:
+  - type: icon
+    icon: 'mdi:arrow-up'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: up
+  - type: icon
+    icon: 'mdi:arrow-down'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: down
+  - type: icon
+    icon: 'mdi:arrow-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 50px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: left
+  - type: icon
+    icon: 'mdi:arrow-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: right
+  - type: icon
+    icon: 'mdi:arrow-top-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 50px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: top_left
+  - type: icon
+    icon: 'mdi:arrow-top-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: top_right
+  - type: icon
+    icon: 'mdi:arrow-bottom-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 50px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: bottom_left
+  - type: icon
+    icon: 'mdi:arrow-bottom-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.foscam_camera
+        movement: bottom_right
+
+
+
+
 #entity: camera.foscam_camera
 
 #       - entities:
