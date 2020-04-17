@@ -15,11 +15,11 @@
 * Installed HACS and integrations
 * Created accounts for each family member so they have their personal layout of Lovelace.
 * using Duckdns with dehydrated using [these instructions](https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt). I have fixed IP address and have forwarded port 8123, 80 and 443 in my router. I guess it would be wise to study [this description](https://community.home-assistant.io/t/duckdns-its-not-just-me-its-you/131586).
-* Philips Hue - several bulps and a smart plug. Using [Monthly Colours](https://github.com/CCOSTAN/Home-AssistantConfig/blob/0dbd30fe4ed2d19a5b8c56ad3f2bee062e22de2b/config/scene/monthly_colors.yaml), adapted to our home. 
+* Philips Hue - several bulps and a smart plug. Using [Monthly Colours](https://github.com/CCOSTAN/Home-AssistantConfig/blob/0dbd30fe4ed2d19a5b8c56ad3f2bee062e22de2b/config/scene/monthly_colors.yaml), adapted to our home. To get rid of the 0.108 warnings, I rewrote it to use scripts rather than scenes. 
 * Sonos - several Play:1, Play:5, Connect, Connect:amp. A sonos One with Google assistant 
 * Using [Hue Dimmer for controlling Sonos](https://github.com/ClausDethlefsen/Home-AssistantConfig/blob/master/include/automations/anne.yaml) based on the [Hue remote](https://github.com/robmarkcole/Hue-remotes-HASS) add-on.
 * [Sonoff Basic - not flashed](https://www.youtube.com/watch?v=DsTqOlrQQ1k)
-* Denon AVR receiver and made and automation that switches the receiver on/off when Sonos plays
+* Denon AVR receiver and made and automation that switches the receiver on/off when Sonos plays and sets the input correctly. This was actually the reason for me to get involved in Home-assistant.
 * Some Samsung TVs. I can see their status, but not control them.
 * Netatmo weather station with some extra indoor modules and the rain module
 * Gogogate2 for the garage cover
