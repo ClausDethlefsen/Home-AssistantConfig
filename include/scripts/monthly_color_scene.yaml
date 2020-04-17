@@ -23,7 +23,7 @@ monthly_color_scene:
     - service: script.turn_on
       data_template:
         entity_id: >
-          script.month_
+          script.monthly_
           {%- if now().strftime("%m%d")|int == 101 -%}
           new_years_day
           {%- elif now().strftime("%m%d")|int >= 210
