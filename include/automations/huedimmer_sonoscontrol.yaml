@@ -48,7 +48,7 @@
     action:
       - service: media_player.media_play_pause
         data:
-          entity_id: media_player.kokken
+          entity_id: media_player.kokken_new
           
   - alias: "Volume up when pressing 2 on remote"
     trigger:
@@ -65,9 +65,9 @@
           state: "2_click_up"      
     action:
       service: media_player.volume_set
-      entity_id: media_player.kokken
+      entity_id: media_player.kokken_new
       data_template:
-        volume_level: "{{ state_attr('media_player.kokken', 'volume_level') | float + 0.05 }}"
+        volume_level: "{{ state_attr('media_player.kokken_new', 'volume_level') | float + 0.05 }}"
       
 
   - alias: "Volume down when pressing 3 on remote"
@@ -85,7 +85,7 @@
           state: "3_click_up"      
     action:
       service: media_player.volume_set
-      entity_id: media_player.kokken
+      entity_id: media_player.kokken_new
       data_template:
-        volume_level: "{{ state_attr('media_player.kokken', 'volume_level') | float - 0.05 }}"
+        volume_level: "{{ state_attr('media_player.kokken_new', 'volume_level') | float - 0.05 }}"
           

@@ -1,13 +1,28 @@
+# lovelace_gen
+
 title: Network
 icon: mdi:laptop
 panel: true
 cards:
-  - type: history-graph
-    hours_to_show: 24
-    name: Speedtest
-    icon: mdi:server
-    entities:
-      - entity: sensor.speedtest_download
-      - sensor.speedtest_upload
-#      - sensor.speedtest_ping
-
+  - type: custom:layout-card
+    layout: vertical
+    column_num: 2
+    max_columns: 2
+    max_width: [80%]
+    cards:
+      - type: entities
+        entities:
+          - sensor.hp_officejet_pro_8600
+          - sensor.hp_officejet_pro_8600_black_ink
+          - sensor.hp_officejet_pro_8600_cyan_ink
+          - sensor.hp_officejet_pro_8600_magenta_ink
+          - sensor.hp_officejet_pro_8600_yellow_ink
+      - break          
+      - type: history-graph
+        hours_to_show: 24
+        name: Speedtest
+        icon: mdi:server
+        entities:
+          - entity: sensor.speedtest_download
+          - sensor.speedtest_upload
+   

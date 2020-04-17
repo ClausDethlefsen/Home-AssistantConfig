@@ -58,6 +58,14 @@ entities:
         icon: 'mdi:brightness-4'
       - name: nightlight
         icon: 'mdi:brightness-3'
+  - entity: light.sauna
+    profiles:
+      - name: bright
+        icon: 'mdi:brightness-5'
+      - name: dimmed
+        icon: 'mdi:brightness-4'
+      - name: nightlight
+        icon: 'mdi:brightness-3'
   - entity: light.gang
     profiles:
       - name: bright

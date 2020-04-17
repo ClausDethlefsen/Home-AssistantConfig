@@ -66,8 +66,8 @@ ifttt:
   key: !secret ifttt_key
 
 #scene:
-#  platform: hunterdouglas_powerview
-#  address: 192.168.0.95
+#  - platform: hunterdouglas_powerview
+#    address: 192.168.0.95
 
   
 ## --------------------------------------------------

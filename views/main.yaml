@@ -28,6 +28,7 @@ cards:
           - !include cards/garbage.yaml
           - !include cards/garbage2.yaml
       - !include cards/lights_sleep.yaml
+      - !include cards/lights_kids.yaml      
       - entities:
           - entity: light.indendorslamper                        
           - entity: light.udendorslamper            
@@ -69,6 +70,8 @@ cards:
             secondary_info: last-changed            
           - entity: binary_sensor.gang_sensor_motion
             secondary_info: last-changed            
+          - entity: binary_sensor.sauna_motion_motion
+            secondary_info: last-changed            
 
         type: entities
         show_state: false
@@ -83,8 +86,14 @@ cards:
       - break
       - entities:
           - media_player.denon_avr_x2300w
+          - media_player.kokken_google
+          - media_player.stue_2          
+        type: glance
+      - entities:
           - media_player.samsung_ue55js8000
           - media_player.samsung_ue32j6200
           - media_player.samsung_ue32k5505
         type: glance
+
+
 

@@ -10,10 +10,10 @@
     action:
       - service: sonos.join
         data:
-          master: media_player.kokken
+          master: media_player.kokken_new
         entity_id:
-          - media_player.bad
-          - media_player.stue
+          - media_player.badevaerelse
+          - media_player.stue_3
           - media_player.alrum
 
 

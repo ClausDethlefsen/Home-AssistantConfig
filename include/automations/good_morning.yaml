@@ -30,3 +30,12 @@
         data:
           entity_id: input_boolean.first_run
       - service: script.monthly_color_scene
+
+  - alias: 'Godmorgen Children'
+    trigger: 
+      platform: time
+      at: '06:00:00'
+    action:
+      - service: script.andreas_color_scene
+      - service: script.daniel_color_scene
+      

@@ -6,8 +6,8 @@
     type: module
   - url: https://cdn.jsdelivr.net/gh/bramkragten/weather-card/dist/weather-card.min.js
     type: module
-  - url: /local/mini-graph-card-bundle.js?v=0.9.1
-    type: module    
+#  - url: /local/mini-graph-card-bundle.js?v=0.9.1
+#    type: module    
   - url: /local/community/lovelace-layout-card/layout-card.js
     type: module    
   - url: /local/community/text-element/text-element.js

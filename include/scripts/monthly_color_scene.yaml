@@ -20,10 +20,10 @@ monthly_color_scene:
 #      entity_id: sun.sun
 #      state: 'below_horizon'
 
-    - service: scene.turn_on
+    - service: script.turn_on
       data_template:
         entity_id: >
-          scene.month_
+          script.month_
           {%- if now().strftime("%m%d")|int == 101 -%}
           new_years_day
           {%- elif now().strftime("%m%d")|int >= 210

@@ -13,7 +13,9 @@
       - service: homeassistant.turn_on
         entity_id: switch.sonos_alarm_41
       - service: homeassistant.turn_on
-        entity_id: switch.sonos_alarm_18
+        entity_id: switch.sonos_alarm_298
+#      - service: homeassistant.turn_on
+#        entity_id: switch.sonos_alarm_18
         
   - alias: 'Turn off alarms'
     trigger:
@@ -29,6 +31,8 @@
       - service: homeassistant.turn_off
         entity_id: switch.sonos_alarm_41
       - service: homeassistant.turn_off
-        entity_id: switch.sonos_alarm_18
+        entity_id: switch.sonos_alarm_298
+#      - service: homeassistant.turn_off
+#        entity_id: switch.sonos_alarm_18
         
       
