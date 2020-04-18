@@ -8,7 +8,7 @@
 
 
 **Devices I'm using:**
-* Homeassistant Version 0.108.1 runs on a Mac Mini (2011'ish) running MacOs High Sierra 
+* Homeassistant Version 0.108.6 runs on a Mac Mini (2011'ish) running MacOs High Sierra 
   + Installed [Python version 3.8.1](https://www.python.org/downloads/mac-osx/)
   + Followed the instructions to [install HomeAssistant on MacOs](https://www.home-assistant.io/docs/installation/macos/)
   + To upgrade HomeAssistant, I follow [these instructions](https://www.home-assistant.io/docs/installation/virtualenv/#upgrading-home-assistant)
