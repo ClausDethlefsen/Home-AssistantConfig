@@ -1,8 +1,0 @@
-{
-  "domain": "hd_powerview",
-  "name": "PowerView",
-  "documentation": "https://github.com/safepay/sensor.hd_powerview/blob/master/README.md",
-  "requirements": [],
-  "dependencies": [],
-  "codeowners": ["@safepay"]
-}
