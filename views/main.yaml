@@ -27,6 +27,7 @@ cards:
         cards: 
           - !include cards/garbage.yaml
           - !include cards/garbage2.yaml
+          - !include cards/garbage3.yaml          
       - !include cards/lights_sleep.yaml
       - !include cards/lights_kids.yaml      
       - entities:

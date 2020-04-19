@@ -2,8 +2,10 @@
   name: Indendørslamper
   entities:
     - light.andreas
+    - light.hue_lightstrip_plus_1    
     - light.daniel
     - light.bamse
+    - light.hue_lightstrip_plus_1_2    
     - light.raket
     - light.stol    
     - light.stue
@@ -12,8 +14,7 @@
     - light.forgang
     - light.sauna
     - light.sonoff_10006a2cdd
-    - light.hue_lightstrip_plus_1_2
-    - light.hue_lightstrip_plus_1
+
 
 - platform: group
   name: livingroom

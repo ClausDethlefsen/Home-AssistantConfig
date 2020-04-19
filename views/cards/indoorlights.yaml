@@ -26,6 +26,15 @@ entities:
         icon: 'mdi:brightness-4'
       - name: nightlight
         icon: 'mdi:brightness-3'
+  - entity: light.hue_lightstrip_plus_1    
+    profiles:
+      - name: bright
+        icon: 'mdi:brightness-5'
+      - name: dimmed
+        icon: 'mdi:brightness-4'
+      - name: nightlight
+        icon: 'mdi:brightness-3'
+ 
   - entity: light.daniel
     profiles:
       - name: bright
@@ -42,6 +51,15 @@ entities:
         icon: 'mdi:brightness-4'
       - name: nightlight
         icon: 'mdi:brightness-3'
+  - entity: light.hue_lightstrip_plus_1_2
+    profiles:
+      - name: bright
+        icon: 'mdi:brightness-5'
+      - name: dimmed
+        icon: 'mdi:brightness-4'
+      - name: nightlight
+        icon: 'mdi:brightness-3'
+        
   - entity: light.sovevaerelse_loft
     profiles:
       - name: bright

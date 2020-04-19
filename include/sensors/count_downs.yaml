@@ -1,3 +1,6 @@
+## Set the dates in ~/.homeassistant/include/automations/countdown.yaml
+
+
 - platform: template
   sensors:
     dage_til_jul:
