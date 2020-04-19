@@ -2,7 +2,7 @@
 <a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/commits/master"><img src="https://img.shields.io/github/last-commit/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>
 <a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/stargazers"><img src="https://img.shields.io/github/stars/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>
 <!-- ![ha-version-shield] ![maintained] -->
-
+[![Donate](https://img.shields.io/badge/donate-Coffee-yellow.svg)](https://www.buymeacoffee.com/Bwl9psu)
  
 # Home automation
 
@@ -36,6 +36,4 @@
 ## screenshots
 ![Main window](screenshots/main.jpg)
 ![Player](screenshots/player.jpg)
-
-<a href="https://www.buymeacoffee.com/Bwl9psu" target="_blank">Buy me a coffe, </a>if you like.
 
