@@ -1,8 +1,8 @@
    [![Build Status](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig.svg?branch=master)](https://travis-ci.com/ClausDethlefsen/Home-AssistantConfig)
 <a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/commits/master"><img src="https://img.shields.io/github/last-commit/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>
-<a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/stargazers"><img src="https://img.shields.io/github/stars/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>
+<a href="https://github.com/ClausDethlefsen/Home-AssistantConfig/stargazers"><img src="https://img.shields.io/github/stars/ClausDethlefsen/Home-AssistantConfig.svg?style=plasticr"/></a>[![Donate](https://img.shields.io/badge/donate-Coffee-yellow.svg)](https://www.buymeacoffee.com/Bwl9psu)
 <!-- ![ha-version-shield] ![maintained] -->
-[![Donate](https://img.shields.io/badge/donate-Coffee-yellow.svg)](https://www.buymeacoffee.com/Bwl9psu)
+
  
 # Home automation
 
