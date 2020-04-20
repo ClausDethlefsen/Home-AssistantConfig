@@ -10,6 +10,7 @@ tap_action:
     entity_id:
       - media_player.bad
       - medea_player.badevaerelse
+      - medea_player.sovevaerelse      
       - media_player.stue_3
       - media_player.alrum
       - media_player.kontor

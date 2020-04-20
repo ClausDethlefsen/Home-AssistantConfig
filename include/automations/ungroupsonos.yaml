@@ -9,7 +9,9 @@
         state: 'on'
     action:
       - service: sonos.unjoin
-        entity_id: media_player.bad
+        entity_id: media_player.badevaerelse
+      - service: sonos.unjoin
+        entity_id: media_player.sovevaerelse
 
   - alias: 'Gruppe køkken uden stue, alrum'
     trigger:

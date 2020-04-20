@@ -53,7 +53,6 @@
     condition:
       - condition: time
         after: '22:00:10'
-      - condition: time
         before: '05:54:00'
       - condition: state
         entity_id: sun.sun
@@ -73,7 +72,6 @@
     condition:
       - condition: time
         after: '22:00:10'
-      - condition: time
         before: '05:54:00'
       - condition: state
         entity_id: sun.sun

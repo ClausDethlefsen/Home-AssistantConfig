@@ -13,6 +13,7 @@
           master: media_player.kokken_new
         entity_id:
           - media_player.badevaerelse
+#          - media_player.sovevaerelse          
           - media_player.stue_3
           - media_player.alrum
 
