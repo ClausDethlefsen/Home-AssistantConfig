@@ -2,7 +2,7 @@
     name: "Stue Motion Sensor"
     resource: !secret stue_url
     device_class: motion
-    scan_interval: 5
+    scan_interval: 10
     value_template: >-
       {%- if "<motionDetectAlarm>2</motionDetectAlarm>" in value -%}
         {{ true }}

@@ -12,6 +12,7 @@ recorder:
     domains:
       - automation
       - media_player
+      - light
     entities:
       - sun.sun
       - sensor.date

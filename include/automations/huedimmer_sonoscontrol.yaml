@@ -12,15 +12,15 @@
   - alias: "Play radio when pressing 1 on remote"
     trigger:
       - platform: state 
-        entity_id: remote.stue_switch_4
+        entity_id: remote.stue_switch_5
     condition:
 #      condition: or
 #      conditions:
 #        - condition: state
-#          entity_id: remote.stue_switch_4
+#          entity_id: remote.stue_switch_5
 #          state: "1_click"
         - condition: state
-          entity_id: remote.stue_switch_4
+          entity_id: remote.stue_switch_5
           state: "1_click_up"
     action:
 #      data:
@@ -35,15 +35,15 @@
   - alias: "Pause when pressing 4 on remote"
     trigger:
       - platform: state 
-        entity_id: remote.stue_switch_4
+        entity_id: remote.stue_switch_6
     condition:
 #      condition: or
 #      conditions:
 #        - condition: state
-#          entity_id: remote.stue_switch_4
+#          entity_id: remote.stue_switch_5
 #          state: "4_click"
         - condition: state
-          entity_id: remote.stue_switch_4
+          entity_id: remote.stue_switch_5
           state: "4_click_up"
     action:
       - service: media_player.media_play_pause
@@ -53,15 +53,15 @@
   - alias: "Volume up when pressing 2 on remote"
     trigger:
       - platform: state 
-        entity_id: remote.stue_switch_4
+        entity_id: remote.stue_switch_5
     condition:
 #      condition: or
 #      conditions:
 #        - condition: state
-#          entity_id: remote.stue_switch_4
+#          entity_id: remote.stue_switch_5
 #          state: "2_click_up"      
         - condition: state
-          entity_id: remote.stue_switch_4
+          entity_id: remote.stue_switch_5
           state: "2_click_up"      
     action:
       service: media_player.volume_set
@@ -73,15 +73,15 @@
   - alias: "Volume down when pressing 3 on remote"
     trigger:
       - platform: state 
-        entity_id: remote.stue_switch_4
+        entity_id: remote.stue_switch_5
     condition:
 #      condition: or
 #      conditions:
 #        - condition: state
-#          entity_id: remote.stue_switch_4
+#          entity_id: remote.stue_switch_5
 #          state: "3_click_up"      
         - condition: state
-          entity_id: remote.stue_switch_4
+          entity_id: remote.stue_switch_5
           state: "3_click_up"      
     action:
       service: media_player.volume_set
