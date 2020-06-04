@@ -78,10 +78,10 @@ cards:
         show_state: false
       - break
       - entities:
-          - scene.34900
-          - scene.8770
-          - scene.23044
-          - scene.39601
+          - scene.morgen
+          - scene.alt_ned
+          - scene.alle_lidt_nede
+          - scene.syd_ned_og_venstre_halvt_ned
         title: Gardiner
         type: entities
       - break

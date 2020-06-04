@@ -29,6 +29,6 @@
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.first_run_eve
-      - service: script.bed_color_scene
-      - service: script.monthly_color_scene
+#      - service: script.bed_color_scene
+#      - service: script.monthly_color_scene
 

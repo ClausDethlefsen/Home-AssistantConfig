@@ -11,7 +11,7 @@
       - service: homeassistant.turn_on
         entity_id: switch.sonos_alarm_39
       - service: homeassistant.turn_on
-        entity_id: switch.sonos_alarm_41
+        entity_id: switch.sonos_alarm_377
       - service: homeassistant.turn_on
         entity_id: switch.sonos_alarm_298
 #      - service: homeassistant.turn_on
@@ -29,7 +29,7 @@
       - service: homeassistant.turn_off
         entity_id: switch.sonos_alarm_39
       - service: homeassistant.turn_off
-        entity_id: switch.sonos_alarm_41
+        entity_id: switch.sonos_alarm_377
       - service: homeassistant.turn_off
         entity_id: switch.sonos_alarm_298
 #      - service: homeassistant.turn_off

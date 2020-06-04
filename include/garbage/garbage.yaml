@@ -4,9 +4,11 @@ sensors:
     collection_days:
     - mon
     exclude_dates:
-    - '2020-04-06'      
+    - '2020-04-06'
+    - '2020-06-01'
     include_dates:
     - '2020-04-04'
+    - '2020-06-02'    
 #    move_country_holidays: DK
     icon_normal: mdi:trash-can
   - name: selective_waste

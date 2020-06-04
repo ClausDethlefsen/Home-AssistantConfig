@@ -2,12 +2,19 @@
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
- 
+
+logbook:
+  exclude:
+    entities:
+      - sensor.time
+      - sensor.date
+  
 discovery:
   ignore:
     - philips_hue
   
 recorder:
+  purge_keep_days: 1
   exclude:
     domains:
       - automation
@@ -16,6 +23,8 @@ recorder:
     entities:
       - sun.sun
       - sensor.date
+
+      
   
 homeassistant:
   name: !secret name 
@@ -32,6 +41,7 @@ homeassistant:
 lovelace_gen:
 
 lovelace:
+  resources: !include_dir_merge_list include/resources/  
   mode: yaml
 
 #config:
@@ -70,6 +80,7 @@ ifttt:
 #  - platform: hunterdouglas_powerview
 #    address: 192.168.0.95
 
+
   
 ## --------------------------------------------------
 ## APPLE TV
@@ -100,8 +111,6 @@ cover:
     username: !secret gogogate_username 
     password: !secret gogogate_password
     ip_address: !secret gogogate_ip
-#  - platform: hd_powerview
-#    host: !secret powerview_ip
 
 ## --------------------------------------------------
 ## FOSCAM
@@ -126,14 +135,9 @@ camera:
 ## https://www.home-assistant.io/components/denonavr/
 
 media_player:
-  - platform: denonavr
-    host: !secret denon_ip
-    show_all_sources: True
-  - platform: plex
-    show_all_controls: false
-    use_episode_art: true
-    remove_unavailable_clients: true
-    client_remove_interval: 600
+#  - platform: denonavr
+#    host: !secret denon_ip
+#    show_all_sources: True
 
 google:
   client_id: !secret google_client_id
@@ -150,8 +154,9 @@ timer:
 
 ## hue "advanced sensors" to control dimmer swithces etc. (HACS)
 
-remote:
-  - platform: hueremote
+# deprecated
+#remote:
+#  - platform: hueremote
     
 #######################################################################################
 # Speedtest.Net
