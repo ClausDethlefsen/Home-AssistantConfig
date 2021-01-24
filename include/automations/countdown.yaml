@@ -9,12 +9,12 @@
       data:
         name: Nytaar
         type: nedtaelling
-        date: 31/12/2020
+        date: 31/12/2021
     - service: python_script.date_countdown
       data:
         name: Juleaften
         type: nedtaelling
-        date: 24/12/2020
+        date: 24/12/2021
     - service: python_script.date_countdown
       data:
         name: Vores bryllupsdag
@@ -44,4 +44,4 @@
       data:
         name: Ferie
         type: nedtaelling
-        date: 22/12/2020
+        date: 20/2/2021
