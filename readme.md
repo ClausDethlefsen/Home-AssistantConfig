@@ -8,7 +8,7 @@
 
 
 **Devices I'm using:**
-* Homeassistant Version 0.110.4 runs on a Mac Mini (2011'ish) running MacOs High Sierra 
+* Homeassistant Version 2021.1.4 runs on a Mac Mini (2011'ish) running MacOs High Sierra 
   + Installed [Python version 3.8.1](https://www.python.org/downloads/mac-osx/)
   + Followed the instructions to [install HomeAssistant on MacOs](https://www.home-assistant.io/docs/installation/macos/)
   + To upgrade HomeAssistant, I follow [these instructions](https://www.home-assistant.io/docs/installation/virtualenv/#upgrading-home-assistant)
@@ -28,7 +28,7 @@
 * synology NAS
 * Apple TV4
 * HP OfficeJet Pro 8600 printer
-* Hunter-Douglas curtains (currently [not working](https://github.com/home-assistant/core/issues/32324))
+* Hunter-Douglas curtains 
 * Foscam camera
 * Plex 
 * A nice [mini-media-player](mini-media-player) for controlling Sonos (thanks to HeartKingz)
