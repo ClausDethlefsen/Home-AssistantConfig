@@ -36,10 +36,10 @@ homeassistant:
   auth_providers:
    - type: homeassistant
   customize: !include_dir_merge_named customize
-  media_dirs:
-    music: /Volumes/music
-    video: /Volumes/video
-    photo: /Volumes/photo
+#  media_dirs:
+#    music: /Volumes/music
+#    video: /Volumes/video
+#    photo: /Volumes/photo
 
 # https://community.home-assistant.io/t/lovelace-gen-add-abilities-to-ui-lovelace-yaml/130328
 lovelace_gen:

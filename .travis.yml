@@ -4,10 +4,10 @@ python:
 before_install:
   - mv travis_secrets.yaml secrets.yaml
   - sudo apt-get install -y libudev-dev
-  - mkdir /Volumes
-  - mkdir /Volumes/music
-  - mkdir /Volumes/video
-  - mkdir /Volumes/photo    
+#  - mkdir /Volumes
+#  - mkdir /Volumes/music
+#  - mkdir /Volumes/video
+#  - mkdir /Volumes/photo    
   - HA_VERSION=$(<.HA_VERSION)
 install:
   - pip3 install homeassistant==${HA_VERSION}
