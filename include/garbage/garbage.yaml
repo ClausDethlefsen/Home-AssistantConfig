@@ -30,7 +30,7 @@ sensors:
     - '2021-11-10'
     - '2021-12-08'
   - name: cleaning
-    frequency: "even-weeks"
+    frequency: "odd-weeks"
     collection_days:
     - tue
     icon_normal: mdi:spray-bottle
