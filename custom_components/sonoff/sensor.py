@@ -1,3 +1,4 @@
+import time
 from typing import Optional
 
 from homeassistant.const import DEVICE_CLASS_TEMPERATURE, \
@@ -23,6 +24,8 @@ SENSORS = {
 
 SONOFF_SC = {'temperature', 'humidity', 'dusty', 'light', 'noise'}
 
+GLOBAL_ATTRS = ('local', 'cloud', 'rssi', 'battery')
+
 
 async def async_setup_platform(hass, config, add_entities,
                                discovery_info=None):
@@ -32,15 +35,26 @@ async def async_setup_platform(hass, config, add_entities,
     deviceid = discovery_info['deviceid']
     registry = hass.data[DOMAIN]
 
-    if 'attribute' in discovery_info:
-        add_entities([EWeLinkSensor(registry, deviceid,
-                                    discovery_info['attribute'])])
+    attr = discovery_info.get('attribute')
+    uiid = registry.devices[deviceid].get('uiid')
+
+    # skip duplicate attribute
+    if uiid in (18, 1770) and attr in SONOFF_SC:
         return
 
-    device = registry.devices[deviceid]
-    if device.get('uiid') == 18:
+    elif attr:
+        add_entities([EWeLinkSensor(registry, deviceid, attr)])
+
+    elif uiid == 18:
         add_entities([EWeLinkSensor(registry, deviceid, attr)
                       for attr in SONOFF_SC])
+
+    elif uiid == 1000:
+        add_entities([ZigBeeButtonSensor(registry, deviceid)])
+
+    elif uiid == 1770:
+        add_entities([EWeLinkSensor(registry, deviceid, 'temperature'),
+                      EWeLinkSensor(registry, deviceid, 'humidity')])
 
 
 class EWeLinkSensor(EWeLinkDevice, Entity):
@@ -57,8 +71,12 @@ class EWeLinkSensor(EWeLinkDevice, Entity):
             self._name += f" {self._attr.capitalize()}"
 
     def _update_handler(self, state: dict, attrs: dict):
-        if self._attr in state:
-            self._state = state[self._attr]
+        self._attrs.update({k: attrs[k] for k in GLOBAL_ATTRS if k in attrs})
+
+        if self._attr not in state:
+            return
+
+        self._state = state[self._attr]
 
         self.schedule_update_ha_state()
 
@@ -98,3 +116,50 @@ class EWeLinkSensor(EWeLinkDevice, Entity):
     @property
     def icon(self):
         return SENSORS[self._attr][2] if self._attr in SENSORS else None
+
+
+BUTTON_STATES = ['single', 'double', 'hold']
+
+
+class ZigBeeButtonSensor(EWeLinkDevice, Entity):
+    _state = ''
+
+    async def async_added_to_hass(self) -> None:
+        # don't call update at startup
+        self._init(force_refresh=False)
+
+    def _update_handler(self, state: dict, attrs: dict):
+        self._attrs.update(attrs)
+
+        if 'key' in state:
+            self._state = BUTTON_STATES[state['key']]
+            self.async_write_ha_state()
+            time.sleep(.5)
+            self._state = ''
+
+        self.schedule_update_ha_state()
+
+    @property
+    def should_poll(self) -> bool:
+        return False
+
+    @property
+    def unique_id(self) -> Optional[str]:
+        return self.deviceid
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def state(self) -> str:
+        return self._state
+
+    @property
+    def state_attributes(self):
+        return self._attrs
+
+    @property
+    def available(self) -> bool:
+        device: dict = self.registry.devices[self.deviceid]
+        return device['available']

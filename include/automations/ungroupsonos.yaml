@@ -23,7 +23,7 @@
         state: 'on'
     action:
       - service: sonos.unjoin
-        entity_id: media_player.kokken_new
+        entity_id: media_player.kokken
         
 
 

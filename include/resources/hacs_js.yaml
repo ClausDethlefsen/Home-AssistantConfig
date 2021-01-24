@@ -1,10 +1,10 @@
 - type: js
-  url: /local/community/rejseplanen-card/rejseplanen-card.js
-- type: js
   url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
-- type: js
-  url: /local/community/mini-graph-card/mini-graph-card-bundle.js
-- url: /local/community/upcoming-media-card/upcoming-media-card.js?v=0.1.1
+#- type: js
+#  url: /local/community/mini-graph-card/mini-graph-card-bundle.js
+- url: /local/community/upcoming-media-card/upcoming-media-card.js
+  type: js  
+- url: /local/community/rejseplanen-card/rejseplanen-card.js
   type: js  
 #- type: js
 #  url: /local/community/bar-card/bar-card.js

@@ -15,6 +15,8 @@ from zeroconf import ServiceBrowser, Zeroconf, ServiceStateChange
 
 _LOGGER = logging.getLogger(__name__)
 
+LOCAL_HEADERS = {'Connection': 'close'}
+
 
 # some venv users don't have Crypto.Util.Padding
 # I don't know why pycryptodome is not installed on their systems
@@ -72,10 +74,50 @@ def decrypt(payload: dict, devicekey: str):
         return None
 
 
+# iFan02 local and cloud API uses switches
+# iFan03 local API uses light/fan/speed and cloud API uses switches :(
+# https://github.com/AlexxIT/SonoffLAN/issues/30
+# https://github.com/AlexxIT/SonoffLAN/issues/153
+
+
+def ifan03to02(state) -> dict:
+    """Convert incoming from iFan03."""
+    return {'switches': [
+        {'outlet': 0, 'switch': state['light']},
+        {'outlet': 1, 'switch': state['fan']},
+        {'outlet': 2, 'switch': 'on' if state['speed'] == 2 else 'off'},
+        {'outlet': 3, 'switch': 'on' if state['speed'] == 3 else 'off'},
+    ]}
+
+
+def ifan02to03(payload: dict) -> dict:
+    """Convert outcoming to iFan03."""
+    payload = {d['outlet']: d['switch'] for d in payload['switches']}
+
+    if 0 in payload:
+        return {'light': payload[0]}
+
+    if 2 in payload and 3 in payload:
+        if payload[2] == 'on':
+            return {'fan': payload[1], 'speed': 2}
+        elif payload[3] == 'on':
+            return {'fan': payload[1], 'speed': 3}
+        else:
+            return {'fan': payload[1], 'speed': 1}
+
+    if 1 in payload:
+        return {'fan': payload[1]}
+
+    raise NotImplemented
+
+
 class EWeLinkLocal:
     _devices: dict = None
     _handlers = None
-    _zeroconf = None
+    browser = None
+
+    # cut temperature for sync to cloud API
+    sync_temperature = False
 
     def __init__(self, session: ClientSession):
         self.session = session
@@ -83,19 +125,19 @@ class EWeLinkLocal:
 
     @property
     def started(self) -> bool:
-        return self._zeroconf is not None
+        return self.browser is not None
 
-    def start(self, handlers: List[Callable], devices: dict = None):
+    def start(self, handlers: List[Callable], devices: dict, zeroconf):
         self._handlers = handlers
         self._devices = devices
-        self._zeroconf = Zeroconf()
-        browser = ServiceBrowser(self._zeroconf, '_ewelink._tcp.local.',
-                                 handlers=[self._zeroconf_handler])
+        self.browser = ServiceBrowser(zeroconf, '_ewelink._tcp.local.',
+                                      handlers=[self._zeroconf_handler])
         # for beautiful logs
-        browser.name = 'Sonoff_LAN'
+        self.browser.name = 'Sonoff_LAN'
 
     def stop(self, *args):
-        self._zeroconf.close()
+        self.browser.cancel()
+        self.browser.zc.close()
 
     def _zeroconf_handler(self, zeroconf: Zeroconf, service_type: str,
                           name: str, state_change: ServiceStateChange):
@@ -119,13 +161,14 @@ class EWeLinkLocal:
         deviceid = properties['id']
         device = self._devices.setdefault(deviceid, {})
 
+        log = f"{deviceid} <= Local{state_change.value}"
+
         if properties.get('encrypt'):
             devicekey = device.get('devicekey')
             if devicekey == 'skip':
                 return
             if not devicekey:
-                _LOGGER.info(f"{deviceid} <= Local{state_change.value} | "
-                             f"No devicekey for device")
+                _LOGGER.info(f"{log} | No devicekey for device")
                 # skip device next time
                 device['devicekey'] = 'skip'
                 return
@@ -139,8 +182,21 @@ class EWeLinkLocal:
                             if f'data{i}' in properties])
 
         state = json.loads(data)
+        seq = properties.get('seq')
 
-        _LOGGER.debug(f"{deviceid} <= Local{state_change.value} | {state}")
+        _LOGGER.debug(f"{log} | {state} | {seq}")
+
+        # TH bug in local mode https://github.com/AlexxIT/SonoffLAN/issues/110
+        if state.get('temperature') == 0 and state.get('humidity') == 0:
+            del state['temperature'], state['humidity']
+
+        elif 'temperature' in state and self.sync_temperature:
+            # cloud API send only one decimal (not round)
+            state['temperature'] = int(state['temperature'] * 10) / 10.0
+
+        if properties['type'] == 'fan_light':
+            state = ifan03to02(state)
+            device['uiid'] = 'fan_light'
 
         host = str(ipaddress.ip_address(info.addresses[0]))
         # update every time device host change (alsow first time)
@@ -158,7 +214,7 @@ class EWeLinkLocal:
                 device['uiid'] = properties['type']
 
         for handler in self._handlers:
-            handler(deviceid, state, properties.get('seq'))
+            handler(deviceid, state, seq)
 
     async def check_offline(self, deviceid: str):
         """Try to get response from device after received Zeroconf Removed."""
@@ -197,6 +253,14 @@ class EWeLinkLocal:
     async def send(self, deviceid: str, data: dict, sequence: str, timeout=5):
         device: dict = self._devices[deviceid]
 
+        if '_query' in data:
+            data = {'cmd': 'signal_strength'} \
+                if data['_query'] is None else \
+                {'sledonline': data['_query']}
+
+        if device['uiid'] == 'fan_light' and 'switches' in data:
+            data = ifan02to03(data)
+
         # cmd for D1 and RF Bridge 433
         command = data.get('cmd') or next(iter(data))
 
@@ -215,7 +279,7 @@ class EWeLinkLocal:
         try:
             r = await self.session.post(
                 f"http://{device['host']}:8081/zeroconf/{command}",
-                json=payload, timeout=timeout)
+                json=payload, headers=LOCAL_HEADERS, timeout=timeout)
             resp = await r.json()
             err = resp['error']
             # no problem with any response from device for info command
@@ -230,7 +294,7 @@ class EWeLinkLocal:
             _LOGGER.debug(f"{log} !! Timeout {timeout}")
             return 'timeout'
         except ClientOSError as e:
-            _LOGGER.warning(f"{log} !! {e}")
+            _LOGGER.debug(f"{log} !! {e.args}")
             return 'E#COS'
         except:
             _LOGGER.exception(log)

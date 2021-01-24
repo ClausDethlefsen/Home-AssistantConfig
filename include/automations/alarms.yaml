@@ -2,20 +2,14 @@
   - alias: 'Turn on alarms'
     trigger:
       platform: time
-      at: '04:00:00'
+      at: '04:05:00'
     condition:
       - condition: state
         entity_id: binary_sensor.arbejdsdag
         state: 'on'
     action:
       - service: homeassistant.turn_on
-        entity_id: switch.sonos_alarm_39
-      - service: homeassistant.turn_on
         entity_id: switch.sonos_alarm_377
-      - service: homeassistant.turn_on
-        entity_id: switch.sonos_alarm_298
-#      - service: homeassistant.turn_on
-#        entity_id: switch.sonos_alarm_18
         
   - alias: 'Turn off alarms'
     trigger:
@@ -27,12 +21,55 @@
         state: 'off'
     action:
       - service: homeassistant.turn_off
-        entity_id: switch.sonos_alarm_39
-      - service: homeassistant.turn_off
         entity_id: switch.sonos_alarm_377
+
+  - alias: 'Turn on alarms Andreas'
+    trigger:
+      platform: time
+      at: '04:15:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.sonos_alarm_445
+
+  - alias: 'Turn off alarms Andreas'
+    trigger:
+      platform: time
+      at: '04:23:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'off'
+    action:
       - service: homeassistant.turn_off
-        entity_id: switch.sonos_alarm_298
-#      - service: homeassistant.turn_off
-#        entity_id: switch.sonos_alarm_18
+        entity_id: switch.sonos_alarm_445
         
       
+  - alias: 'Turn on alarms Daniel'
+    trigger:
+      platform: time
+      at: '04:10:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.sonos_alarm_298
+
+
+  - alias: 'Turn off alarms Daniel'
+    trigger:
+      platform: time
+      at: '04:40:00'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.arbejdsdag
+        state: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.sonos_alarm_298
+

@@ -55,12 +55,24 @@
   entities:
     - light.garage
     - light.indkoersel_plug
-    - light.fordoer    
-    - light.sonoff_100069a6cc
-    - light.sonoff_1000a76e41    
+    - light.fordoer
+    - light.sonoff_100069a6cc # 1 (rønnebær)
+    - light.sonoff_10006a2cdd # 2 (juletræ)
+    - light.sonoff_1000a77121 # 4 (terasse)
+    - light.sonoff_1000a76e41 # 3 (paradisæbletræ)
+    
 #    - switch.sonoff_100069a6cc
 #    - switch.sonoff_10006a2cdd
 #    - switch.sonoff_1000a76e41
+
+- platform: group
+  name: julelys
+  entities:
+    - light.sonoff_100069a6cc # 1 (rønnebær)
+    - light.sonoff_10006a2cdd # 2 (koste)
+    - light.sonoff_1000a77121 # 4 (terasse)
+    - light.sonoff_1000a76e41 # 3 (paradisæbletræ)
+    - light.sonoff_1000a70ca0 # 6 (juletræ)
 
 - platform: group
   name: Alle lys

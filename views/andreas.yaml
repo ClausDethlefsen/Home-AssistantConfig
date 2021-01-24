@@ -19,5 +19,5 @@ cards:
       - !include cards/andreas_birthday.yaml
       - type: entities
         entities:
-          - switch.sonos_alarm_39
+          - switch.sonos_alarm_445
 

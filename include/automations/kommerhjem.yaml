@@ -9,16 +9,16 @@
      data:
        message: 'Mor kommer hjem'
 
- - alias: 'Mor kommer hjem'
+ - alias: 'Daniel kommer hjem (mor)'
    trigger:
      platform: state
-     entity_id: device_tracker.annes_iphone_xs
+     entity_id: device_tracker.daniels_iphone_7
      to: 'home'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_annes_iphone_xs
      data:
-       message: 'Mor kommer hjem'
+       message: 'Daniel kommer hjem'
 
  - alias: 'Daniel kommer hjem'
    trigger:
@@ -31,6 +31,18 @@
      data:
        message: 'Daniel kommer hjem'
 
+ - alias: 'Andreas kommer hjem (mor)'
+   trigger:
+     platform: state
+     entity_id: device_tracker.andreas_iphone_7
+     to: 'home'  
+
+   action:
+     service: notify.mobile_app_annes_iphone_xs
+     data:
+       message: 'Andreas kommer hjem'
+
+       
  - alias: 'Andreas kommer hjem'
    trigger:
      platform: state
@@ -43,4 +55,73 @@
        message: 'Andreas kommer hjem'
 
 
+       
+ - alias: 'Andreas ankommer til skole (mor)'
+   trigger:
+     platform: state
+     entity_id: device_tracker.andreas_iphone_7
+     to: 'Skole'  
+
+   action:
+     service: notify.mobile_app_annes_iphone_xs
+     data:
+       message: 'Andreas ankommer til skole'
+
+ - alias: 'Andreas ankommer til skole'
+   trigger:
+     platform: state
+     entity_id: device_tracker.andreas_iphone_7
+     to: 'Skole'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Andreas ankommer til skole'
+
+ - alias: 'Andreas tager fra skole'
+   trigger:
+     platform: state
+     entity_id: device_tracker.andreas_iphone_7
+     from: 'Skole'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Andreas tager fra skole'
+       
+
+       
+ - alias: 'Daniel ankommer til skole (mor)'
+   trigger:
+     platform: state
+     entity_id: device_tracker.daniels_iphone_7
+     to: 'Skole'  
+
+   action:
+     service: notify.mobile_app_annes_iphone_xs
+     data:
+       message: 'Daniel ankommer til skole'
+
+       
+ - alias: 'Daniel ankommer til skole'
+   trigger:
+     platform: state
+     entity_id: device_tracker.daniels_iphone_7
+     to: 'Skole'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Daniel ankommer til skole'
+
+ - alias: 'Daniel tager fra skole'
+   trigger:
+     platform: state
+     entity_id: device_tracker.daniels_iphone_7
+     from: 'Skole'  
+
+   action:
+     service: notify.mobile_app_claus_s_iphone_8
+     data:
+       message: 'Daniel tager fra skole'
        

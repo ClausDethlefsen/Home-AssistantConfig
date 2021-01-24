@@ -12,5 +12,5 @@ cards:
     cards:
       - !include cards/printer.yaml
       - !include cards/speedtest.yaml
-      - !include cards/wifi.yaml
+#      - !include cards/wifi.yaml
       

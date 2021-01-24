@@ -2,7 +2,7 @@
   name: Alrum
 - entity_id: media_player.stue_3
   name: Stue
-- entity_id: media_player.kokken_new
+- entity_id: media_player.kokken
   name: Køkken
 - entity_id: media_player.bad
   name: Gæste WC

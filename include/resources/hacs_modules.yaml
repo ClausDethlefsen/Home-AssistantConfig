@@ -1,6 +1,10 @@
+  - url: /local/community/lovelace-battery-entity-row/battery-entity-row.js
+    type: module
+  - url: /local/community/battery-state-card/battery-state-card.js
+    type: module
   - url: /local/community/garbage-collection-card/garbage-collection-card.js
     type: module
-  - url: /local/mini-media-player-bundle.js?v=1.6.0
+  - url: /local/mini-media-player-bundle.js?v=1.11.0
     type: module
   - url: /local/atomic_calendar.js
     type: module
@@ -12,8 +16,8 @@
     type: module    
   - url: /local/community/text-element/text-element.js
     type: module
-  - type: module
-    url: /local/community/lovelace-light-with-profiles/light-with-profiles.js    
+#  - type: module
+#    url: /local/community/lovelace-light-with-profiles/light-with-profiles.js    
 #  - url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
 #    type: module    
   - url: /local/community/lovelace-slider-entity-row/slider-entity-row.js

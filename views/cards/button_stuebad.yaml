@@ -6,9 +6,9 @@ tap_action:
   action: call-service
   service: sonos.join
   service_data:
-    master: media_player.kokken_new
+    master: media_player.kokken
     entity_id:
-      - media_player.stue_3
+      - media_player.stue
       - media_player.alrum
       - media_player.badevaerelse
       - media_player.sovevaerelse      

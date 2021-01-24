@@ -1,5 +1,6 @@
 type: "custom:rejseplanen-card"
 entity: sensor.gistrup
 max_entries: 5 # Optional
+show_scheduled_time: true
 title: Bussen kører fra Beltoften om
 

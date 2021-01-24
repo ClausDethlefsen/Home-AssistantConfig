@@ -28,6 +28,34 @@ CLOUD_ERROR = (
     "Read more: https://github.com/AlexxIT/SonoffLAN#config-examples")
 
 
+def fix_attrs(deviceid: str, state: dict):
+    """
+    - Sonoff TH `currentTemperature: "24.7"`
+    - Sonoff TH `currentTemperature: "unavailable"`
+    - Sonoff ZigBee: `temperature: "2096"`
+    - Sonoff SC: `temperature: 23`
+    - Sonoff POW: `power: "12.78"`
+    """
+    try:
+        # https://github.com/AlexxIT/SonoffLAN/issues/110
+        if 'currentTemperature' in state:
+            state['temperature'] = float(state['currentTemperature'])
+        if 'currentHumidity' in state:
+            state['humidity'] = float(state['currentHumidity'])
+
+        for k in ('power', 'voltage', 'current'):
+            if k in state:
+                state[k] = float(state[k])
+
+        # zigbee device
+        if deviceid.startswith('a4'):
+            for k in ('temperature', 'humidity'):
+                if k in state:
+                    state[k] = int(state[k]) / 100.0
+    except:
+        pass
+
+
 class ResponseWaiter:
     """Class wait right sequences in response messages."""
     _waiters = {}
@@ -35,6 +63,7 @@ class ResponseWaiter:
     async def _set_response(self, data: dict):
         sequence = data.get('sequence')
         if sequence in self._waiters:
+            assert 'error' in data, data
             err = data['error']
             result = DATA_ERROR[err] if err in DATA_ERROR else f"E#{err}"
             # set future result
@@ -47,15 +76,27 @@ class ResponseWaiter:
             # limit future wait time
             await asyncio.wait_for(self._waiters[sequence], timeout)
         except asyncio.TimeoutError:
-            # remove future from waiters
-            self._waiters.pop(sequence)
+            # remove future from waiters, in very rare cases, we can send two
+            # commands with the same sequence
+            self._waiters.pop(sequence, None)
             return 'timeout'
 
         # remove future from waiters and return result
         return self._waiters.pop(sequence).result()
 
 
-class EWeLinkCloud(ResponseWaiter):
+class EWeLinkApp:
+    # App v3
+    appid = 'oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq'
+    appsecret = '6Nz4n0xA8s8qdxQf2GqurZj2Fs55FUvM'
+
+    def init_app_v4(self):
+        _LOGGER.debug("Init app v4")
+        self.appid = 'Uw83EKZFxdif7XFXEsrpduz5YyjP7nTl'
+        self.appsecret = 'mXLOjea0woSMvK9gw7Fjsy7YlFO4iSu6'
+
+
+class EWeLinkCloud(ResponseWaiter, EWeLinkApp):
     devices: dict = None
     _handlers = None
     _ws: Optional[ClientWebSocketResponse] = None
@@ -78,7 +119,7 @@ class EWeLinkCloud(ResponseWaiter):
         """
         ts = int(time.time())
         payload.update({
-            'appid': 'oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq',
+            'appid': self.appid,
             'nonce': str(ts),  # 8-digit random alphanumeric characters
             'ts': ts,  # 10-digit standard timestamp
             'version': 8
@@ -93,7 +134,7 @@ class EWeLinkCloud(ResponseWaiter):
             coro = self.session.get(self._baseurl + api, params=payload,
                                     headers={'Authorization': auth})
         elif mode == 'login':
-            hex_dig = hmac.new(b'6Nz4n0xA8s8qdxQf2GqurZj2Fs55FUvM',
+            hex_dig = hmac.new(self.appsecret.encode(),
                                json.dumps(payload).encode(),
                                digestmod=hashlib.sha256).digest()
             auth = "Sign " + base64.b64encode(hex_dig).decode()
@@ -105,8 +146,8 @@ class EWeLinkCloud(ResponseWaiter):
         try:
             r = await coro
             return await r.json()
-        except:
-            _LOGGER.exception("Coolkit API")
+        except Exception as e:
+            _LOGGER.exception(f"Coolkit API error: {e}")
             return None
 
     async def _process_ws_msg(self, data: dict):
@@ -131,6 +172,8 @@ class EWeLinkCloud(ResponseWaiter):
                 elif device['online'] is False:
                     device['online'] = True
                     state['cloud'] = 'online'
+
+                fix_attrs(deviceid, state)
 
                 for handler in self._handlers:
                     handler(deviceid, state, data.get('seq'))
@@ -164,7 +207,7 @@ class EWeLinkCloud(ResponseWaiter):
             try:
                 url = f"wss://{resp['IP']}:{resp['port']}/api/ws"
                 self._ws = await self.session.ws_connect(
-                    url, heartbeat=55, ssl=False)
+                    url, heartbeat=145, ssl=False)
 
                 ts = time.time()
                 payload = {
@@ -172,7 +215,7 @@ class EWeLinkCloud(ResponseWaiter):
                     'at': self._token,
                     'apikey': self._apikey,
                     'userAgent': 'app',
-                    'appid': 'oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq',
+                    'appid': self.appid,
                     'nonce': str(int(ts / 100)),
                     'ts': int(ts),
                     'version': 8,
@@ -183,9 +226,9 @@ class EWeLinkCloud(ResponseWaiter):
                 msg: WSMessage = await self._ws.receive()
                 _LOGGER.debug(f"Cloud init: {json.loads(msg.data)}")
 
-                async for msg in self._ws:
-                    fails = 0
+                fails = 0
 
+                async for msg in self._ws:
                     if msg.type == WSMsgType.TEXT:
                         resp = json.loads(msg.data)
                         await self._process_ws_msg(resp)
@@ -206,8 +249,17 @@ class EWeLinkCloud(ResponseWaiter):
             except ClientConnectorError as e:
                 _LOGGER.error(f"Cloud WS Connection error: {e}")
 
-            except Exception:
-                _LOGGER.exception(f"Cloud WS exception")
+            except (asyncio.CancelledError, RuntimeError) as e:
+                if isinstance(e, RuntimeError):
+                    assert e.args[0] == 'Session is closed', e.args
+
+                _LOGGER.debug(f"Cancel WS Connection: {e}")
+                if not self._ws.closed:
+                    await self._ws.close()
+                return
+
+            except Exception as e:
+                _LOGGER.exception(f"Cloud WS exception: {e}")
 
         delay = RETRY_DELAYS[fails]
         _LOGGER.debug(f"Cloud WS retrying in {delay} seconds")
@@ -227,7 +279,11 @@ class EWeLinkCloud(ResponseWaiter):
         payload = {pname: username, 'password': password}
         resp = await self._api('login', 'api/user/login', payload)
 
-        if 'region' not in resp:
+        if resp is None or resp.get('error') == 406:
+            self.init_app_v4()
+            resp = await self._api('login', 'api/user/login', payload)
+
+        if resp is None or 'region' not in resp:
             _LOGGER.error(f"Login error: {resp}")
             return False
 
@@ -271,7 +327,23 @@ class EWeLinkCloud(ResponseWaiter):
         :param data: example `{'switch': 'on'}`
         :param sequence: 13-digit standard timestamp, to verify uniqueness
         """
+
+        # protect cloud from DDoS (it can break connection)
+        while sequence in self._waiters or sequence is None:
+            await asyncio.sleep(0.1)
+            sequence = str(int(time.time() * 1000))
+        self._waiters[sequence] = None
+
         payload = {
+            'action': 'query',
+            'apikey': self.devices[deviceid]['apikey'],
+            'selfApikey': self._apikey,
+            'deviceid': deviceid,
+            'params': [],
+            'userAgent': 'app',
+            'sequence': sequence,
+            'ts': 0
+        } if '_query' in data else {
             'action': 'update',
             # device apikey for shared devices
             'apikey': self.devices[deviceid]['apikey'],
@@ -282,35 +354,66 @@ class EWeLinkCloud(ResponseWaiter):
             'ts': 0,
             'params': data
         }
-        _LOGGER.debug(f"{deviceid} => Cloud4 | {data}")
+        _LOGGER.debug(f"{deviceid} => Cloud4 | {data} | {sequence}")
         await self._ws.send_json(payload)
 
         # wait for response with same sequence
         return await self._wait_response(sequence)
 
 
-class ConsumptionHelper:
+class CloudPowHelper:
     def __init__(self, cloud: EWeLinkCloud):
+        # search pow devices
+        self.devices = [
+            device for device in cloud.devices.values()
+            if 'params' in device and 'uiActive' in device['params']]
+        if not self.devices:
+            return
+
         self.cloud = cloud
+
+        _LOGGER.debug(f"Start refresh task for {len(self.devices)} POW")
+
+        # noinspection PyProtectedMember
         self._cloud_process_ws_msg = cloud._process_ws_msg
         cloud._process_ws_msg = self._process_ws_msg
 
+        asyncio.create_task(self.update())
+
     async def _process_ws_msg(self, data: dict):
-        if 'config' in data and 'hundredDaysKwhData' in data['config']:
+        if 'params' in data and data['params'].get('uiActive') == 60:
+            deviceid = data['deviceid']
+            device = self.cloud.devices[deviceid]
+            device['powActiveTime'] = 0
+
+        elif 'config' in data and 'hundredDaysKwhData' in data['config']:
             # 000002 000207 000003 000002 000201 000008 000003 000006...
-            kwh = data['config']['hundredDaysKwhData']
-            kwh = [round(int(kwh[i + 1] + kwh[i + 3] + kwh[i + 5]) * 0.01, 2)
+            kwh = data['config'].pop('hundredDaysKwhData')
+            kwh = [round(int(kwh[i:i + 2], 16) +
+                         int(kwh[i + 3] + kwh[i + 5]) * 0.01, 2)
                    for i in range(0, len(kwh), 6)]
             data['params'] = {'consumption': kwh}
 
         await self._cloud_process_ws_msg(data)
 
     async def update(self):
-        if not self.cloud.started:
-            return
+        if self.cloud.started:
+            t = time.time()
+            for device in self.devices:
+                if t - device.get('powActiveTime', 0) > 3600:
+                    device['powActiveTime'] = t
+                    # set pow active status for 2 hours
+                    await self.cloud.send(device['deviceid'], {
+                        'uiActive': 7200}, None)
 
-        for device in self.cloud.devices.values():
-            if 'params' in device and 'hundredDaysKwh' in device['params']:
-                sequence = str(int(time.time() * 1000))
+        # sleep for 1 minute
+        await asyncio.sleep(60)
+
+        asyncio.create_task(self.update())
+
+    async def update_consumption(self):
+        if self.cloud.started:
+            _LOGGER.debug("Update consumption for all devices")
+            for device in self.devices:
                 await self.cloud.send(device['deviceid'], {
-                    'hundredDaysKwh': 'get'}, sequence)
+                    'hundredDaysKwh': 'get'}, None)

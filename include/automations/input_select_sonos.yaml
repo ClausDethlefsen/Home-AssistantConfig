@@ -7,7 +7,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'DR P3'
   - alias: "Input_select ANR"
     trigger:
@@ -18,7 +18,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'ANR 87.6 (Top 40-pop)'
   - alias: "Input_select Akustiske tophits"
     trigger:
@@ -29,7 +29,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'Akustiske tophits'
   - alias: "Input_select Danske favoritter"
     trigger:
@@ -40,7 +40,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'Danske favoritter'
   - alias: "Input_select Danske rock klassikere"
     trigger:
@@ -51,7 +51,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'Danske rock klassikere'
   - alias: "Input_select Minds of 99"
     trigger:
@@ -62,7 +62,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'This is: The Minds of 99'
   - alias: "Input_select Family Mix"
     trigger:
@@ -73,7 +73,7 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'Family Mix'
   - alias: "Input_select Daily Mix 1"
     trigger:
@@ -84,5 +84,5 @@
     action:
       - service: media_player.select_source
         data:
-          entity_id: media_player.kokken_new
+          entity_id: media_player.kokken
           source: 'Daily Mix 1'

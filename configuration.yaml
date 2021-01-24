@@ -27,15 +27,19 @@ recorder:
       
   
 homeassistant:
-  name: !secret name 
-  latitude: !secret homeassistant_latitude
-  longitude: !secret homeassistant_longitude
-  elevation: !secret homeassistant_elevation
-  unit_system: metric
-  time_zone: Europe/Copenhagen
+#  name: !secret name 
+#  latitude: !secret homeassistant_latitude
+#  longitude: !secret homeassistant_longitude
+#  elevation: !secret homeassistant_elevation
+#  unit_system: metric
+#  time_zone: Europe/Copenhagen
   auth_providers:
    - type: homeassistant
   customize: !include_dir_merge_named customize
+  media_dirs:
+    music: /Volumes/music
+    video: /Volumes/video
+    photo: /Volumes/photo
 
 # https://community.home-assistant.io/t/lovelace-gen-add-abilities-to-ui-lovelace-yaml/130328
 lovelace_gen:
@@ -64,7 +68,7 @@ duckdns:
   access_token: !secret duckdns_access_token
 
 http:
-  base_url: !secret http_base_url
+#  base_url: !secret http_base_url
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   
@@ -72,6 +76,7 @@ http:
 tts:
   - platform: google_translate
     language: 'da'
+    base_url: !secret tts_base_url
 
 ifttt:
   key: !secret ifttt_key
@@ -106,11 +111,11 @@ netatmo:
 ## gogogate2
 ## https://www.home-assistant.io/components/gogogate2/
 
-cover:
-  - platform: gogogate2
-    username: !secret gogogate_username 
-    password: !secret gogogate_password
-    ip_address: !secret gogogate_ip
+#cover:
+#  - platform: gogogate2
+#    username: !secret gogogate_username 
+#    password: !secret gogogate_password
+#    ip_address: !secret gogogate_ip
 
 ## --------------------------------------------------
 ## FOSCAM
@@ -135,9 +140,9 @@ camera:
 ## https://www.home-assistant.io/components/denonavr/
 
 media_player:
-#  - platform: denonavr
-#    host: !secret denon_ip
-#    show_all_sources: True
+  - platform: denonavr
+    host: !secret denon_ip
+    show_all_sources: True
 
 google:
   client_id: !secret google_client_id
@@ -177,7 +182,9 @@ speedtestdotnet:
 sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
-  default_class: light  
+  default_class: light
+  mode: local
+  reload: always
 
 # Example configuration.yaml entry
 #spotify:

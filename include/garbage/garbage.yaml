@@ -1,6 +1,6 @@
 sensors:
   - name: Waste # Each week on Monday and Wednesday. No collection on Christmas, added extra collection on the 27th
-    frequency: "odd-weeks"
+    frequency: "even-weeks"
     collection_days:
     - mon
     exclude_dates:
@@ -17,19 +17,35 @@ sensors:
     collection_days: "fri"
     icon_normal: mdi:recycle    
     include_dates:
-    - '2020-02-13'
-    - '2020-03-12'
-    - '2020-04-14'
-    - '2020-05-13'
-    - '2020-06-12'
-    - '2020-07-10'
-    - '2020-08-07'
-    - '2020-09-04'
-    - '2020-10-02'
-    - '2020-11-27'
-    - '2020-12-28'
+    - '2021-01-26'
+    - '2021-02-23'
+    - '2021-03-23'
+    - '2021-04-23'
+    - '2021-05-26'
+    - '2021-06-23'
+    - '2021-07-21'
+    - '2021-08-18'
+    - '2021-09-15'
+    - '2021-10-13'    
+    - '2021-11-10'
+    - '2021-12-08'
   - name: cleaning
     frequency: "even-weeks"
     collection_days:
     - tue
     icon_normal: mdi:spray-bottle
+
+# Tirsdag den 26-01-2021
+# Tirsdag den 23-02-2021
+# Tirsdag den 23-03-2021
+# Fredag den 23-04-2021
+# Onsdag den 26-05-2021
+# Onsdag den 23-06-2021
+# Onsdag den 21-07-2021
+# Onsdag den 18-08-2021
+# Onsdag den 15-09-2021
+# Onsdag den 13-10-2021
+# Onsdag den 10-11-2021
+# Onsdag den 08-12-2021
+
+    

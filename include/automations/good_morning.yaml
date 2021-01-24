@@ -46,7 +46,7 @@
   - alias: 'Godmorgen Children ikke arbejdsdag'
     trigger: 
       platform: time
-      at: '07:00:00'
+      at: '08:00:00'
     condition:
       - condition: state
         entity_id: binary_sensor.arbejdsdag

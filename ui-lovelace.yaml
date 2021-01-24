@@ -38,5 +38,6 @@ views:
   - !include views/rejse.yaml
   - !include views/workout.yaml
   - !include views/el.yaml  
+  - !include views/battery.yaml  
   
 

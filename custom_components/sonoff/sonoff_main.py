@@ -13,15 +13,7 @@ from .sonoff_local import EWeLinkLocal
 _LOGGER = logging.getLogger(__name__)
 
 ATTRS = ('local', 'cloud', 'rssi', 'humidity', 'temperature', 'power',
-         'current', 'voltage', 'battery', 'consumption')
-
-# map cloud attrs to local attrs
-ATTRS_MAP = {
-    'currentTemperature': 'temperature',
-    'currentHumidity': 'humidity'
-}
-
-EMPTY_DICT = {}
+         'current', 'voltage', 'battery', 'consumption', 'water')
 
 
 def load_cache(filename: str):
@@ -42,10 +34,6 @@ def save_cache(filename: str, data: dict):
 
 
 def get_attrs(state: dict) -> dict:
-    for k in ATTRS_MAP:
-        if k in state:
-            state[ATTRS_MAP[k]] = state.pop(k)
-
     return {k: state[k] for k in ATTRS if k in state}
 
 
@@ -60,6 +48,9 @@ class EWeLinkRegistry:
       handlers: list, update handlers
     """
     devices: Optional[dict] = None
+
+    # for bulk send switches command
+    bulk_params = {}
 
     def __init__(self, session: ClientSession):
         self.cloud = EWeLinkCloud(session)
@@ -82,6 +73,11 @@ class EWeLinkRegistry:
             if device.get('seq') == sequence:
                 return
             device['seq'] = sequence
+
+        # check when cloud offline first time
+        if state.get('cloud') == 'offline' and device.get('host'):
+            coro = self.local.check_offline(deviceid)
+            asyncio.create_task(coro)
 
         if 'handlers' in device:
             # TODO: right place?
@@ -128,7 +124,7 @@ class EWeLinkRegistry:
 
         await self.cloud.start([self._registry_handler], self.devices)
 
-    async def local_start(self, handlers: List[Callable]):
+    async def local_start(self, handlers: List[Callable], zeroconf):
         if self.devices is None:
             self.devices = {}
 
@@ -137,7 +133,7 @@ class EWeLinkRegistry:
         else:
             handlers = [self._registry_handler]
 
-        self.local.start(handlers, self.devices)
+        self.local.start(handlers, self.devices, zeroconf)
 
     async def stop(self):
         # TODO: do something
@@ -179,6 +175,24 @@ class EWeLinkRegistry:
         # update device attrs
         self._registry_handler(deviceid, state, None)
 
+    async def bulk(self, deviceid: str, params: dict):
+        """For bulk send switches command. You cannot send two commands
+        simultaneously to different channels. This causes errors on local and
+        cloud connections.
+
+        https://github.com/AlexxIT/SonoffLAN/issues/139
+        https://github.com/AlexxIT/SonoffLAN/issues/151
+        """
+        assert 'switches' in params, params
+
+        if deviceid not in self.bulk_params:
+            self.bulk_params[deviceid] = params
+            await asyncio.sleep(0.1)
+            return await self.send(deviceid, self.bulk_params.pop(deviceid))
+
+        else:
+            self.bulk_params[deviceid]['switches'] += params['switches']
+
 
 class EWeLinkDevice:
     registry: EWeLinkRegistry = None
@@ -212,7 +226,9 @@ class EWeLinkDevice:
         state = device['params']
 
         self._attrs = device['extra'] or {}
-        self._is_th_3_4_0 = 'mainSwitch' in state
+        # don't know if deviceType only in Sonoff TH
+        # https://github.com/AlexxIT/SonoffLAN/issues/158
+        self._is_th_3_4_0 = 'deviceType' in state
 
         if force_refresh:
             attrs = get_attrs(state)
@@ -225,10 +241,12 @@ class EWeLinkDevice:
 
     def _is_on_list(self, state: dict) -> List[bool]:
         if self.channels:
-            switches = state['switches']
+            # very rarely channels can be reversed
+            # https://github.com/AlexxIT/SonoffLAN/issues/146
             return [
-                switches[channel - 1]['switch'] == 'on'
-                for channel in self.channels
+                switch['switch'] == 'on'
+                for switch in state['switches']
+                if switch['outlet'] + 1 in self.channels
             ]
         else:
             return [state['switch'] == 'on']
@@ -242,7 +260,7 @@ class EWeLinkDevice:
                 {'outlet': channel - 1, 'switch': 'on'}
                 for channel in self.channels
             ]
-            await self.registry.send(self.deviceid, {'switches': switches})
+            await self.registry.bulk(self.deviceid, {'switches': switches})
         elif self._is_th_3_4_0:
             await self.registry.send(self.deviceid, {
                 'switch': 'on', 'mainSwitch': 'on', 'deviceType': 'normal'})
@@ -255,7 +273,7 @@ class EWeLinkDevice:
                 {'outlet': channel - 1, 'switch': 'off'}
                 for channel in self.channels
             ]
-            await self.registry.send(self.deviceid, {'switches': switches})
+            await self.registry.bulk(self.deviceid, {'switches': switches})
         elif self._is_th_3_4_0:
             await self.registry.send(self.deviceid, {
                 'switch': 'off', 'mainSwitch': 'off', 'deviceType': 'normal'})

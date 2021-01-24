@@ -11,5 +11,8 @@ cards:
     max_width: [100%]
     cards:
       - !include cards/indoorlights.yaml
+      - !include cards/indoorlights2.yaml
+      - !include cards/indoorlights3.yaml
+      - !include cards/indoorlights4.yaml                  
       - !include cards/outdoorlights.yaml
 

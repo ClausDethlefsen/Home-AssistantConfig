@@ -8,7 +8,7 @@
         before: '21:30:00'
     action:
       service: homeassistant.turn_on
-      entity_id: light.sonoff_10006a2cdd
+      entity_id: light.sonoff_100069a6cc
 
 # Turns off lights 
   - alias: 'Sluk lys i glasskab i forgang'
@@ -17,7 +17,7 @@
         at: '22:00:00'
     action:
       service: homeassistant.turn_off
-      entity_id: light.sonoff_10006a2cdd
+      entity_id: light.sonoff_100069a6cc
       
 # Turns on lights at 06:00
   - alias: 'Lys i glasskab i forgang morgen'
@@ -30,7 +30,7 @@
         state: 'below_horizon'
     action:
       service: homeassistant.turn_on
-      entity_id: light.sonoff_10006a2cdd
+      entity_id: light.sonoff_100069a6cc
 
 # Turns off lights at sunrise
   - alias: 'Sluk lys i glasskab i forgang morgen'
@@ -39,5 +39,5 @@
         event: sunrise
     action:
       service: homeassistant.turn_off
-      entity_id: light.sonoff_10006a2cdd
+      entity_id: light.sonoff_100069a6cc
       

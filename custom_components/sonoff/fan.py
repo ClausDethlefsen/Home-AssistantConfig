@@ -9,7 +9,7 @@ https://github.com/AlexxIT/SonoffLAN/issues/30
 from typing import Optional, List
 
 from homeassistant.components.fan import FanEntity, SUPPORT_SET_SPEED, \
-    SPEED_LOW, SPEED_MEDIUM, SPEED_HIGH, SPEED_OFF
+    SPEED_LOW, SPEED_MEDIUM, SPEED_HIGH, SPEED_OFF, ATTR_SPEED
 
 # noinspection PyUnresolvedReferences
 from . import DOMAIN, SCAN_INTERVAL
@@ -33,13 +33,14 @@ async def async_setup_platform(hass, config, add_entities,
     deviceid = discovery_info['deviceid']
     channels = discovery_info['channels']
     registry = hass.data[DOMAIN]
-    device = registry.devices[deviceid]
-    uiid = device.get('uiid')
+
     # iFan02 and iFan03 have the same uiid!
-    if uiid == 'fan_light' or device.get('productModel') == 'iFan':
-        add_entities([SonoffFan03(registry, deviceid)])
-    elif channels == IFAN02_CHANNELS:
-        add_entities([SonoffFan02(registry, deviceid)])
+    uiid = registry.devices[deviceid].get('uiid')
+    if uiid == 34 or uiid == 'fan_light':
+        # only channel 2 is used for switching
+        add_entities([SonoffFan02(registry, deviceid, [2])])
+    elif uiid == 25:
+        add_entities([SonoffDiffuserFan(registry, deviceid)])
     else:
         add_entities([EWeLinkToggle(registry, deviceid, channels)])
 
@@ -80,13 +81,18 @@ class SonoffFanBase(FanEntity, EWeLinkDevice):
     def speed_list(self) -> list:
         return [SPEED_OFF, SPEED_LOW, SPEED_MEDIUM, SPEED_HIGH]
 
+    @property
+    def state_attributes(self) -> dict:
+        return {
+            **self._attrs,
+            ATTR_SPEED: self.speed
+        }
+
 
 class SonoffFan02(SonoffFanBase):
-    # only channel 2 is used for switching
-    channels = [2]
-
     def _is_on_list(self, state: dict) -> List[bool]:
-        switches = state['switches']
+        # https://github.com/AlexxIT/SonoffLAN/issues/146
+        switches = sorted(state['switches'], key=lambda i: i['outlet'])
         return [
             switches[channel - 1]['switch'] == 'on'
             for channel in IFAN02_CHANNELS
@@ -95,7 +101,7 @@ class SonoffFan02(SonoffFanBase):
     def _update_handler(self, state: dict, attrs: dict):
         self._attrs.update(attrs)
 
-        if state and 'switches' in state:
+        if 'switches' in state:
             mask = self._is_on_list(state)
             if mask[0]:
                 if not mask[1] and not mask[2]:
@@ -125,28 +131,44 @@ class SonoffFan02(SonoffFanBase):
         await self._turn_off()
 
 
-class SonoffFan03(SonoffFanBase):
+class SonoffDiffuserFan(SonoffFanBase):
     def _update_handler(self, state: dict, attrs: dict):
         self._attrs.update(attrs)
 
-        if 'fan' in state:
-            if state['fan'] == 'on':
-                speed = state.get('speed', 1)
-                self._speed = self.speed_list[speed]
-            else:
-                self._speed = SPEED_OFF
+        if 'switch' in state:
+            self._is_on = state['switch'] == 'on'
+
+        if 'state' in state:
+            if state['state'] == 1:
+                self._speed = SPEED_LOW
+            elif state['state'] == 2:
+                self._speed = SPEED_HIGH
 
         self.schedule_update_ha_state()
 
+    @property
+    def speed(self) -> Optional[str]:
+        return self._speed if self._is_on else SPEED_OFF
+
+    @property
+    def speed_list(self) -> list:
+        return [SPEED_OFF, SPEED_LOW, SPEED_HIGH]
+
     async def async_set_speed(self, speed: str) -> None:
-        speed = self.speed_list.index(speed)
-        await self.registry.send(self.deviceid, {'fan': 'on', 'speed': speed})
+        if speed == SPEED_HIGH:
+            await self.registry.send(self.deviceid,
+                                     {'switch': 'on', 'state': 2})
+        elif speed == SPEED_LOW:
+            await self.registry.send(self.deviceid,
+                                     {'switch': 'on', 'state': 1})
+        elif speed == SPEED_OFF:
+            await self._turn_off()
 
     async def async_turn_on(self, speed: Optional[str] = None, **kwargs):
         if speed:
             await self.async_set_speed(speed)
         else:
-            await self.registry.send(self.deviceid, {'fan': 'on'})
+            await self._turn_on()
 
     async def async_turn_off(self, **kwargs) -> None:
-        await self.registry.send(self.deviceid, {'fan': 'off'})
+        await self._turn_off()

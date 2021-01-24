@@ -2,7 +2,7 @@ type: glance
 title: Indendørs klima
 show_header_toggle: true
 entities:
-  - entity: sensor.netatmo_noergaardsvej_indenfor_temperature
+  - entity: sensor.netatmo_noergaardsvej_temperature
   - entity: sensor.netatmo_noergaardsvej_sovevaerelse_temperature
   - entity: sensor.netatmo_noergaardsvej_stue_temperature
 
