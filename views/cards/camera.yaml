@@ -2,8 +2,8 @@
 #camera_view: live
 #entity: camera.foscam_camera
 type: picture-elements
-entity: camera.foscam_camera
-camera_image: camera.foscam_camera
+entity: camera.dethlefsen_stue
+camera_image: camera.dethlefsen_stue
 camera_view: live
 elements:
   - type: icon
@@ -16,7 +16,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: up
   - type: icon
     icon: 'mdi:arrow-down'
@@ -28,7 +28,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: down
   - type: icon
     icon: 'mdi:arrow-left'
@@ -40,7 +40,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: left
   - type: icon
     icon: 'mdi:arrow-right'
@@ -52,7 +52,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: right
   - type: icon
     icon: 'mdi:arrow-top-left'
@@ -64,7 +64,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: top_left
   - type: icon
     icon: 'mdi:arrow-top-right'
@@ -76,7 +76,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: top_right
   - type: icon
     icon: 'mdi:arrow-bottom-left'
@@ -88,7 +88,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: bottom_left
   - type: icon
     icon: 'mdi:arrow-bottom-right'
@@ -100,7 +100,7 @@ elements:
       action: call-service
       service: foscam.ptz
       service_data:
-        entity_id: camera.foscam_camera
+        entity_id: camera.dethlefsen_stue
         movement: bottom_right
 
 

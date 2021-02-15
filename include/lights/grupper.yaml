@@ -48,14 +48,14 @@
   name: Indkørsel
   entities:
     - light.indkoersel_plug
-    - light.fordoer
+    - light.udendors_forgang
     
 - platform: group
   name: Udendørslamper
   entities:
     - light.garage
     - light.indkoersel_plug
-    - light.fordoer
+    - light.udendors_forgang
     - light.sonoff_100069a6cc # 1 (rønnebær)
     - light.sonoff_10006a2cdd # 2 (juletræ)
     - light.sonoff_1000a77121 # 4 (terasse)

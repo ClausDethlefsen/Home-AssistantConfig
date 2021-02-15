@@ -37,12 +37,12 @@ cards:
         title: Lys
         type: entities
       - break
-#      - entities:
-#          - entity: cover.anne
-#            name: Port
-#        title: Garage
-#        show_header_toggle: false
-#        type: entities
+      - entities:
+          - entity: cover.anne
+            name: Port
+        title: Garage
+        show_header_toggle: false
+        type: entities
       - !include cards/cover.yaml
       - !include cards/lights.yaml      
       - !include cards/announce.yaml

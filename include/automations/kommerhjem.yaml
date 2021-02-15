@@ -5,7 +5,7 @@
      to: 'home'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Mor kommer hjem'
 
@@ -27,7 +27,7 @@
      to: 'home'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Daniel kommer hjem'
 
@@ -50,7 +50,7 @@
      to: 'home'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Andreas kommer hjem'
 
@@ -74,7 +74,7 @@
      to: 'Skole'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Andreas ankommer til skole'
 
@@ -85,7 +85,7 @@
      from: 'Skole'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Andreas tager fra skole'
        
@@ -110,7 +110,7 @@
      to: 'Skole'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Daniel ankommer til skole'
 
@@ -121,7 +121,7 @@
      from: 'Skole'  
 
    action:
-     service: notify.mobile_app_claus_s_iphone_8
+     service: notify.mobile_app_claus_iphone8
      data:
        message: 'Daniel tager fra skole'
        
