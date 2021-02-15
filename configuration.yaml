@@ -243,11 +243,6 @@ python_script:
 #      name: HP 081A4C
 
 
-# Example configuration.yaml entry
-#scene:
-#  - platform: hunterdouglas_powerview
-#    address: 192.168.0.95
-
 
 scene 2: !include scenes.yaml
 
