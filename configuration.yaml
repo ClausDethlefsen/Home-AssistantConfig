@@ -214,7 +214,7 @@ zone: !include customize/zones.yaml
 
 weather:
   - platform: darksky
-    api_key: ca823efa102eff940edf02026fd97053
+    api_key: !secret darksky
     mode: daily
   
 group: !include_dir_merge_named include/groups/
